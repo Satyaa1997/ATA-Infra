@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../Components/PageBanner";
 import { Target, Eye, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import "./About.css";
