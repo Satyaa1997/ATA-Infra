@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import "./Navbar.css";
+import logo from "../assets/ATA1.png";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,7 +24,7 @@ export default function Navbar() {
   return (
     <header className={`navbar-header ${scrolled ? "scrolled" : ""}`}>
       <Link to="/" className="navbar-logo">
-        <img src="./src/assets/ATA1.png" alt="ATA Infratech" />
+        <img src={logo} alt="ATA Infratech" />
       </Link>
 
       <nav className="desktop-nav">
