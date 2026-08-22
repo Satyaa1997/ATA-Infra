@@ -1,4 +1,4 @@
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../Components/PageBanner";
 import { Link } from "react-router-dom";
 import "./Advisory.css";
 
