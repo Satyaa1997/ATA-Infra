@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { SplitReveal } from "../components/Effects";
+import { SplitReveal } from "../Components/Effects";
 import "./Home.css";
 
 import project1 from "../assets/project1.jpg";
