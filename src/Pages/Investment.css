@@ -42,3 +42,19 @@
   letter-spacing: 1px;
   border-radius: 40px;
 }
+@media(max-width:768px){
+
+.inv-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+.tags-cloud{
+
+flex-direction:column;
+
+}
+
+}

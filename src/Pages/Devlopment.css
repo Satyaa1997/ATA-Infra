@@ -58,3 +58,19 @@
   text-align: center;
   margin-top: 40px;
 }
+@media(max-width:768px){
+
+.capabilities-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+.process-list{
+
+grid-template-columns:1fr;
+
+}
+
+}

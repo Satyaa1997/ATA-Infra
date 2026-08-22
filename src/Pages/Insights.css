@@ -45,3 +45,18 @@
   text-transform: uppercase;
   font-weight: 600;
 }
+@media(max-width:768px){
+
+.insights-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.insight-thumb{
+
+height:200px;
+
+}
+
+}

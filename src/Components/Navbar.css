@@ -186,3 +186,22 @@
     margin-top: 20px;
   }
 }
+@media(max-width:900px){
+
+.navbar-header{
+    padding:15px 20px;
+}
+
+.navbar-logo img{
+    height:55px;
+}
+
+.desktop-nav{
+    display:none;
+}
+
+.mobile-toggle{
+    display:block;
+}
+
+}

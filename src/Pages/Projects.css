@@ -85,3 +85,34 @@
   letter-spacing: 1px;
   font-weight: 600;
 }
+@media(max-width:768px){
+
+.projects-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+.project-thumb{
+
+height:220px;
+
+}
+
+
+.filter-bar{
+
+justify-content:flex-start;
+overflow-x:auto;
+
+}
+
+
+.filter-btn{
+
+white-space:nowrap;
+
+}
+
+}

@@ -54,3 +54,22 @@ button {
     cursor: auto !important;
   }
 }
+*{
+box-sizing:border-box;
+}
+
+
+html,body{
+
+overflow-x:hidden;
+
+width:100%;
+
+}
+
+
+img,video{
+
+max-width:100%;
+
+}

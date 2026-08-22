@@ -87,3 +87,23 @@
     margin-right: 20px;
   }
 }
+@media(max-width:768px){
+
+.footer-top{
+
+grid-template-columns:1fr;
+
+gap:30px;
+
+}
+
+
+.footer-bottom{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+}
