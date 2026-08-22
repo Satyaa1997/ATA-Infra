@@ -1,4 +1,4 @@
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../Components/PageBanner";
 import "./Career.css";
 
 export default function Careers() {

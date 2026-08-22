@@ -1,5 +1,5 @@
 import { useState } from "react";
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../Components/PageBanner";
 import "./Contact.css";
 
 export default function Contact() {

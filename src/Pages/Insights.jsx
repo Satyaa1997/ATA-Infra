@@ -1,4 +1,4 @@
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../Components/PageBanner";
 import { ArrowRight } from "lucide-react";
 import "./Insights.css";
 
