@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
 import "./Footer.css";
-
+import logo from "../assets/ATA1.png";
 export default function Footer() {
   return (
     <footer className="footer-section">
       <div className="footer-top">
         <div className="footer-brand">
-          <img src="./src/assets/ATA1.png" alt="ATA Infratech" style={{ height: "40px", marginBottom: "16px" }} />
+          <img src={logo} alt="ATA Infratech" />
           <p className="footer-tagline">Strategic Real Estate Partner</p>
           <p className="footer-desc">
             Turning Land & Vision into High-Value Assets through disciplined development, investment intelligence, and strategic advisory.

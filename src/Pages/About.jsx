@@ -9,37 +9,37 @@ const coreValues = [
     id: 1, 
     t: "Integrity", 
     d: "We believe trust is the foundation of every partnership.", 
-    img: "/assets/val-integrity1.jpg" 
+    img: "./src/assets/val-integrity1.jpg" 
   },
   { 
     id: 2, 
     t: "Strategy", 
     d: "Every decision should have a clear purpose and measurable roadmap.", 
-    img: "/assets/val-integrity2.jpg" 
+    img: "./src/assets/val-integrity2.jpg" 
   },
   { 
     id: 3, 
     t: "Excellence", 
     d: "We pursue quality in thinking, execution and final outcomes.", 
-    img: "/assets/val-integrity3.jpg" 
+    img: "./src/assets/val-integrity3.jpg" 
   },
   { 
     id: 4, 
     t: "Transparency", 
     d: "We believe in open and responsible communication at every step.", 
-    img: "/assets/val-integrity4.jpg" 
+    img: "./src/assets/val-integrity4.jpg" 
   },
   { 
     id: 5, 
     t: "Sustainability", 
     d: "We consider long-term environmental and social impact in every opportunity.", 
-    img: "/assets/val-integrity5.jpg" 
+    img: "./src/assets/val-integrity5.jpg" 
   },
   { 
     id: 6, 
     t: "Partnership", 
     d: "We grow by creating enduring value for everyone involved.", 
-    img: "/assets/val-integrity6.jpg" 
+    img: "./src/assets/val-integrity6.jpg" 
   }
 ];
 

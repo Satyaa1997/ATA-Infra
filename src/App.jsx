@@ -4,15 +4,15 @@ import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 
 // Pages
-import Home from "../src/Pages/Home";
-import About from "../src/Pages/About";
-import Development from "../src/Pages/Devlopment";
-import Investment from "../src/Pages/Investment";
-import Advisory from "../src/Pages/Advisory";
-import Projects from "../src/Pages/Projects";
-import Insights from "../src/Pages/Insights";
-import Careers from "../src/Pages/Carrer";
-import Contact from "../src/Pages/Contact";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Development from "./Pages/Devlopment";
+import Investment from "./Pages/Investment";
+import Advisory from "./Pages/Advisory";
+import Projects from "./Pages/Projects";
+import Insights from "./Pages/Insights";
+import Careers from "./Pages/Carrer";
+import Contact from "./Pages/Contact";
 
 export default function App() {
   return (
