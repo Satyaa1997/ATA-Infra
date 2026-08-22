@@ -1,0 +1,87 @@
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 50px;
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: 10px 24px;
+  background: var(--primary-light);
+  border: 1px solid rgba(200, 162, 44, 0.2);
+  color: #fff;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: var(--gold);
+  color: var(--primary);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 40px;
+}
+
+.project-card {
+  background: var(--primary-light);
+  border: 1px solid rgba(200, 162, 44, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+.project-thumb {
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  background-color: #0d2e24;
+  position: relative;
+  padding: 16px;
+}
+
+.status-badge {
+  background: rgba(7, 29, 22, 0.85);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 4px 12px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-details {
+  padding: 24px;
+}
+
+.proj-cat {
+  color: var(--gold);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.project-details h3 {
+  font-size: 22px;
+  margin: 8px 0 16px;
+}
+
+.view-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}

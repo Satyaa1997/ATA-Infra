@@ -1,0 +1,182 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+}
+
+.about-grid h2 {
+  font-size: clamp(32px, 4vw, 50px);
+  line-height: 1.2;
+}
+
+.mission-vision-section {
+  background: var(--primary-light, #0d2e24);
+}
+
+.mv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.mv-card {
+  padding: 48px;
+  background: var(--primary, #071D16);
+  border: 1px solid rgba(200, 162, 44, 0.2);
+  border-radius: 4px;
+}
+
+.mv-card h3 {
+  font-size: 26px;
+  margin: 20px 0 12px;
+}
+
+.mv-card p {
+  color: var(--text-muted, #8c9b96);
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* --- Core Values Slider Styles --- */
+.values-slider-section {
+  position: relative;
+  background: #04120e;
+  overflow: hidden;
+}
+
+.section-header-center {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.slider-cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.val-slider-card {
+  background: var(--primary-light, #0d2e24);
+  border: 1px solid rgba(200, 162, 44, 0.25);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.val-slider-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold, #C8A22C);
+}
+
+.val-card-img {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-color: #08261e;
+  position: relative;
+}
+
+.val-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 29, 22, 0.2) 0%, rgba(7, 29, 22, 0.85) 100%);
+}
+
+.val-card-num {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gold, #C8A22C);
+  background: rgba(7, 29, 22, 0.7);
+  padding: 2px 10px;
+  border-radius: 3px;
+  border: 1px solid rgba(200, 162, 44, 0.3);
+}
+
+.val-card-body {
+  padding: 30px 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.val-card-body h4 {
+  font-size: 22px;
+  color: var(--gold, #C8A22C);
+  margin-bottom: 12px;
+}
+
+.val-card-body p {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Slider Controls */
+.slider-btn {
+  background: rgba(7, 29, 22, 0.8);
+  border: 1.5px solid var(--gold, #C8A22C);
+  color: var(--gold, #C8A22C);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.slider-btn:hover {
+  background: var(--gold, #C8A22C);
+  color: #071D16;
+  transform: scale(1.1);
+}
+
+.prev-btn {
+  margin-right: 20px;
+}
+
+.next-btn {
+  margin-left: 20px;
+}
+
+@media (max-width: 1024px) {
+  .slider-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid, .mv-grid {
+    grid-template-columns: 1fr;
+  }
+  .slider-wrapper {
+    flex-direction: column;
+  }
+  .slider-cards-container {
+    grid-template-columns: 1fr;
+    margin: 20px 0;
+  }
+  .slider-btn {
+    display: inline-flex;
+    margin: 10px;
+  }
+}

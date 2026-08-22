@@ -1,0 +1,44 @@
+.inv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.inv-card {
+  background: var(--primary-light);
+  padding: 40px 32px;
+  border-top: 2px solid var(--gold);
+}
+
+.inv-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.inv-card p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.focus-areas {
+  background: #04120e;
+}
+
+.tags-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.tags-cloud span {
+  padding: 16px 28px;
+  background: var(--primary-light);
+  border: 1px solid rgba(200, 162, 44, 0.3);
+  font-size: 15px;
+  letter-spacing: 1px;
+  border-radius: 40px;
+}

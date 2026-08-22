@@ -1,0 +1,44 @@
+.adv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.adv-card {
+  background: var(--primary-light);
+  border: 1px solid rgba(200, 162, 44, 0.2);
+  padding: 36px 30px;
+}
+
+.adv-card h3 {
+  font-size: 22px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.adv-card p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.clients-section {
+  background: #04120e;
+}
+
+.client-types {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.client-types span {
+  padding: 14px 32px;
+  background: var(--primary-light);
+  border: 1px solid rgba(200, 162, 44, 0.3);
+  font-size: 16px;
+  letter-spacing: 1px;
+}
