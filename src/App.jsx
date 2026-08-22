@@ -11,7 +11,7 @@ import Investment from "./Pages/Investment";
 import Advisory from "./Pages/Advisory";
 import Projects from "./Pages/Projects";
 import Insights from "./Pages/Insights";
-import Careers from "./Pages/Carrer";
+import Careers from "./Pages/Career";
 import Contact from "./Pages/Contact";
 
 export default function App() {
