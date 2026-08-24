@@ -1,16 +1,20 @@
 .dev-page {
-  background-color: var(--primary, #050505);
+  background-color: #F9F8F5; /* Light readable background */
   min-height: 100vh;
-  color: #ffffff;
+  color: #121212;
 }
 
+/* "End-to-End Development Solutions" Heading ko Crisp Black set kiya */
 .dev-page .section-header h2 {
-  color: #ffffff !important;
+  color: #121212 !important;
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 700;
+  margin-top: 6px;
 }
 
 .dev-page .section-header p,
 .dev-page .section-subtitle {
-  color: #d1d5db !important;
+  color: #444444 !important;
 }
 
 .capabilities-grid {
@@ -21,26 +25,29 @@
 }
 
 .cap-card {
-  background: #111111;
-  border: 1px solid rgba(200, 162, 44, 0.2);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 40px 32px;
   border-radius: 4px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cap-card:hover {
   transform: translateY(-6px);
   border-color: var(--gold, #C8A22C);
+  box-shadow: 0 10px 25px rgba(200, 162, 44, 0.15);
 }
 
 .cap-card h3 {
   font-size: 22px;
   color: var(--gold, #C8A22C);
   margin-bottom: 12px;
+  font-weight: 700;
 }
 
 .cap-card p {
-  color: #a3a3a3;
+  color: #555555;
   line-height: 1.8;
   font-size: 14px;
 }

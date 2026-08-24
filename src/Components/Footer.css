@@ -111,8 +111,11 @@
     gap: 30px;
   }
 
-  .footer-brand img {
-    height: 48px;
+ .footer-brand img {
+    height: 68px !important;       /* 48px se badha kar 68px */
+    max-width: 240px !important;
+    width: auto;
+    object-fit: contain;
     margin-bottom: 20px;
   }
 
