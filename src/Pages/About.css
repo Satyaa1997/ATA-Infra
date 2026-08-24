@@ -4,10 +4,13 @@
   gap: 60px;
 }
 
-.about-grid h2 {
+/* 1. Main Headings: Black Color */
+.about-grid h2,
+.about-page h2 {
   font-size: clamp(32px, 4vw, 50px);
   line-height: 1.2;
-  color: #121212;
+  color: #121212 !important;
+  font-weight: 700;
 }
 
 .mission-vision-section {
@@ -52,8 +55,11 @@
   margin-bottom: 50px;
 }
 
+/* 2. Values & Advantage Headings: Black Color */
 .section-header-center h2 {
-  color: #121212;
+  color: #121212 !important;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
 }
 
 .slider-wrapper {

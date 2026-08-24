@@ -1,10 +1,14 @@
 import PageBanner from "../Components/PageBanner";
-import "./Career.css";
+import "./Careers.css";
+
+// Custom Banner Image Import
+import careerBannerImg from "../assets/project3.jpg"; // Ya aapke assets me jo banner image ho
 
 export default function Careers() {
   return (
     <div className="careers-page">
       <PageBanner
+        bgImage={careerBannerImg}
         tag="JOIN THE TEAM"
         title="Build What Matters."
         subtitle="We value people who bring curiosity, ownership, integrity and a long-term mindset."

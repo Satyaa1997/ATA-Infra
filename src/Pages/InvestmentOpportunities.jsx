@@ -1,7 +1,10 @@
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../Components/PageBanner";
 import { Link } from "react-router-dom";
-import { MapPin, TrendingUp, ArrowRight, Shield } from "lucide-react";
-import "./Projects.css";
+import { MapPin, Shield } from "lucide-react";
+import "./InvestmentOpportunities.css";
+
+// Custom Banner Image Import
+import oppBannerImg from "../assets/investment.jpg"; // Aapke assets folder me jo image ho
 
 const opportunities = [
   {
@@ -36,40 +39,42 @@ const opportunities = [
 export default function InvestmentOpportunities() {
   return (
     <div className="investment-opportunities-page">
+      {/* Custom Banner with Image */}
       <PageBanner
+        bgImage={oppBannerImg}
         tag="SELECTED OPPORTUNITIES"
         title="Opportunities Worth Exploring."
         subtitle="Institutional-grade real estate assets identified through disciplined research and feasibility analysis."
       />
 
       <section className="section-padding">
-        <div className="projects-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))" }}>
+        <div className="opp-grid">
           {opportunities.map((opp) => (
-            <div key={opp.id} className="project-card" style={{ padding: "32px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <div key={opp.id} className="opp-card">
               <div>
-                <span className="proj-cat">{opp.type}</span>
-                <h3 style={{ fontSize: "22px", margin: "10px 0" }}>{opp.name}</h3>
-                <p style={{ display: "flex", alignItems: "center", gap: "6px", color: "#666", fontSize: "14px", marginBottom: "16px" }}>
+                <span className="opp-tag">{opp.type}</span>
+                <h3>{opp.name}</h3>
+                <p className="opp-loc">
                   <MapPin size={16} color="#C8A22C" /> {opp.loc}
                 </p>
 
-                <div style={{ background: "#F2EFE9", padding: "16px", borderRadius: "4px", marginBottom: "20px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "13px" }}>
+                <div className="opp-metrics-box">
+                  <div className="opp-metric-row">
                     <span>Scale:</span>
                     <strong>{opp.scale}</strong>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "13px" }}>
+                  <div className="opp-metric-row">
                     <span>Stage:</span>
-                    <strong style={{ color: "#C8A22C" }}>{opp.stage}</strong>
+                    <strong className="gold-val">{opp.stage}</strong>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px" }}>
+                  <div className="opp-metric-row">
                     <span>Profile:</span>
                     <strong>{opp.roi}</strong>
                   </div>
                 </div>
               </div>
 
-              <Link to="/contact?type=partner" className="btn-gold" style={{ textAlign: "center", width: "100%" }}>
+              <Link to="/contact?type=partner" className="btn-gold opp-btn">
                 Request Opportunity Dossier
               </Link>
             </div>
@@ -77,13 +82,16 @@ export default function InvestmentOpportunities() {
         </div>
       </section>
 
-      <section className="section-padding focus-areas" style={{ textAlign: "center" }}>
-        <Shield size={36} color="#C8A22C" style={{ margin: "0 auto 16px" }} />
+      {/* Diligence Section (Dark Theme Compliant) */}
+      <section className="section-padding diligence-section">
+        <Shield size={38} color="#C8A22C" style={{ margin: "0 auto 16px" }} />
         <h2>Institutional Diligence Standard</h2>
-        <p style={{ color: "#555", maxWidth: "600px", margin: "10px auto 30px" }}>
+        <p className="diligence-desc">
           All investment opportunities are backed by clear titles, independent valuation metrics, and institutional risk management.
         </p>
-        <Link to="/contact" className="btn-outline">Connect With Investment Desk</Link>
+        <Link to="/contact" className="btn-outline">
+          Connect With Investment Desk
+        </Link>
       </section>
     </div>
   );

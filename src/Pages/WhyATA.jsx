@@ -1,7 +1,10 @@
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../Components/PageBanner";
 import { Link } from "react-router-dom";
 import { Compass, TrendingUp, Shield, Award, CheckCircle2, Users, ArrowRight } from "lucide-react";
-import "./About.css";
+import "./WhyATA.css";
+
+// Custom Banner Image Import
+import whyBannerImg from "../assets/insight3.jpg"; // Jo bhi banner image lagani ho
 
 const pillars = [
   { t: "Strategic Thinking", d: "Every opportunity begins with a clear, research-backed strategy and measurable roadmap.", icon: Compass },
@@ -15,27 +18,29 @@ const pillars = [
 export default function WhyATA() {
   return (
     <div className="why-ata-page">
+      {/* Custom Banner with Image */}
       <PageBanner
+        bgImage={whyBannerImg}
         tag="THE ATA ADVANTAGE"
         title="Why Partner With ATA INFRATECH."
         subtitle="Bridging the gap between raw real estate opportunity and high-value landmark execution."
       />
 
       <section className="section-padding">
-        <div className="about-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "30px" }}>
+        <div className="pillars-grid">
           {pillars.map((item, idx) => (
-            <div key={idx} className="mv-card">
+            <div key={idx} className="pillar-card">
               <item.icon size={32} color="#C8A22C" style={{ marginBottom: "14px" }} />
-              <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>{item.t}</h3>
-              <p style={{ color: "#555", fontSize: "14px", lineHeight: "1.7" }}>{item.d}</p>
+              <h3>{item.t}</h3>
+              <p>{item.d}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="section-padding values-slider-section" style={{ textAlign: "center" }}>
-        <h2 style={{ fontSize: "clamp(28px, 4vw, 42px)", marginBottom: "16px" }}>Experience the ATA Standard</h2>
-        <p style={{ color: "#555", maxWidth: "600px", margin: "0 auto 30px" }}>
+      <section className="section-padding cta-banner-section">
+        <h2>Experience the ATA Standard</h2>
+        <p>
           Discover how our strategic advisory and development ecosystem can accelerate your land and asset value.
         </p>
         <Link to="/contact" className="btn-gold">

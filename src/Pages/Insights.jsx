@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../Components/PageBanner";
 import { ArrowUpRight } from "lucide-react";
 import "./Insights.css";
 

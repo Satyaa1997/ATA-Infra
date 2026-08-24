@@ -1,18 +1,21 @@
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../Components/PageBanner";
 import { Link } from "react-router-dom";
 import { TrendingUp, ShieldCheck, Target, Layers } from "lucide-react";
 import "./Investment.css";
+
+// Custom Banner Image
+import invBanner from "../assets/return.jpg";
 
 export default function Investment() {
   return (
     <div className="inv-page">
       <PageBanner
-        tag="CAPITAL ALIGNMENT"
+        bgImage={invBanner}
+        tag="CAPITAL DISCIPLINE"
         title="Investing Beyond the Obvious."
         subtitle="Real estate investment requires research, market intelligence and disciplined evaluation."
       />
 
-      {/* Investment Philosophy */}
       <section id="philosophy" className="section-padding">
         <div className="section-header">
           <span className="section-tag">INVESTMENT PHILOSOPHY</span>
@@ -20,10 +23,10 @@ export default function Investment() {
         </div>
         <div className="inv-grid">
           {[
-            { t: "Market First", d: "We study fundamental demand, growth corridors and infrastructure drivers.", icon: TrendingUp },
-            { t: "Risk Conscious", d: "Every opportunity is rigorously evaluated against potential downside risks.", icon: ShieldCheck },
-            { t: "Value Driven", d: "We prioritize assets with significant potential for value creation.", icon: Target },
-            { t: "Long Term Horizon", d: "Our focus is structured around enduring value rather than speculative gains.", icon: Layers }
+            { t: "Market First", d: "We evaluate demand fundamentals, infrastructural catalysts and regional demographic shifts.", icon: TrendingUp },
+            { t: "Risk Conscious", d: "Rigorous stress-testing of regulatory, operational and market liquidity risks.", icon: ShieldCheck },
+            { t: "Value Driven", d: "Focus on assets where strategic repositioning unlocks sustainable equity growth.", icon: Target },
+            { t: "Long Term Horizon", d: "Building resilient wealth structures rather than chasing short-term speculation.", icon: Layers }
           ].map((item, i) => (
             <div key={i} className="inv-card">
               <item.icon size={32} color="#C8A22C" style={{ marginBottom: "16px" }} />
@@ -34,22 +37,21 @@ export default function Investment() {
         </div>
       </section>
 
-      {/* Focus Areas */}
       <section className="section-padding focus-areas">
         <div className="section-header" style={{ textAlign: "center" }}>
-          <span className="section-tag">OPPORTUNITY AREAS</span>
-          <h2>Asset Focus & Opportunities</h2>
+          <span className="section-tag">INVESTMENT AREAS</span>
+          <h2>Opportunity Focus</h2>
         </div>
         <div className="tags-cloud">
-          <span>Land Consolidation</span>
-          <span>Residential Plotted Developments</span>
-          <span>Commercial Hubs</span>
+          <span>Strategic Land Portfolios</span>
+          <span>Plotted Development Schemes</span>
+          <span>Commercial & Retail Assets</span>
           <span>Mixed-Use Developments</span>
-          <span>Development Joint Ventures</span>
-          <span>Strategic Partnerships</span>
+          <span>Joint Ventures (JV)</span>
+          <span>Development Partnerships</span>
         </div>
         <div style={{ textAlign: "center", marginTop: "50px" }}>
-          <Link to="/contact?type=partner" className="btn-gold">Explore Co-Investment</Link>
+          <Link to="/contact?type=partner" className="btn-gold">Explore Co-Investment Opportunities</Link>
         </div>
       </section>
     </div>

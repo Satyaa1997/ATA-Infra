@@ -1,7 +1,10 @@
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../Components/PageBanner";
 import { Link } from "react-router-dom";
-import { Map, Layers, PieChart, ShieldAlert, CheckCircle } from "lucide-react";
-import "./Devlopment.css";
+import { Map, Layers, PieChart, ShieldAlert } from "lucide-react";
+import "./LandAssetStrategy.css";
+
+// Custom Banner Image Import
+import landBanner from "../assets/strategy.jpg";
 
 const strategyModules = [
   {
@@ -29,7 +32,9 @@ const strategyModules = [
 export default function LandAssetStrategy() {
   return (
     <div className="land-strategy-page">
+      {/* Custom Banner with Image */}
       <PageBanner
+        bgImage={landBanner}
         tag="ASSET OPTIMIZATION"
         title="Land & Asset Strategy."
         subtitle="Unlocking latent value from strategic real estate holdings through precision planning and market alignment."
@@ -41,9 +46,9 @@ export default function LandAssetStrategy() {
           <h2>Maximized Land Realisation</h2>
         </div>
 
-        <div className="capabilities-grid">
+        <div className="strategy-grid">
           {strategyModules.map((item, idx) => (
-            <div key={idx} className="cap-card">
+            <div key={idx} className="strategy-card">
               <item.icon size={32} color="#C8A22C" style={{ marginBottom: "16px" }} />
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
@@ -52,25 +57,25 @@ export default function LandAssetStrategy() {
         </div>
       </section>
 
-      <section className="section-padding process-section">
+      <section className="section-padding roadmap-section">
         <div className="section-header">
           <span className="section-tag">METHODOLOGY</span>
           <h2>Strategic Asset Roadmap</h2>
         </div>
-        <div className="process-list">
+        <div className="roadmap-list">
           {[
             "Land Audit & Spatial Mapping",
             "Market Absorption & Demand Forecast",
             "Financial Modeling & Yield Projections",
             "Joint Venture / Monetisation Execution"
           ].map((step, idx) => (
-            <div key={idx} className="process-item">
-              <span className="p-idx">0{idx + 1}</span>
+            <div key={idx} className="roadmap-item">
+              <span className="roadmap-idx">0{idx + 1}</span>
               <h4>{step}</h4>
             </div>
           ))}
         </div>
-        <div className="dev-cta-wrapper">
+        <div className="dev-cta-wrapper" style={{ textAlign: "center", marginTop: "40px" }}>
           <Link to="/contact" className="btn-gold">Consult on Your Land Asset</Link>
         </div>
       </section>

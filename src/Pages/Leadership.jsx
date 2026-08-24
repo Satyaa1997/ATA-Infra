@@ -1,7 +1,10 @@
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../Components/PageBanner";
 import { Link } from "react-router-dom";
-import { Award, Briefcase, Compass, ShieldCheck } from "lucide-react";
-import "./About.css";
+import { ShieldCheck } from "lucide-react";
+import "./Leadership.css";
+
+// Banner Image Import (Vite ke hisab se safe import)
+import leadershipBanner from "../assets/leadership.jpg"; // ya jo bhi banner image use karni ho
 
 const leadershipTeam = [
   {
@@ -24,7 +27,9 @@ const leadershipTeam = [
 export default function Leadership() {
   return (
     <div className="leadership-page">
+      {/* Custom Banner with Image */}
       <PageBanner
+        bgImage={leadershipBanner}
         tag="STRATEGIC GOVERNANCE"
         title="Leadership Driven by Vision."
         subtitle="Guiding ATA INFRATECH with deep market intelligence, financial discipline and developmental excellence."
@@ -36,23 +41,21 @@ export default function Leadership() {
           <h2>The Minds Behind the Strategy</h2>
         </div>
 
-        <div className="about-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "30px", marginTop: "40px" }}>
+        <div className="leadership-grid">
           {leadershipTeam.map((leader, i) => (
-            <div key={i} className="mv-card">
-              <div style={{ display: "flex", gap: "12px", alignItems: "center", marginBottom: "16px" }}>
+            <div key={i} className="leader-card">
+              <div className="leader-header">
                 <ShieldCheck color="#C8A22C" size={32} />
-                <span style={{ color: "#C8A22C", fontSize: "12px", textTransform: "uppercase", letterSpacing: "1.5px", fontWeight: "700" }}>
-                  {leader.role}
-                </span>
+                <span className="leader-badge">{leader.role}</span>
               </div>
-              <h3 style={{ fontSize: "22px", margin: "0 0 12px" }}>{leader.title}</h3>
-              <p style={{ color: "#555", fontSize: "14px", lineHeight: "1.8" }}>{leader.desc}</p>
+              <h3>{leader.title}</h3>
+              <p>{leader.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="section-padding mission-vision-section">
+      <section className="section-padding governance-section">
         <div className="about-grid">
           <div>
             <span className="section-tag">OUR PHILOSOPHY</span>

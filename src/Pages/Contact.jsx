@@ -2,6 +2,9 @@ import { useState } from "react";
 import PageBanner from "../Components/PageBanner";
 import "./Contact.css";
 
+// Custom Banner Image Import
+import contactBannerImg from "../assets/Banner.png"; // Ya jo bhi banner image use karni ho
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "", company: "", email: "", phone: "", userType: "Landowner", interest: "Development", message: ""
@@ -15,6 +18,7 @@ export default function Contact() {
   return (
     <div className="contact-page">
       <PageBanner
+        bgImage={contactBannerImg}
         tag="GET IN TOUCH"
         title="Let's Build Something Valuable Together."
         subtitle="Whether you have land, capital or a development vision, we'd like to hear from you."

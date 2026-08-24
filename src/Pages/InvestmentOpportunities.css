@@ -1,6 +1,7 @@
 .investment-opportunities-page {
   background-color: var(--primary, #050505);
   min-height: 100vh;
+  color: #ffffff;
 }
 
 .opp-grid {
@@ -92,6 +93,20 @@
   background: #0d0d0d;
   border-top: 1px solid rgba(200, 162, 44, 0.15);
   text-align: center;
+}
+
+.diligence-section h2 {
+  color: #ffffff !important;
+  font-size: clamp(28px, 3.5vw, 42px);
+  margin-bottom: 12px;
+}
+
+.diligence-desc {
+  color: #a3a3a3;
+  max-width: 620px;
+  margin: 0 auto 30px;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 @media (max-width: 768px) {

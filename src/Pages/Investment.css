@@ -1,36 +1,56 @@
+.inv-page {
+  background-color: var(--primary, #050505);
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+.inv-page .section-header h2 {
+  color: #ffffff !important;
+}
+
+.inv-page .section-header p,
+.inv-page .section-subtitle {
+  color: #d1d5db !important;
+}
+
 .inv-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .inv-card {
-  background: #ffffff;
+  background: #111111;
   padding: 40px 32px;
   border-top: 3px solid var(--gold, #C8A22C);
   border-radius: 4px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease;
+}
+
+.inv-card:hover {
+  transform: translateY(-6px);
 }
 
 .inv-card h3 {
   font-size: 22px;
-  color: #121212;
+  color: #ffffff !important;
   margin-bottom: 12px;
 }
 
 .inv-card p {
-  color: #555555;
+  color: #a3a3a3;
   font-size: 14px;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 .focus-areas {
-  background: #F2EFE9;
+  background: #0d0d0d;
+  border-top: 1px solid rgba(200, 162, 44, 0.15);
 }
 
 .focus-areas h2 {
-  color: #121212;
+  color: #ffffff !important;
 }
 
 .tags-cloud {
@@ -42,14 +62,13 @@
 }
 
 .tags-cloud span {
-  padding: 16px 28px;
-  background: #ffffff;
+  padding: 14px 28px;
+  background: #111111;
   border: 1px solid rgba(200, 162, 44, 0.3);
-  color: #121212;
-  font-size: 15px;
+  color: #ffffff;
+  font-size: 14px;
   letter-spacing: 1px;
   border-radius: 40px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
 @media(max-width: 768px) {

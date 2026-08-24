@@ -11,6 +11,8 @@ export default function Navbar() {
   const [mobileExpanded, setMobileExpanded] = useState(null);
   const location = useLocation();
 
+  const isHome = location.pathname === "/";
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handleScroll);
@@ -28,7 +30,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`navbar-header ${scrolled ? "scrolled" : ""}`}>
+    <header className={`navbar-header ${scrolled ? "scrolled" : ""} ${!isHome ? "inner-page-nav" : ""}`}>
       <Link to="/" className="navbar-logo">
         <img src={logo} alt="ATA Infratech" />
       </Link>
@@ -106,45 +108,34 @@ export default function Navbar() {
             <div className="dropdown-menu">
               <NavLink to="/investment-opportunities">Investment Opportunities</NavLink>
               <NavLink to="/investment">Investment Philosophy</NavLink>
-              <NavLink to="/contact?type=partner">Partner With Us</NavLink>
             </div>
           )}
         </div>
 
-        {/* 5. Insights Dropdown */}
-        <div 
-          className="nav-item dropdown-trigger"
-          onMouseEnter={() => setActiveDropdown("insights")}
-          onMouseLeave={() => setActiveDropdown(null)}
-        >
-          <span className="dropdown-label">
-            Insights <ChevronDown size={14} />
-          </span>
-          {activeDropdown === "insights" && (
-            <div className="dropdown-menu">
-              <NavLink to="/insights">Market Insights</NavLink>
-              <NavLink to="/insights?cat=trends">Real Estate Trends</NavLink>
-              <NavLink to="/insights?cat=news">News & Updates</NavLink>
-            </div>
-          )}
-        </div>
-
-        <NavLink to="/careers" className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}>
-          Careers
+        {/* Direct Blog Link */}
+        <NavLink to="/blog" className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}>
+          Blog
         </NavLink>
+
+        {/* Gallery Link */}
+        <NavLink to="/gallery" className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}>
+          Gallery
+        </NavLink>
+
+        {/* Contact Link */}
         <NavLink to="/contact" className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}>
           Contact
         </NavLink>
       </nav>
 
       <div className="navbar-action">
-        <Link to="/contact" className="cta-button desktop-cta">Partner With Us</Link>
+        <Link to="/contact" className="cta-button desktop-cta">Contact Us</Link>
         <button className="mobile-toggle" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle Menu">
           {mobileOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-      {/* Mobile Accordion Menu */}
+      {/* Mobile Drawer */}
       <div className={`mobile-nav ${mobileOpen ? "open" : ""}`}>
         <NavLink to="/" end>Home</NavLink>
 
@@ -205,23 +196,10 @@ export default function Navbar() {
           )}
         </div>
 
-        <div className="mobile-accordion">
-          <div className="mobile-accordion-header" onClick={() => toggleMobileSubmenu("insights")}>
-            <span>Insights</span>
-            <ChevronDown size={16} className={mobileExpanded === "insights" ? "rotate" : ""} />
-          </div>
-          {mobileExpanded === "insights" && (
-            <div className="mobile-submenu">
-              <NavLink to="/insights">Market Insights</NavLink>
-              <NavLink to="/insights?cat=trends">Real Estate Trends</NavLink>
-              <NavLink to="/insights?cat=news">News & Updates</NavLink>
-            </div>
-          )}
-        </div>
-
-        <NavLink to="/careers">Careers</NavLink>
+        <NavLink to="/blog">Blog</NavLink>
+        <NavLink to="/gallery">Gallery</NavLink>
         <NavLink to="/contact">Contact</NavLink>
-        <Link to="/contact" className="cta-button mobile-cta">Partner With Us</Link>
+        <Link to="/contact" className="cta-button mobile-cta">Contact Us</Link>
       </div>
     </header>
   );

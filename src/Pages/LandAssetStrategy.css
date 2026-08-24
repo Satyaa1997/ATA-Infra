@@ -1,6 +1,16 @@
 .land-strategy-page {
   background-color: var(--primary, #050505);
   min-height: 100vh;
+  color: #ffffff;
+}
+
+.land-strategy-page .section-header h2 {
+  color: #ffffff !important;
+}
+
+.land-strategy-page .section-header p,
+.land-strategy-page .section-subtitle {
+  color: #d1d5db !important;
 }
 
 .strategy-grid {
@@ -15,30 +25,35 @@
   border: 1px solid rgba(200, 162, 44, 0.2);
   padding: 40px 32px;
   border-radius: 4px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .strategy-card:hover {
   transform: translateY(-6px);
   border-color: var(--gold, #C8A22C);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
 }
 
 .strategy-card h3 {
   font-size: 22px;
-  color: #ffffff;
+  color: #ffffff !important;
   margin: 16px 0 10px;
 }
 
 .strategy-card p {
   color: #a3a3a3;
   font-size: 14px;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 .roadmap-section {
   background: #0d0d0d;
   border-top: 1px solid rgba(200, 162, 44, 0.15);
   border-bottom: 1px solid rgba(200, 162, 44, 0.15);
+}
+
+.roadmap-section h2 {
+  color: #ffffff !important;
 }
 
 .roadmap-list {
@@ -65,12 +80,15 @@
 
 .roadmap-item h4 {
   font-size: 16px;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 @media (max-width: 768px) {
   .strategy-grid,
   .roadmap-list {
     grid-template-columns: 1fr;
+  }
+  .strategy-card {
+    padding: 28px 20px;
   }
 }
