@@ -4,8 +4,8 @@
   color: #121212;
 }
 
-/* "End-to-End Development Solutions" Heading ko Crisp Black set kiya */
-.dev-page .section-header h2 {
+/* 1. Top Section (Light BG): Black Heading */
+.dev-page section:first-of-type .section-header h2 {
   color: #121212 !important;
   font-size: clamp(30px, 3.5vw, 44px);
   font-weight: 700;
@@ -52,13 +52,17 @@
   font-size: 14px;
 }
 
+/* 2. Process Section (Dark BG): Crisp White Heading */
 .process-section {
-  background: #0d0d0d;
+  background: #0d0d0d !important;
   border-top: 1px solid rgba(200, 162, 44, 0.15);
 }
 
+.process-section .section-header h2,
 .process-section h2 {
   color: #ffffff !important;
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 700;
 }
 
 .process-list {

@@ -3,9 +3,16 @@ import { Link } from "react-router-dom";
 import { ShieldCheck } from "lucide-react";
 import "./Leadership.css";
 
-// Banner Image Import (Vite ke hisab se safe import)
-import leadershipBanner from "../assets/leadership.jpg"; // ya jo bhi banner image use karni ho
+import leadershipBanner from "../assets/leadership.jpg";
+import img1 from "../assets/project1.jpg";
+import img2 from "../assets/highway.jpg";
+import img3 from "../assets/project2.jpg";
+import img4 from "../assets/insight1.jpg";
+import img5 from "../assets/insight2.jpg";
+import img6 from "../assets/project3.jpg";
+import img7 from "../assets/project4.jpg";
 
+// Original 3 Leadership Cards
 const leadershipTeam = [
   {
     role: "Strategic Direction & Development",
@@ -24,10 +31,12 @@ const leadershipTeam = [
   }
 ];
 
+// Marquee Gallery Images
+const galleryImages = [img1, img2, img3, img4, img5, img6, img7];
+
 export default function Leadership() {
   return (
     <div className="leadership-page">
-      {/* Custom Banner with Image */}
       <PageBanner
         bgImage={leadershipBanner}
         tag="STRATEGIC GOVERNANCE"
@@ -35,6 +44,7 @@ export default function Leadership() {
         subtitle="Guiding ATA INFRATECH with deep market intelligence, financial discipline and developmental excellence."
       />
 
+      {/* 1. Original 3 Cards Section */}
       <section className="section-padding">
         <div className="section-header-center">
           <span className="section-tag">GOVERNING BOARD</span>
@@ -55,6 +65,9 @@ export default function Leadership() {
         </div>
       </section>
 
+     
+
+      {/* 3. Governance Section */}
       <section className="section-padding governance-section">
         <div className="about-grid">
           <div>
@@ -69,6 +82,17 @@ export default function Leadership() {
               Connect With Our Leadership
             </Link>
           </div>
+        </div>
+      </section>
+       {/* 2. Infinite Continuous Marquee Slider (Pure Images) */}
+      <section className="marquee-slider-section">
+        <div className="marquee-track">
+          {/* Double array to create seamless infinite loop */}
+          {[...galleryImages, ...galleryImages].map((img, i) => (
+            <div key={i} className="marquee-item">
+              <img src={img} alt="ATA Infrastructure Landmark" />
+            </div>
+          ))}
         </div>
       </section>
     </div>

@@ -21,12 +21,14 @@ import Blog from "./Pages/Blog";
 import ScrollToTop from "./Pages/ScrollToTop";
 import Devlopment from "./Pages/Devlopment";
 import Careers from "./Pages/Careers";
+import WhatsAppButton from "./Pages/WhatsAppButton";
 
 export default function App() {
   return (
     <>
       <ScrollToTop />
       <Navbar />
+      <WhatsAppButton />
       <Routes>
         {/* Core Routes */}
         <Route path="/" element={<Home />} />
