@@ -7,10 +7,11 @@
 .about-grid h2 {
   font-size: clamp(32px, 4vw, 50px);
   line-height: 1.2;
+  color: #121212;
 }
 
 .mission-vision-section {
-  background: var(--primary-light, #0d2e24);
+  background: #F2EFE9;
 }
 
 .mv-grid {
@@ -21,32 +22,38 @@
 
 .mv-card {
   padding: 48px;
-  background: var(--primary, #071D16);
-  border: 1px solid rgba(200, 162, 44, 0.2);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .mv-card h3 {
   font-size: 26px;
+  color: #121212;
   margin: 20px 0 12px;
 }
 
 .mv-card p {
-  color: var(--text-muted, #8c9b96);
+  color: #555555;
   line-height: 1.8;
   font-size: 15px;
 }
 
-/* --- Core Values Slider Styles --- */
+/* Core Values Slider Styles */
 .values-slider-section {
   position: relative;
-  background: #04120e;
+  background: #EAE6DF;
   overflow: hidden;
 }
 
 .section-header-center {
   text-align: center;
   margin-bottom: 50px;
+}
+
+.section-header-center h2 {
+  color: #121212;
 }
 
 .slider-wrapper {
@@ -66,12 +73,13 @@
 }
 
 .val-slider-card {
-  background: var(--primary-light, #0d2e24);
-  border: 1px solid rgba(200, 162, 44, 0.25);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 6px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
   transition: transform 0.4s ease, border-color 0.4s ease;
 }
 
@@ -84,14 +92,14 @@
   height: 200px;
   background-size: cover;
   background-position: center;
-  background-color: #08261e;
+  background-color: #e5e5e5;
   position: relative;
 }
 
 .val-img-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(7, 29, 22, 0.2) 0%, rgba(7, 29, 22, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
 }
 
 .val-card-num {
@@ -101,11 +109,11 @@
   font-family: 'Playfair Display', serif;
   font-size: 24px;
   font-weight: 700;
-  color: var(--gold, #C8A22C);
-  background: rgba(7, 29, 22, 0.7);
+  color: #ffffff;
+  background: rgba(18, 18, 18, 0.7);
   padding: 2px 10px;
   border-radius: 3px;
-  border: 1px solid rgba(200, 162, 44, 0.3);
+  border: 1px solid var(--gold, #C8A22C);
 }
 
 .val-card-body {
@@ -123,14 +131,13 @@
 }
 
 .val-card-body p {
-  color: #ccc;
+  color: #555555;
   font-size: 14px;
   line-height: 1.7;
 }
 
-/* Slider Controls */
 .slider-btn {
-  background: rgba(7, 29, 22, 0.8);
+  background: #ffffff;
   border: 1.5px solid var(--gold, #C8A22C);
   color: var(--gold, #C8A22C);
   width: 48px;
@@ -141,12 +148,13 @@
   justify-content: center;
   cursor: pointer;
   z-index: 10;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
 }
 
 .slider-btn:hover {
   background: var(--gold, #C8A22C);
-  color: #071D16;
+  color: #ffffff;
   transform: scale(1.1);
 }
 
@@ -169,31 +177,10 @@
     grid-template-columns: 1fr;
   }
   .slider-wrapper {
-    flex-direction: column;
-  }
-  .slider-cards-container {
-    grid-template-columns: 1fr;
-    margin: 20px 0;
-  }
-  .slider-btn {
-    display: inline-flex;
-    margin: 10px;
-  }
-}
-@media (max-width: 768px) {
-  .about-grid, .mv-grid {
-    grid-template-columns: 1fr;
-  }
-  .slider-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    width: 100%;
   }
   .slider-cards-container {
-    grid-template-columns: 1fr; /* Mobile me 1 card */
-    width: 100%;
+    grid-template-columns: 1fr;
     margin: 0 10px;
   }
   .slider-btn {

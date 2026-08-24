@@ -8,18 +8,22 @@
 
 .filter-btn {
   padding: 10px 24px;
-  background: var(--primary-light);
-  border: 1px solid rgba(200, 162, 44, 0.2);
-  color: #fff;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #121212;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: 600;
+  border-radius: 2px;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .filter-btn.active, .filter-btn:hover {
-  background: var(--gold);
-  color: var(--primary);
+  background: var(--gold, #C8A22C);
+  color: #ffffff;
+  border-color: var(--gold, #C8A22C);
 }
 
 .projects-grid {
@@ -29,10 +33,11 @@
 }
 
 .project-card {
-  background: var(--primary-light);
-  border: 1px solid rgba(200, 162, 44, 0.2);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 4px;
   overflow: hidden;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
 }
 
@@ -44,19 +49,20 @@
   height: 280px;
   background-size: cover;
   background-position: center;
-  background-color: #0d2e24;
+  background-color: #e5e5e5;
   position: relative;
   padding: 16px;
 }
 
 .status-badge {
-  background: rgba(7, 29, 22, 0.85);
-  border: 1px solid var(--gold);
-  color: var(--gold);
+  background: rgba(18, 18, 18, 0.85);
+  border: 1px solid var(--gold, #C8A22C);
+  color: var(--gold, #C8A22C);
   padding: 4px 12px;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  border-radius: 2px;
 }
 
 .project-details {
@@ -64,14 +70,16 @@
 }
 
 .proj-cat {
-  color: var(--gold);
+  color: var(--gold, #C8A22C);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  font-weight: 700;
 }
 
 .project-details h3 {
   font-size: 22px;
+  color: #121212;
   margin: 8px 0 16px;
 }
 
@@ -79,40 +87,30 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #fff;
+  color: #121212;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: 600;
-}
-@media(max-width:768px){
-
-.projects-grid{
-
-grid-template-columns:1fr;
-
+  font-weight: 700;
+  text-decoration: none;
 }
 
-
-.project-thumb{
-
-height:220px;
-
+.view-btn:hover {
+  color: var(--gold, #C8A22C);
 }
 
-
-.filter-bar{
-
-justify-content:flex-start;
-overflow-x:auto;
-
-}
-
-
-.filter-btn{
-
-white-space:nowrap;
-
-}
-
+@media(max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-thumb {
+    height: 220px;
+  }
+  .filter-bar {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+  .filter-btn {
+    white-space: nowrap;
+  }
 }

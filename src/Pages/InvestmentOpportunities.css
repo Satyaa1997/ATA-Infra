@@ -1,0 +1,104 @@
+.investment-opportunities-page {
+  background-color: var(--primary, #050505);
+  min-height: 100vh;
+}
+
+.opp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.opp-card {
+  background: #111111;
+  border: 1px solid rgba(200, 162, 44, 0.2);
+  padding: 34px 28px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.opp-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold, #C8A22C);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.opp-tag {
+  color: var(--gold, #C8A22C);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.opp-card h3 {
+  font-size: 22px;
+  color: #ffffff;
+  margin: 10px 0 6px;
+}
+
+.opp-loc {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #8c9b96;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.opp-metrics-box {
+  background: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 18px 20px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.opp-metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.opp-metric-row:last-child {
+  border-bottom: none;
+}
+
+.opp-metric-row span {
+  color: #a3a3a3;
+}
+
+.opp-metric-row strong {
+  color: #ffffff;
+}
+
+.opp-metric-row .gold-val {
+  color: var(--gold, #C8A22C);
+}
+
+.opp-btn {
+  width: 100%;
+  text-align: center;
+}
+
+.diligence-section {
+  background: #0d0d0d;
+  border-top: 1px solid rgba(200, 162, 44, 0.15);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .opp-grid {
+    grid-template-columns: 1fr;
+  }
+  .opp-card {
+    padding: 26px 20px;
+  }
+}

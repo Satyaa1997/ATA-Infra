@@ -1,9 +1,9 @@
 .home-container {
   overflow: hidden;
-  background-color: var(--primary, #071D16);
+  background-color: #F9F8F5;
 }
 
-/* 1. Hero Section */
+/* 1. Hero Section (Hero text on video remains bright white) */
 .hero-section {
   height: 100vh;
   min-height: 650px;
@@ -20,13 +20,7 @@
   z-index: 0;
   width: 100%;
   height: 100%;
-}
-
-.hero-media-wrapper,
-.hero-video-bg {
-
   pointer-events: none;
-
 }
 
 .hero-video-bg {
@@ -39,7 +33,7 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(7, 29, 22, 0.92) 0%, rgba(7, 29, 22, 0.45) 100%);
+  background: linear-gradient(90deg, rgba(18, 18, 18, 0.88) 0%, rgba(18, 18, 18, 0.4) 100%);
   z-index: 1;
 }
 
@@ -53,7 +47,7 @@
 .hero-tag {
   color: var(--gold, #C8A22C);
   letter-spacing: 3px;
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
   font-weight: 600;
   margin-bottom: 20px;
@@ -62,6 +56,7 @@
 .hero-content h1 {
   font-size: clamp(40px, 6vw, 76px);
   line-height: 1.1;
+  color: #ffffff;
   margin-bottom: 24px;
 }
 
@@ -72,7 +67,7 @@
 
 .hero-description {
   font-size: 18px;
-  color: var(--text-muted, #8c9b96);
+  color: #e0e0e0;
   line-height: 1.7;
   max-width: 620px;
   margin-bottom: 35px;
@@ -83,44 +78,13 @@
   gap: 20px;
 }
 
-.btn-gold {
-  padding: 16px 36px;
-  background: var(--gold, #C8A22C);
-  color: #071D16;
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-size: 13px;
-  border-radius: 2px;
-  transition: all 0.3s;
-  display: inline-block;
+.hero-actions .btn-outline {
+  color: #ffffff !important;
+  border-color: #ffffff;
 }
 
-.btn-gold:hover {
-  background: var(--gold-hover, #e0b638);
-  transform: translateY(-2px);
-}
-
-.btn-outline {
-  padding: 16px 36px;
-  background: transparent;
-  color: #fff;
-  border: 1.5px solid #fff;
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-size: 13px;
-  border-radius: 2px;
-  transition: all 0.3s;
-  display: inline-block;
-}
-
-.btn-outline:hover {
-  background: #fff;
-  color: #071D16;
-  transform: translateY(-2px);
+.hero-actions .btn-outline:hover {
+  border-color: var(--gold);
 }
 
 .section-padding {
@@ -130,13 +94,14 @@
 .section-tag {
   color: var(--gold, #C8A22C);
   font-size: 13px;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
+/* 2. Intro Section */
 .intro-grid {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -147,19 +112,20 @@
 .intro-grid h2 {
   font-size: clamp(32px, 4vw, 52px);
   line-height: 1.15;
+  color: #121212;
 }
 
 .lead-text {
   font-size: 20px;
   line-height: 1.7;
-  color: #ffffff;
+  color: #1a1a1a;
   margin-bottom: 20px;
 }
 
 .sub-text {
   font-size: 15px;
   line-height: 1.8;
-  color: var(--text-muted, #8c9b96);
+  color: #555555;
   margin-bottom: 30px;
 }
 
@@ -169,15 +135,20 @@
   gap: 8px;
   color: var(--gold, #C8A22C);
   text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   transition: gap 0.3s;
 }
 
 .link-arrow:hover {
   gap: 12px;
+}
+
+/* 3. Core Verticals */
+.verticals-section {
+  background: #F2EFE9;
 }
 
 .verticals-grid {
@@ -188,16 +159,18 @@
 }
 
 .vertical-card {
-  background: var(--primary-light, #0d2e24);
-  border: 1px solid rgba(200, 162, 44, 0.2);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 44px 32px;
   border-radius: 4px;
-  transition: transform 0.3s ease, border-color 0.3s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
 }
 
 .vertical-card:hover {
   transform: translateY(-8px);
-  border-color: var(--gold, #C8A22C);
+  border-color: var(--gold);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 .v-num {
@@ -210,6 +183,7 @@
 
 .vertical-card h3 {
   font-size: 24px;
+  color: #121212;
   margin-bottom: 8px;
 }
 
@@ -221,17 +195,17 @@
 }
 
 .v-desc {
-  color: var(--text-muted, #8c9b96);
+  color: #555555;
   font-size: 14px;
   line-height: 1.8;
   margin-bottom: 28px;
 }
 
-/* 4. Horizontal Section (Height Optimized) */
+/* 4. Horizontal Projects */
 .horizontal-section {
-  height: 110vh;
+  height: 125vh;
   position: relative;
-  background: #04120e;
+  background: #EAE6DF;
 }
 
 .horizontal-sticky {
@@ -249,6 +223,10 @@
   margin-bottom: 24px;
 }
 
+.horizontal-header h2 {
+  color: #121212;
+}
+
 .horizontal-track {
   display: flex;
   gap: 35px;
@@ -261,7 +239,7 @@
   position: relative;
   border-radius: 6px;
   overflow: hidden;
-  border: 1px solid rgba(200, 162, 44, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .project-img-h {
@@ -274,7 +252,7 @@
 .project-info-h {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 35%, rgba(7, 29, 22, 0.95) 100%);
+  background: linear-gradient(180deg, transparent 40%, rgba(18, 18, 18, 0.95) 100%);
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -282,7 +260,7 @@
 }
 
 .project-info-h span {
-  color: var(--gold, #C8A22C);
+  color: var(--gold);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -290,15 +268,16 @@
 
 .project-info-h h3 {
   font-size: 24px;
+  color: #ffffff;
   margin: 8px 0 14px;
 }
 
 /* 5. Stats Counters */
 .stats-section {
-  background: var(--primary-light, #0d2e24);
-  border-top: 1px solid rgba(200, 162, 44, 0.2);
-  border-bottom: 1px solid rgba(200, 162, 44, 0.2);
-  padding: 40px 7%;
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 50px 7%;
 }
 
 .stats-grid {
@@ -315,40 +294,14 @@
 }
 
 .stat-box p {
-  color: var(--text-muted, #8c9b96);
-  font-size: 14px;
-  letter-spacing: 1px;
+  color: #555555;
+  font-size: 13px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
-/* 6. Investment Banner */
-.investment-banner-section {
-  padding: 100px 7%;
-  background: linear-gradient(rgba(7, 29, 22, 0.9), rgba(7, 29, 22, 0.9)), url('/assets/project1.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  text-align: center;
-}
-
-.inv-banner-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.inv-banner-content h2 {
-  font-size: clamp(32px, 4.5vw, 52px);
-  margin: 16px 0 20px;
-}
-
-.inv-banner-content p {
-  color: #ccc;
-  font-size: 18px;
-  line-height: 1.7;
-  margin-bottom: 35px;
-}
-
-/* 7. Approach Grid */
+/* 6. Approach Grid */
 .approach-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -358,8 +311,9 @@
 
 .approach-card {
   padding: 32px 24px;
-  background: var(--primary-light, #0d2e24);
-  border-left: 2px solid var(--gold, #C8A22C);
+  background: #ffffff;
+  border-left: 3px solid var(--gold, #C8A22C);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .app-num {
@@ -372,32 +326,59 @@
 
 .approach-card h4 {
   font-size: 18px;
+  color: #121212;
   margin-bottom: 10px;
 }
 
 .approach-card p {
-  color: var(--text-muted, #8c9b96);
+  color: #555555;
   font-size: 14px;
   line-height: 1.7;
 }
 
+/* 7. Investment Banner */
+.investment-banner-section {
+  padding: 100px 7%;
+  background: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)), url('/assets/project1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  text-align: center;
+}
+
+.inv-banner-content h2 {
+  font-size: clamp(32px, 4.5vw, 52px);
+  color: #ffffff;
+  margin: 16px 0 20px;
+}
+
+.inv-banner-content p {
+  color: #e0e0e0;
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+
+/* 8. CTA Box */
 .cta-box {
-  background: var(--primary-light, #0d2e24);
+  background: #ffffff;
   border: 1px solid rgba(200, 162, 44, 0.3);
   padding: 70px 40px;
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
   border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 }
 
 .cta-box h2 {
   font-size: clamp(32px, 4vw, 48px);
+  color: #121212;
   margin-bottom: 16px;
 }
 
 .cta-box p {
-  color: var(--text-muted, #8c9b96);
+  color: #555555;
   font-size: 18px;
   margin-bottom: 32px;
 }
@@ -410,131 +391,41 @@
   .intro-grid {
     grid-template-columns: 1fr;
   }
-
   .horizontal-section {
-    height: auto;
+    height: auto !important;
+    padding-bottom: 20px;
   }
-
   .horizontal-sticky {
-    position: relative;
+    position: relative !important;
     height: auto;
-    padding: 40px 0;
+    padding: 30px 0 10px 0;
   }
-
   .horizontal-track {
     flex-direction: column;
     padding: 0 7%;
+    transform: none !important;
   }
-
   .project-card-h {
     min-width: 100%;
-    height: 380px;
+    height: 360px;
   }
 }
 
-@media(max-width:768px) {
-
+@media (max-width: 768px) {
   .hero-section {
-
     height: auto;
     min-height: 100vh;
     padding: 120px 20px 60px;
-
   }
-
-
-  .hero-content {
-
-    max-width: 100%;
-  }
-
-
   .hero-content h1 {
-
     font-size: 42px;
-
   }
-
-
-  .hero-description {
-
-    font-size: 15px;
-
-  }
-
-
   .hero-actions {
-
     flex-direction: column;
     gap: 15px;
-
   }
-
-
-  .btn-gold,
-  .btn-outline {
-
+  .btn-gold, .btn-outline {
     width: 100%;
     text-align: center;
-
   }
-
-
-  /* Horizontal projects */
-
-  .horizontal-section {
-
-    height: auto;
-
-  }
-
-
-  .horizontal-sticky {
-
-    position: relative;
-    height: auto;
-    padding: 50px 0;
-
-  }
-
-
-  .horizontal-track {
-
-    flex-direction: column;
-    padding: 0 20px;
-
-  }
-
-
-  .project-card-h {
-
-    min-width: 100%;
-    height: 350px;
-
-  }
-
-}
-
-@media(max-width:900px) {
-
-  .horizontal-section {
-
-    height: auto !important;
-
-  }
-
-
-  .horizontal-sticky {
-
-    position: relative !important;
-
-  }
-
-
-  .horizontal-track {
-
-    transform: none !important;
-
-  }
-
 }

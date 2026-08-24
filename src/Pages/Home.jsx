@@ -12,16 +12,16 @@ import project4 from "../assets/project4.jpg";
 import heroVideo from "../assets/ATAvedio.mp4";
 
 const projects = [
-  { id: 1, title: "Grand Horizon", type: "Residential", loc: "Lucknow, UP", img: project1 },
-  { id: 2, title: "Apex Capital Plaza", type: "Commercial", loc: "Varanasi, UP", img: project2 },
-  { id: 3, title: "The Sovereign Greens", type: "Mixed Use", loc: "Noida, UP", img: project3 },
-  { id: 4, title: "Emerald Land Parcel", type: "Land Strategy", loc: "Ayodhya, UP", img: project4 }
+  { id: 1, title: "Grand Horizon", type: "Residential", loc: "Lucknow, UP", status: "Ongoing", img: project1 },
+  { id: 2, title: "Apex Capital Plaza", type: "Commercial", loc: "Varanasi, UP", status: "Planning", img: project2 },
+  { id: 3, title: "The Sovereign Greens", type: "Mixed Use", loc: "Noida, UP", status: "Development", img: project3 },
+  { id: 4, title: "Emerald Land Parcel", type: "Land Strategy", loc: "Ayodhya, UP", status: "Evaluation", img: project4 }
 ];
 
 export default function Home() {
   const horizontalRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: horizontalRef });
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-45%"]);
+  const x = useTransform(scrollYProgress, [0, 0.85], ["0%", "-45%"]);
 
   return (
     <div className="home-container">
@@ -86,7 +86,7 @@ export default function Home() {
             <span className="v-num">01</span>
             <h3>DEVELOPMENT</h3>
             <p className="v-tagline">Creating spaces with purpose.</p>
-            <p className="v-desc">We transform land and development opportunities into thoughtfully planned real estate assets designed around market demand.</p>
+            <p className="v-desc">We transform land and development opportunities into thoughtfully planned real estate assets designed around market demand, functionality and long-term value.</p>
             <Link to="/development" className="link-arrow">Explore Development <ArrowRight size={16} /></Link>
           </div>
           <div className="vertical-card">
@@ -100,7 +100,7 @@ export default function Home() {
             <span className="v-num">03</span>
             <h3>ADVISORY</h3>
             <p className="v-tagline">Strategy before execution.</p>
-            <p className="v-desc">We provide strategic real estate guidance to landowners, investors and businesses to help them make informed decisions.</p>
+            <p className="v-desc">We provide strategic real estate guidance to landowners, investors and businesses to help them make informed decisions and unlock asset potential.</p>
             <Link to="/advisory" className="link-arrow">Explore Advisory <ArrowRight size={16} /></Link>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function Home() {
         </div>
       </section>
 
-     
+      {/* 5. Statistics Counters */}
       <section className="stats-section">
         <div className="stats-grid">
           <div className="stat-box">
@@ -177,7 +177,7 @@ export default function Home() {
         <div className="inv-banner-content">
           <span className="section-tag">INVESTMENT POTENTIAL</span>
           <h2>The Right Opportunity Can Change the Value of Land.</h2>
-          <p>Whether you are a landowner, investor or development partner, ATA INFRATECH helps unlock the maximum potential of real estate assets.</p>
+          <p>Whether you are a landowner, investor or development partner, ATA INFRATECH helps identify the right strategy to unlock the potential of real estate assets.</p>
           <Link to="/investment" className="btn-gold">Explore Investment Opportunities</Link>
         </div>
       </section>

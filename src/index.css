@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary: #071D16;
-  --primary-light: #0d2e24;
-  --gold: #C8A22C;
-  --gold-hover: #e0b638;
-  --bg-light: #F5F3EE;
-  --text-dark: #171717;
-  --text-muted: #8c9b96;
+  /* Luxury White & Warm Ivory Theme */
+  --primary: #F9F8F5;          /* Warm Ivory / Off-White Background */
+  --primary-light: #FFFFFF;    /* Pure White Cards */
+  --primary-border: rgba(200, 162, 44, 0.25);
+  
+  --gold: #C8A22C;             /* Rich Luxury Gold */
+  --gold-hover: #b38e20;
+  
+  --text-dark: #121212;        /* Deep Charcoal/Black for Headings */
+  --text-muted: #555555;       /* Refined Slate for Body Text */
 }
 
 * {
@@ -18,26 +21,66 @@
 }
 
 html, body {
-  height: auto;           /* height: 100% स्क्रॉल को लॉक कर सकता है */
   min-height: 100%;
   width: 100%;
-  overflow-y: auto;       /* वर्टिकल स्क्रॉल चालू किया */
-  overflow-x: hidden;
-}
-
-body {
   background-color: var(--primary);
-  color: #ffffff;
+  color: var(--text-dark);
   font-family: 'Plus Jakarta Sans', sans-serif;
   overflow-x: hidden;
 }
 
 h1, h2, h3, h4, .font-serif {
   font-family: 'Playfair Display', serif;
+  color: var(--text-dark);
 }
 
-button {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+p {
+  color: var(--text-muted);
+}
+
+/* Luxury Gold Buttons */
+.btn-gold {
+  padding: 14px 32px;
+  background: var(--gold);
+  color: #ffffff !important;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 13px;
+  border-radius: 2px;
+  border: 1px solid var(--gold);
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-gold:hover {
+  background: var(--gold-hover);
+  border-color: var(--gold-hover);
+  box-shadow: 0 4px 15px rgba(200, 162, 44, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  padding: 14px 32px;
+  background: transparent;
+  color: var(--text-dark) !important;
+  border: 1.5px solid var(--text-dark);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 13px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #ffffff !important;
+  transform: translateY(-2px);
 }
 
 /* Custom Scrollbar */
@@ -45,34 +88,9 @@ button {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--primary);
+  background: #F9F8F5;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--gold);
   border-radius: 3px;
-}
-
-@media (max-width: 900px) {
-  * {
-    cursor: auto !important;
-  }
-}
-*{
-box-sizing:border-box;
-}
-
-
-html,body{
-
-overflow-x:hidden;
-
-width:100%;
-
-}
-
-
-img,video{
-
-max-width:100%;
-
 }

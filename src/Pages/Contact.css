@@ -6,6 +6,7 @@
 
 .contact-info h2 {
   font-size: clamp(32px, 4vw, 44px);
+  color: #121212;
   margin-bottom: 40px;
 }
 
@@ -14,26 +15,28 @@
 }
 
 .info-block h4 {
-  color: var(--gold);
+  color: var(--gold, #C8A22C);
   font-size: 16px;
   margin-bottom: 8px;
 }
 
 .info-block p {
-  color: var(--text-muted);
+  color: #555555;
   line-height: 1.7;
   font-size: 15px;
 }
 
 .contact-form {
-  background: var(--primary-light);
-  border: 1px solid rgba(200, 162, 44, 0.2);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 48px;
   border-radius: 4px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
 }
 
 .contact-form h3 {
   font-size: 24px;
+  color: #121212;
   margin-bottom: 30px;
 }
 
@@ -53,19 +56,21 @@
 .contact-form textarea {
   width: 100%;
   padding: 16px;
-  background: var(--primary);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: #F9F8F5;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #121212;
   font-family: inherit;
   font-size: 14px;
   outline: none;
+  border-radius: 2px;
   transition: border-color 0.3s;
 }
 
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
-  border-color: var(--gold);
+  border-color: var(--gold, #C8A22C);
+  background: #ffffff;
 }
 
 .form-btn {
@@ -84,27 +89,4 @@
   .contact-form {
     padding: 30px 20px;
   }
-}
-@media(max-width:768px){
-
-.contact-grid{
-
-grid-template-columns:1fr;
-
-}
-
-
-.contact-form{
-
-padding:20px;
-
-}
-
-
-.form-row{
-
-grid-template-columns:1fr;
-
-}
-
 }
