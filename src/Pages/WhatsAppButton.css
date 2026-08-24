@@ -1,34 +1,37 @@
 /* Floating WhatsApp Button */
 .whatsapp-float-btn {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  width: 58px;
-  height: 58px;
-  background-color: #25D366;
-  color: #ffffff;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
-  z-index: 1200;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  padding: 0;
-  outline: none;
+  position: fixed !important;
+  bottom: 25px !important;
+  right: 25px !important;
+  width: 58px !important;
+  height: 58px !important;
+  background-color: #25D366 !important;
+  color: #ffffff !important;
+  border-radius: 50% !important;
+  border: none !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5) !important;
+  z-index: 999999 !important; /* Mobile me sabhi footer/drawer ke upar rahega */
+  padding: 0 !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .whatsapp-float-btn:hover {
-  background-color: #20ba5a;
-  transform: translateY(-4px) scale(1.06);
-  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.6);
+  background-color: #20ba5a !important;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.65) !important;
 }
 
 .whatsapp-icon {
-  fill: #ffffff;
-  color: #ffffff;
+  fill: #ffffff !important;
+  color: #ffffff !important;
+  width: 30px !important;
+  height: 30px !important;
 }
 
 /* Radar Pulse Animation */
@@ -47,12 +50,12 @@
     opacity: 0.9;
   }
   80%, 100% {
-    transform: scale(1.4);
+    transform: scale(1.35);
     opacity: 0;
   }
 }
 
-/* Hover Tooltip */
+/* Desktop Tooltip */
 .whatsapp-tooltip {
   position: absolute;
   right: 70px;
@@ -77,16 +80,24 @@
   transform: translateX(0);
 }
 
-/* Mobile Screens */
+/* Mobile Screens Support (768px & below) */
 @media (max-width: 768px) {
   .whatsapp-float-btn {
-    bottom: 20px;
-    right: 20px;
-    width: 52px;
-    height: 52px;
+    bottom: 20px !important;
+    right: 20px !important;
+    width: 54px !important;
+    height: 54px !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
-  
+
+  .whatsapp-icon {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
   .whatsapp-tooltip {
-    display: none;
+    display: none !important;
   }
 }
