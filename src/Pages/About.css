@@ -180,41 +180,31 @@
     margin: 10px;
   }
 }
-@media(max-width:768px){
-
-.about-grid{
-
-grid-template-columns:1fr;
-gap:30px;
-
-}
-
-
-.mv-grid{
-
-grid-template-columns:1fr;
-
-}
-
-
-.mv-card{
-
-padding:25px;
-
-}
-
-
-.slider-cards-container{
-
-grid-template-columns:1fr;
-
-}
-
-
-.slider-wrapper{
-
-flex-direction:column;
-
-}
-
+@media (max-width: 768px) {
+  .about-grid, .mv-grid {
+    grid-template-columns: 1fr;
+  }
+  .slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .slider-cards-container {
+    grid-template-columns: 1fr; /* Mobile me 1 card */
+    width: 100%;
+    margin: 0 10px;
+  }
+  .slider-btn {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+  .prev-btn {
+    margin-right: 8px;
+  }
+  .next-btn {
+    margin-left: 8px;
+  }
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import PageBanner from "../Components/PageBanner";
+import PageBanner from "../components/PageBanner";
 import { Target, Eye, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import "./About.css";
@@ -46,7 +46,26 @@ const coreValues = [
 export default function About() {
   const [startIndex, setStartIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [cardsToShow, setCardsToShow] = useState(3);
 
+  // Screen size check for mobile (1 card) vs desktop (3 cards)
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setCardsToShow(1);
+      } else if (window.innerWidth <= 1024) {
+        setCardsToShow(2);
+      } else {
+        setCardsToShow(3);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Auto Slider
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
@@ -63,17 +82,15 @@ export default function About() {
     setStartIndex((prev) => (prev - 1 + coreValues.length) % coreValues.length);
   };
 
+  // Slice visible cards based on screen size
   const total = coreValues.length;
-  const currentCards = [
-    coreValues[startIndex % total],
-    coreValues[(startIndex + 1) % total],
-    coreValues[(startIndex + 2) % total]
-  ];
+  const currentCards = Array.from({ length: cardsToShow }).map((_, i) => 
+    coreValues[(startIndex + i) % total]
+  );
 
   return (
     <div className="about-page">
-      {/* Public URL pass kiya hai taaki import crash na kare */}
-      <PageBanner bgImage="../src/assets/insight2.jpg" />
+      <PageBanner bgImage="./src/assets/insight2.jpg" />
 
       {/* Story Section */}
       <section className="section-padding story-section">
@@ -109,7 +126,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Core Values Slider Section */}
+      {/* Core Values Carousel Section */}
       <section 
         className="section-padding values-slider-section"
         onMouseEnter={() => setIsPaused(true)}
@@ -132,7 +149,7 @@ export default function About() {
                 className="val-slider-card"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.35 }}
               >
                 <div 
                   className="val-card-img" 

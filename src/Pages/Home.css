@@ -22,6 +22,13 @@
   height: 100%;
 }
 
+.hero-media-wrapper,
+.hero-video-bg {
+
+  pointer-events: none;
+
+}
+
 .hero-video-bg {
   width: 100%;
   height: 100%;
@@ -222,7 +229,7 @@
 
 /* 4. Horizontal Section (Height Optimized) */
 .horizontal-section {
-  height: 180vh; /* 300vh से घटाकर 180vh किया गया ताकि खाली स्पेस न रहे */
+  height: 110vh;
   position: relative;
   background: #04120e;
 }
@@ -239,7 +246,7 @@
 
 .horizontal-header {
   padding: 0 7%;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .horizontal-track {
@@ -291,7 +298,7 @@
   background: var(--primary-light, #0d2e24);
   border-top: 1px solid rgba(200, 162, 44, 0.2);
   border-bottom: 1px solid rgba(200, 162, 44, 0.2);
-  padding: 60px 7%;
+  padding: 40px 7%;
 }
 
 .stats-grid {
@@ -403,102 +410,131 @@
   .intro-grid {
     grid-template-columns: 1fr;
   }
+
   .horizontal-section {
     height: auto;
   }
+
   .horizontal-sticky {
     position: relative;
     height: auto;
     padding: 40px 0;
   }
+
   .horizontal-track {
     flex-direction: column;
     padding: 0 7%;
   }
+
   .project-card-h {
     min-width: 100%;
     height: 380px;
   }
 }
-@media(max-width:768px){
 
-.hero-section{
+@media(max-width:768px) {
 
-height:auto;
-min-height:100vh;
-padding:120px 20px 60px;
+  .hero-section {
+
+    height: auto;
+    min-height: 100vh;
+    padding: 120px 20px 60px;
+
+  }
+
+
+  .hero-content {
+
+    max-width: 100%;
+  }
+
+
+  .hero-content h1 {
+
+    font-size: 42px;
+
+  }
+
+
+  .hero-description {
+
+    font-size: 15px;
+
+  }
+
+
+  .hero-actions {
+
+    flex-direction: column;
+    gap: 15px;
+
+  }
+
+
+  .btn-gold,
+  .btn-outline {
+
+    width: 100%;
+    text-align: center;
+
+  }
+
+
+  /* Horizontal projects */
+
+  .horizontal-section {
+
+    height: auto;
+
+  }
+
+
+  .horizontal-sticky {
+
+    position: relative;
+    height: auto;
+    padding: 50px 0;
+
+  }
+
+
+  .horizontal-track {
+
+    flex-direction: column;
+    padding: 0 20px;
+
+  }
+
+
+  .project-card-h {
+
+    min-width: 100%;
+    height: 350px;
+
+  }
 
 }
 
+@media(max-width:900px) {
 
-.hero-content{
+  .horizontal-section {
 
-max-width:100%;
-}
+    height: auto !important;
 
-
-.hero-content h1{
-
-font-size:42px;
-
-}
+  }
 
 
-.hero-description{
+  .horizontal-sticky {
 
-font-size:15px;
+    position: relative !important;
 
-}
-
-
-.hero-actions{
-
-flex-direction:column;
-gap:15px;
-
-}
+  }
 
 
-.btn-gold,
-.btn-outline{
+  .horizontal-track {
 
-width:100%;
-text-align:center;
+    transform: none !important;
 
-}
-
-
-/* Horizontal projects */
-
-.horizontal-section{
-
-height:auto;
-
-}
-
-
-.horizontal-sticky{
-
-position:relative;
-height:auto;
-padding:50px 0;
-
-}
-
-
-.horizontal-track{
-
-flex-direction:column;
-padding:0 20px;
-
-}
-
-
-.project-card-h{
-
-min-width:100%;
-height:350px;
-
-}
+  }
 
 }

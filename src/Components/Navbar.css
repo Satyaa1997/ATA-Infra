@@ -24,7 +24,7 @@
   align-items: center;
 }
 .navbar-logo img {
-  height: 85px;             /* प्रीमियम लुक के लिए संतुलित हाइट */
+  height: 5px;             /* प्रीमियम लुक के लिए संतुलित हाइट */
   width: auto;              /* रेशियो खराब न हो इसलिए auto */
   max-width: 180px;
   object-fit: contain;
@@ -185,23 +185,4 @@
     text-align: center;
     margin-top: 20px;
   }
-}
-@media(max-width:900px){
-
-.navbar-header{
-    padding:15px 20px;
-}
-
-.navbar-logo img{
-    height:55px;
-}
-
-.desktop-nav{
-    display:none;
-}
-
-.mobile-toggle{
-    display:block;
-}
-
 }

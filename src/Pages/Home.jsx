@@ -128,7 +128,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Numbers & Impact Section (खाली जगह भरने के लिए) */}
+     
       <section className="stats-section">
         <div className="stats-grid">
           <div className="stat-box">

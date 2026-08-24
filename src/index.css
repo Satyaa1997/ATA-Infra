@@ -14,12 +14,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none;
+  cursor: auto !important;
 }
 
 html, body {
-  height: 100%;
+  height: auto;           /* height: 100% स्क्रॉल को लॉक कर सकता है */
+  min-height: 100%;
   width: 100%;
+  overflow-y: auto;       /* वर्टिकल स्क्रॉल चालू किया */
+  overflow-x: hidden;
 }
 
 body {
