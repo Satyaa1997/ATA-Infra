@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {  useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 import { 
   ArrowRight, ArrowUpRight, 
   HardHat, ShieldCheck, Truck, Ruler, CheckCircle2, ChevronRight 
@@ -8,49 +8,51 @@ import {
 import { SplitReveal } from "../Components/Effects";
 import "./Home.css";
 
-import project1 from "../assets/project1.jpg";
-import project2 from "../assets/project2.jpg";
-import project3 from "../assets/project3.jpg";
-import project4 from "../assets/project4.jpg";
+// 8 Unique Images for Services & Projects
+import service1Img from "../assets/highway.jpg";
+import service2Img from "../assets/project2.jpg";
+import service3Img from "../assets/project3.jpg";
+
+
+import proj1Img from "../assets/project1.jpg";
+import proj2Img from "../assets/insight2.jpg";
+import proj3Img from "../assets/project4.jpg";
+
+
 import heroVideo from "../assets/ATAvedio.mp4";
 
+// 1. Core Services Cards (4 Unique Images)
 const infraServices = [
   {
     id: "01",
     title: "Highway & Arterial Roadways",
     desc: "End-to-end alignment surveying, earthwork compaction, asphalt laying, and high-load commercial corridors.",
-    img: project1,
+    img: service1Img,
     link: "/development"
   },
   {
     id: "02",
     title: "Industrial & Gated Plotted Enclaves",
     desc: "Integrated masterplanned land developments featuring RCC boundary enclosures, drainage networks, and utilities.",
-    img: project2,
+    img: service2Img,
     link: "/development"
   },
   {
     id: "03",
     title: "Civil Structures & Commercial Plazas",
     desc: "Heavy-load structural foundations, multi-tier commercial hubs, and grade-A architectural frameworks.",
-    img: project3,
+    img: service3Img,
     link: "/development"
   },
-  {
-    id: "04",
-    title: "Strategic Land Aggregation & Due Diligence",
-    desc: "100% legal title tracing, GIS parcel alignment, and regional industrial policy conversions.",
-    img: project4,
-    link: "/investment"
-  }
+  
 ];
 
+// 2. Showcase Projects Cards (4 Unique Images)
 const projects = [
-  { id: 1, title: "Grand Horizon Corridor", type: "Residential Plotted", loc: "Lucknow, UP", status: "Ongoing", img: project1 },
-  { id: 2, title: "Apex Capital Commercial Hub", type: "Commercial Plaza", loc: "Varanasi, UP", status: "Planning", img: project2 },
-  { id: 3, title: "The Sovereign Greens", type: "Mixed Use Township", loc: "Noida, UP", status: "Development", img: project3 },
-  { id: 4, title: "Emerald Highway Logistics Parcel", type: "Industrial Land", loc: "Ayodhya, UP", status: "Evaluation", img: project4 }
-];
+  { id: 1, title: "Grand Horizon Corridor", type: "Residential Plotted", loc: "Lucknow, UP", status: "Ongoing", img: proj1Img },
+  { id: 2, title: "Apex Capital Commercial Hub", type: "Commercial Plaza", loc: "Varanasi, UP", status: "Planning", img: proj2Img },
+  { id: 3, title: "The Sovereign Greens", type: "Mixed Use Township", loc: "Noida, UP", status: "Development", img: proj3Img },
+  ];
 
 function StatCounter({ target, suffix = "", duration = 1800 }) {
   const [count, setCount] = useState(0);
@@ -91,7 +93,7 @@ function StatCounter({ target, suffix = "", duration = 1800 }) {
 export default function Home() {
   return (
     <div className="home-container">
-      {/* 1. Full-Screen Industrial Hero Section (Navbar sits directly on top) */}
+      {/* 1. Full-Screen Industrial Hero Section */}
       <section className="hero-section">
         <div className="hero-media-wrapper">
           <video 
@@ -120,7 +122,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Running Counters Metric Strip (#FFFFFF) */}
+      {/* 2. Running Counters Metric Strip */}
       <section className="stats-section">
         <div className="stats-grid">
           <div className="stat-box">
@@ -142,7 +144,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Corporate Intro Section (#F9F8F5) */}
+      {/* 3. Corporate Intro Section */}
       <section className="section-padding intro-section">
         <div className="intro-grid">
           <div>
@@ -169,7 +171,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Core Civil & Infrastructure Services (#F2EFE9) */}
+      {/* 4. Core Civil & Infrastructure Services (4 Unique Cards) */}
       <section className="section-padding verticals-section">
         <div className="section-header">
           <span className="section-tag">SERVICES & CAPABILITIES</span>
@@ -195,7 +197,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Project Showcase Grid (#EAE6DF) */}
+      {/* 5. Project Showcase Grid (4 Unique Cards) */}
       <section className="section-padding projects-showcase-section">
         <div className="section-header-flex">
           <div>
@@ -225,7 +227,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. Plant, Machinery & Execution Strengths (#FFFFFF) */}
+      {/* 6. Execution Strengths */}
       <section className="section-padding strengths-section">
         <div className="section-header">
           <span className="section-tag">EXECUTION STRENGTH</span>
@@ -270,7 +272,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. Call to Action Box (#F9F8F5) */}
+      {/* 8. Call to Action Box */}
       <section className="section-padding cta-section">
         <div className="cta-box">
           <h2>Ready to Build Strategic Value Together?</h2>
