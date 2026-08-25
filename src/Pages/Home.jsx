@@ -14,13 +14,13 @@ import {
 import { SplitReveal } from "../Components/Effects";
 import "./Home.css";
 
-import service1Img from "../assets/highway.jpg";
-import service2Img from "../assets/project2.jpg";
-import service3Img from "../assets/project3.jpg";
+import service1Img from "../assets/Aggregate.jpg";
+import service2Img from "../assets/investment.jpg";
+import service3Img from "../assets/Advisory.jpg";
 
-import proj1Img from "../assets/project1.jpg";
-import proj2Img from "../assets/insight2.jpg";
-import proj3Img from "../assets/project4.jpg";
+import proj1Img from "../assets/AnantCity.jpg";
+import proj2Img from "../assets/Gardenganj1.webp";
+import proj3Img from "../assets/Vayuvilla1.png";
 
 import heroVideo from "../assets/ATAvedio.mp4";
 
