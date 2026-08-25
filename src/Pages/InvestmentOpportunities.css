@@ -1,21 +1,27 @@
 .investment-opportunities-page {
-  background-color: #0c0c0c;
+  background-color: #FAFAFA;
   min-height: 100vh;
-  color: #ffffff;
+  color: #121212;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
 }
 
 .investment-opportunities-page .section-header h2 {
-  color: #ffffff !important;
+  color: #111111 !important;
   font-size: clamp(30px, 3.6vw, 44px);
-  font-weight: 700;
+  font-weight: 800;
   margin-top: 8px;
+  line-height: 1.25;
 }
 
 .investment-opportunities-page .section-subtitle {
-  color: #b0b0b0 !important;
-  font-size: 15px;
+  color: #555555 !important;
+  font-size: 15.5px;
   line-height: 1.7;
+}
+
+.investment-opportunities-page .section-subtitle strong {
+  color: #111111;
 }
 
 .opp-grid {
@@ -26,13 +32,14 @@
 }
 
 .opp-card {
-  background: #141414;
-  border: 1px solid rgba(200, 162, 44, 0.25);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 36px 30px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -44,8 +51,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, #C8A22C, transparent);
+  height: 4px;
+  background: var(--gold, #C8A22C);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -53,8 +60,15 @@
 .opp-card:hover {
   transform: translateY(-8px);
   border-color: var(--gold, #C8A22C);
-  background: #181818;
-  box-shadow: 0 14px 35px rgba(200, 162, 44, 0.15);
+  box-shadow: 0 16px 36px rgba(200, 162, 44, 0.16);
+  background-color: #121212;
+}
+.opp-card:hover h3{
+  color: #F9F8F5;
+}
+.opp-card:hover .builder-name,
+.opp-card:hover .builder-name strong {
+  color: #C8A22C !important;
 }
 
 .opp-card:hover::before {
@@ -73,19 +87,19 @@
 
 .opp-card h3 {
   font-size: 24px;
-  color: #ffffff;
+  color: #111111;
   margin: 0 0 6px 0;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .builder-name {
-  color: #999999;
-  font-size: 13px;
+  color: #666666;
+  font-size: 13.5px;
   margin-bottom: 12px;
 }
 
 .builder-name strong {
-  color: #e0e0e0;
+  color: #111111;
 }
 
 .opp-loc {
@@ -93,14 +107,16 @@
   align-items: center;
   gap: 6px;
   color: var(--gold, #C8A22C);
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   margin-bottom: 22px;
 }
 
 .opp-metrics-box {
-  background: #0d0d0d;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #F9F8F5;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   padding: 18px 20px;
   border-radius: 6px;
   margin-bottom: 26px;
@@ -111,8 +127,8 @@
   justify-content: space-between;
   align-items: center;
   font-size: 13px;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .opp-metric-row:last-child {
@@ -120,17 +136,19 @@
 }
 
 .opp-metric-row span {
-  color: #888888;
+  color: #666666;
+  font-weight: 500;
 }
 
 .opp-metric-row strong {
-  color: #ffffff;
+  color: #111111;
   text-align: right;
   max-width: 60%;
 }
 
 .opp-metric-row .gold-val {
   color: var(--gold, #C8A22C);
+  font-weight: 700;
 }
 
 .opp-btn {
@@ -139,25 +157,46 @@
   justify-content: center;
 }
 
+/* Diligence Section */
 .diligence-section {
-  background: #080808;
-  border-top: 1px solid rgba(200, 162, 44, 0.15);
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
   text-align: center;
 }
 
 .diligence-section h2 {
-  color: #ffffff !important;
+  color: #111111 !important;
   font-size: clamp(28px, 3.5vw, 42px);
   margin-bottom: 14px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .diligence-desc {
-  color: #a8a8a8;
+  color: #555555;
   max-width: 650px;
   margin: 0 auto 35px;
-  font-size: 15px;
+  font-size: 15.5px;
   line-height: 1.75;
+}
+
+.diligence-section .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  color: #111111 !important;
+  border: 1.5px solid #111111;
+  padding: 14px 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.diligence-section .btn-outline:hover {
+  background: #111111;
+  color: #ffffff !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 768px) {

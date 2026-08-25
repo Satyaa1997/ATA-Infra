@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { 
   ArrowRight, 
   Coins,  
@@ -9,7 +9,7 @@ import {
   MapPin, 
   Layers, 
   Zap, 
-  ShieldCheck 
+  Sparkles 
 } from "lucide-react";
 import { SplitReveal } from "../Components/Effects";
 import "./Home.css";
@@ -17,12 +17,23 @@ import "./Home.css";
 import service1Img from "../assets/Aggregate.jpg";
 import service2Img from "../assets/investment.jpg";
 import service3Img from "../assets/Advisory.jpg";
-
+import service4Img from "../assets/Banner.png";
 import proj1Img from "../assets/AnantCity.jpg";
 import proj2Img from "../assets/Gardenganj1.webp";
 import proj3Img from "../assets/Vayuvilla1.png";
+import proj4Img from "../assets/return.jpg";
 
 import heroVideo from "../assets/ATAvedio.mp4";
+
+// Motion Animation Variant
+const fadeUp = {
+  hidden: { opacity: 0, y: 35 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.12, duration: 0.65, ease: [0.16, 1, 0.3, 1] }
+  })
+};
 
 // 3 Core Services Snapshot
 const coreServices = [
@@ -118,8 +129,11 @@ function StatCounter({ target, suffix = "", duration = 1800 }) {
 export default function Home() {
   return (
     <div className="home-container">
-      {/* 1. Hero Section */}
-      <section className="hero-section">
+
+      {/* ========================================================
+          1. HERO SECTION (DARK BACKGROUND)
+          ======================================================== */}
+      <section id="hero" className="hero-section">
         <div className="hero-media-wrapper">
           <video 
             src={heroVideo} 
@@ -132,7 +146,6 @@ export default function Home() {
         </div>
         <div className="hero-overlay" />
         <div className="hero-content">
-          <p className="hero-tag">AGGREGATE &bull; INVEST &bull; ADVISE</p>
           <h1>
             <SplitReveal text="Your Real Estate Project." /> <br />
             <span className="gold-italic">Fully Built, Fully Sold, Fully Supported.</span>
@@ -147,8 +160,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. Key Metrics Strip */}
-      <section className="stats-section">
+      {/* ========================================================
+          2. STATS SECTION (WHITE BACKGROUND)
+          ======================================================== */}
+      <section id="stats" className="stats-section">
         <div className="stats-grid">
           <div className="stat-box">
             <h3><StatCounter target={3} suffix="" /></h3>
@@ -169,35 +184,82 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Quick Intro (Below Hero) */}
-      <section className="section-padding intro-section">
-        <div className="intro-grid">
-          <div>
-            <span className="section-tag">WE ARE ATA INFRATECH</span>
-            <h2>We Turn Project Ideas Into Fast-Selling Realities.</h2>
-          </div>
-          <div>
+      {/* ========================================================
+          3. HOME STORY / OVERVIEW (DARK BACKGROUND)
+          ======================================================== */}
+      <section id="home-overview" className="section-padding home-story-section">
+        <div className="home-story-layout-grid">
+          <motion.div 
+            className="home-story-text-wrap"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            <span className="section-tag">WHO WE ARE</span>
+            <h2>Bridging Opportunity, Capital & Execution.</h2>
+            
             <p className="lead-text">
-              We work with real estate builders and developers to turn a project idea into a successful, organized, fast-selling reality.
+              ATA Infratech was founded in November 2025 with one simple idea: <strong>real estate builders shouldn't have to handle everything alone.</strong>
             </p>
+            
             <p className="sub-text">
-              From the first blueprint to the last sale, we handle the pieces that slow builders down — sales execution, investor connections, and business growth — so you can focus on building.
+              Building a project is hard enough. Selling it — organizing a sales team, finding channel partners, running events, reaching the right buyers — is a whole different skill. And growing a real estate business beyond one project takes structure, branding, and the right guidance.
             </p>
-            <div className="intro-highlights">
-              <div className="ih-item"><CheckCircle2 size={16} color="#C8A22C" /> End-to-end sales execution</div>
-              <div className="ih-item"><CheckCircle2 size={16} color="#C8A22C" /> Direct investor capital network</div>
-              <div className="ih-item"><CheckCircle2 size={16} color="#C8A22C" /> Complete channel partner setup</div>
-              <div className="ih-item"><CheckCircle2 size={16} color="#C8A22C" /> Business branding & advisory</div>
+
+            <div className="home-story-highlights-list">
+              <div className="hs-item">
+                <CheckCircle2 size={18} color="#C8A22C" />
+                <span>Turnkey sales engines for plots, villas & commercial spaces</span>
+              </div>
+              <div className="hs-item">
+                <CheckCircle2 size={18} color="#C8A22C" />
+                <span>Active presence across Gorakhpur, Lucknow & Pune</span>
+              </div>
+              <div className="hs-item">
+                <CheckCircle2 size={18} color="#C8A22C" />
+                <span>Direct investor syndication & developer coaching</span>
+              </div>
             </div>
-            <Link to="/about" className="link-arrow">
-              Learn More About Us <ArrowRight size={16} />
-            </Link>
-          </div>
+
+            <div className="home-story-btn-row">
+              <Link to="/about" className="btn-gold">
+                Learn More About Us <ArrowRight size={16} />
+              </Link>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="home-story-visual-wrap"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="home-main-img-card" style={{ backgroundImage: `url(${service4Img})` }}>
+              <div className="home-glass-badge">
+                <Sparkles size={18} color="#C8A22C" />
+                <div>
+                  <strong>Founded Nov 2025</strong>
+                  <span>Built for Speed & Results</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="home-secondary-card" style={{ backgroundImage: `url(${proj4Img})` }}>
+              <div className="home-floating-badge-inner">
+                <span className="count-gold">3</span>
+                <span>Core Hubs Active</span>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* 4. What We Do (3-Service Snapshot) */}
-      <section className="section-padding verticals-section">
+      {/* ========================================================
+          4. THREE PILLARS (LIGHT BACKGROUND)
+          ======================================================== */}
+      <section id="services-verticals" className="section-padding verticals-section">
         <div className="section-header">
           <span className="section-tag">WHAT WE DO</span>
           <h2>Three Core Services. One Unified Goal.</h2>
@@ -223,8 +285,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Projects Showcase */}
-      <section className="section-padding projects-showcase-section">
+      {/* ========================================================
+          5. PROJECTS SHOWCASE (DARK BACKGROUND)
+          ======================================================== */}
+      <section id="projects" className="section-padding projects-showcase-section">
         <div className="section-header-flex">
           <div>
             <span className="section-tag">OUR PROJECTS</span>
@@ -245,7 +309,7 @@ export default function Home() {
               <div className="p-content">
                 <span className="p-type"><MapPin size={12} style={{ display: 'inline', marginRight: 4 }} />{p.loc}</span>
                 <h3 style={{ marginBottom: "4px" }}>{p.title}</h3>
-                <p style={{ fontSize: "13px", color: "#666", marginBottom: "14px" }}>Builder: {p.builder}</p>
+                <p style={{ fontSize: "13px", color: "#aaaaaa", marginBottom: "14px" }}>Builder: {p.builder}</p>
                 <Link to="/projects" className="link-arrow">
                   Explore Project <ArrowRight size={15} />
                 </Link>
@@ -255,8 +319,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. Why Builders Choose Us */}
-      <section className="section-padding strengths-section">
+      {/* ========================================================
+          6. WHY CHOOSE US / STRENGTHS (WHITE BACKGROUND)
+          ======================================================== */}
+      <section id="strengths" className="section-padding strengths-section">
         <div className="section-header">
           <span className="section-tag">WHY BUILDERS CHOOSE ATA INFRATECH</span>
           <h2>Built for Speed, Scale & Execution</h2>
@@ -279,16 +345,13 @@ export default function Home() {
             <h4>Faster Project Launches</h4>
             <p>Structured sales engines and organized marketing campaigns designed for speed.</p>
           </div>
-          <div className="strength-card">
-            <div className="s-icon"><ShieldCheck size={28} /></div>
-            <h4>On-Ground Experience</h4>
-            <p>Active execution presence with a team founded in 2025 specifically for high-speed results.</p>
-          </div>
         </div>
       </section>
 
-      {/* 7. Bottom CTA */}
-      <section className="section-padding cta-section">
+      {/* ========================================================
+          7. BOTTOM CTA SECTION (DARK BACKGROUND)
+          ======================================================== */}
+      <section id="cta" className="section-padding cta-section">
         <div className="cta-box">
           <h2>Ready to sell your project faster and grow your business?</h2>
           <p>Let's talk about how ATA Infratech can support your next project.</p>
@@ -298,6 +361,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
     </div>
   );
 }

@@ -57,13 +57,13 @@
 
 /* Process List */
 .process-section {
-  background: #0d0d0d !important;
+  background: #ffffff !important;
   border-top: 1px solid rgba(200, 162, 44, 0.15);
 }
 
 .process-section .section-header h2,
 .process-section h2 {
-  color: #ffffff !important;
+  color: #0c0c0c !important;
   font-size: clamp(30px, 3.5vw, 44px);
   font-weight: 700;
 }
