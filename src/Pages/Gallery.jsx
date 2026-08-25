@@ -12,14 +12,36 @@ import {
 import "./Gallery.css";
 
 import galleryBanner from "../assets/Projects.png";
-import project1 from "../assets/project1.jpg";
-import project2 from "../assets/project2.jpg";
-import project3 from "../assets/project3.jpg";
-import project4 from "../assets/project4.jpg";
-import val1 from "../assets/val-integrity1.jpg";
-import val2 from "../assets/val-integrity2.jpg";
-import insight1 from "../assets/insight1.jpg";
-import insight2 from "../assets/insight2.jpg";
+
+// Project 1: Anant City
+import anant1 from "../assets/AnantCity.jpg";
+import anant2 from "../assets/AnantCity2.jpg"; // Placeholder
+import anant3 from "../assets/Anant3.jpg"; // Placeholder
+
+// Project 2: Garden Ganj
+import garden1 from "../assets/Gardenganj1.webp";
+import garden2 from "../assets/gardenganj2.webp"; // Placeholder
+import garden3 from "../assets/Gardenganj1.webp"; // Placeholder
+
+// Project 3: Vayu Villa
+import villa1 from "../assets/Vayuvilla1.png";
+import villa2 from "../assets/vayu3.jpg"; // Placeholder
+import villa3 from "../assets/Vayuvilla1.png"; // Placeholder
+
+// Project 4: Vayu Green
+import vgreen1 from "../assets/Vayugreen.png";
+import vgreen2 from "../assets/vayugreen2.jpg"; // Placeholder
+import vgreen3 from "../assets/vayugreen3.jpg"; // Placeholder
+
+// Project 5: Green Valley
+import gvalley1 from "../assets/Greenvally.png";
+import gvalley2 from "../assets/Greenvally2.jpg"; // Placeholder
+import gvalley3 from "../assets/greenvally3.jpg"; // Placeholder
+
+// Project 6: Vayu Mantra
+import vmantra1 from "../assets/Vayumantra.png";
+import vmantra2 from "../assets/vayumantra2.jpg"; // Placeholder
+import vmantra3 from "../assets/Vayumantra.png"; // Placeholder
 
 const projectGalleries = [
   {
@@ -28,11 +50,11 @@ const projectGalleries = [
     builder: "Anantjit Infra Developers Pvt. Ltd.",
     loc: "Gorakhpur",
     status: "Active",
-    coverImg: project1,
+    coverImg: anant1,
     images: [
-      { src: project1, caption: "Master Layout & Main Entrance Gate" },
-      { src: val1, caption: "Internal Arterial Roads & Green Boundary" },
-      { src: insight1, caption: "Plotted Sector Phase-1 Progress" }
+      { src: anant1, caption: "Master Layout & Main Entrance Gate" },
+      { src: anant2, caption: "Internal Arterial Roads & Green Boundary" },
+      { src: anant3, caption: "Plotted Sector Phase-1 Progress" }
     ]
   },
   {
@@ -41,11 +63,11 @@ const projectGalleries = [
     builder: "Garden Square Ventures Pvt. Ltd.",
     loc: "Lucknow",
     status: "Active",
-    coverImg: project2,
+    coverImg: garden1,
     images: [
-      { src: project2, caption: "Commercial Boulevard & Retail Frontage" },
-      { src: project4, caption: "Plotted Business Enclave Layout" },
-      { src: val2, caption: "Parking Infrastructure & Walkway Corridors" }
+      { src: garden1, caption: "Commercial Boulevard & Retail Frontage" },
+      { src: garden2, caption: "Plotted Business Enclave Layout" },
+      { src: garden3, caption: "Parking Infrastructure & Walkway Corridors" }
     ]
   },
   {
@@ -54,11 +76,11 @@ const projectGalleries = [
     builder: "Buildup Property Pvt. Ltd.",
     loc: "Pune",
     status: "Sold Out",
-    coverImg: project3,
+    coverImg: villa1,
     images: [
-      { src: project3, caption: "Luxury Villa Facade & Elevation" },
-      { src: insight2, caption: "Private Clubhouse & Landscaped Avenues" },
-      { src: val1, caption: "Completed & Handed-Over Enclave Units" }
+      { src: villa1, caption: "Luxury Villa Facade & Elevation" },
+      { src: villa2, caption: "Private Clubhouse & Landscaped Avenues" },
+      { src: villa3, caption: "Completed & Handed-Over Enclave Units" }
     ]
   },
   {
@@ -67,11 +89,11 @@ const projectGalleries = [
     builder: "Buildup Property Pvt. Ltd.",
     loc: "Pune",
     status: "Active",
-    coverImg: project4,
+    coverImg: vgreen1,
     images: [
-      { src: project4, caption: "Township Masterplan View" },
-      { src: project1, caption: "Boulevard Plantation & Streetlights" },
-      { src: insight1, caption: "Residential Zone Site Development" }
+      { src: vgreen1, caption: "Township Masterplan View" },
+      { src: vgreen2, caption: "Boulevard Plantation & Streetlights" },
+      { src: vgreen3, caption: "Residential Zone Site Development" }
     ]
   },
   {
@@ -80,11 +102,11 @@ const projectGalleries = [
     builder: "Buildup Property Pvt. Ltd.",
     loc: "Pune",
     status: "Active",
-    coverImg: val1,
+    coverImg: gvalley1,
     images: [
-      { src: val1, caption: "Eco-Township Central Park & Lakefront" },
-      { src: project3, caption: "Premium Sector Road Layouts" },
-      { src: val2, caption: "Community Amenities Zone" }
+      { src: gvalley1, caption: "Eco-Township Central Park & Lakefront" },
+      { src: gvalley2, caption: "Premium Sector Road Layouts" },
+      { src: gvalley3, caption: "Community Amenities Zone" }
     ]
   },
   {
@@ -93,11 +115,11 @@ const projectGalleries = [
     builder: "Buildup Property Pvt. Ltd.",
     loc: "Pune",
     status: "Pre-Launch",
-    coverImg: val2,
+    coverImg: vmantra1,
     images: [
-      { src: val2, caption: "Architectural 3D Concept Model" },
-      { src: project2, caption: "Gated Security Entrance Arch" },
-      { src: insight2, caption: "Clubhouse & Leisure Deck Planning" }
+      { src: vmantra1, caption: "Architectural 3D Concept Model" },
+      { src: vmantra2, caption: "Gated Security Entrance Arch" },
+      { src: vmantra3, caption: "Clubhouse & Leisure Deck Planning" }
     ]
   }
 ];

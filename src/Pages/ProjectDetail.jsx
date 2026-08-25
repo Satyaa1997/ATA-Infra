@@ -1,19 +1,16 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
   ArrowLeft, 
   CheckCircle2, 
   MapPin, 
-  Building2, 
-  ShieldCheck, 
-  ArrowRight, 
-  Coins, 
+  Building2,  
+  ArrowRight,  
   Layers, 
   TrendingUp, 
   Sparkles,
   Calendar,
-  Compass,
   Images
 } from "lucide-react";
 import "./ProjectDetail.css";

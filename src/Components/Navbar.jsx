@@ -15,7 +15,6 @@ import {
   Building2,
   Coins,
   TrendingUp,
-  MapPin
 } from "lucide-react";
 import "./Navbar.css";
 import logo from "../assets/ATA4.png";
@@ -94,7 +93,6 @@ export default function Navbar() {
             {activeDropdown === "about" && (
               <div className="dropdown-menu">
                 <NavLink to="/about">Who We Are</NavLink>
-                <NavLink to="/our-team">Our Team</NavLink>
                 <NavLink to="/why-ata">Why Choose Us</NavLink>
               </div>
             )}

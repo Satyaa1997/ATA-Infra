@@ -14,13 +14,17 @@
 }
 
 .footer-brand img {
-  height: 80px;
+  height: 115px;                  /* 80px se badha kar 115px */
   width: auto;
-  max-width: 220px;
+  max-width: 280px;               /* 220px se badha kar 280px */
   object-fit: contain;
   display: block;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8));
+  margin-bottom: 22px;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.9));
+  transition: transform 0.3s ease;
+}
+.footer-brand img:hover {
+  transform: scale(1.04);
 }
 
 .footer-tagline {
@@ -94,6 +98,11 @@
 @media (max-width: 768px) {
   .footer-section {
     padding: 60px 20px 30px;
+  }
+  .footer-brand img {
+    height: 100px !important;
+    max-width: 240px !important;
+    margin-bottom: 18px;
   }
   
   .footer-top {

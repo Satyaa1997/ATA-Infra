@@ -9,7 +9,6 @@ import Advisory from "./Pages/Advisory";
 import Projects from "./Pages/Projects";
 import ProjectDetail from "./Pages/ProjectDetail";
 import Contact from "./Pages/Contact";
-import OurTeam from "./Pages/OurTeam";
 
 // 3 Pillars & Dedicated Pages
 import Devlopment from "./Pages/Devlopment.jsx"; // .jsx explicitly added for Vite resolution
@@ -35,7 +34,7 @@ export default function App() {
         {/* Core Routes */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/our-team" element={<OurTeam />} />
+        
         
         {/* 1. Aggregate Pillar Routes */}
         <Route path="/development" element={<Devlopment />} />
@@ -62,7 +61,7 @@ export default function App() {
         <Route path="/blog" element={<Blog />} />
 
         {/* Company & Support */}
-        <Route path="/ourteam" element={<OurTeam />} />
+      
         <Route path="/why-ata" element={<WhyATA />} />
         <Route path="/why-choose-us" element={<WhyATA />} />
       

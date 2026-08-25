@@ -1,19 +1,20 @@
 .about-page {
   background-color: #FAFAFA;
-  color: #222222;
+  color: #121212;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
 }
 
 .section-padding {
-  padding: 80px 24px;
-  max-width: 1200px;
+  padding: 90px 7%;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
-/* Section Tags */
+/* --- Section Tags & Typography --- */
 .section-tag {
   display: inline-block;
-  color: #C8A22C !important;
+  color: var(--gold, #C8A22C) !important;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -21,38 +22,53 @@
   margin-bottom: 12px;
 }
 
-/* Headings Visibility & Styling */
-.about-page h2,
-.about-grid h2,
-.section-header-center h2,
-#why-ata h2 {
-  color: #111111 !important;
-  font-size: clamp(30px, 3.5vw, 44px);
-  font-weight: 700;
-  line-height: 1.25;
-  margin-bottom: 16px;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
 .section-header-center {
   text-align: center;
-  max-width: 750px;
-  margin: 0 auto 50px auto;
+  max-width: 780px;
+  margin: 0 auto 55px auto;
 }
 
-/* Story Section */
-.about-grid {
+.section-header-center h2 {
+  color: #111111 !important;
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 14px 0;
+  font-family: 'Playfair Display', serif, Georgia;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: #666666;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* --- 1. Story Visual Composition Section --- */
+.story-section {
+  background-color: #ffffff;
+}
+
+.story-layout-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 50px;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 70px;
   align-items: center;
+}
+
+.story-text-wrap h2 {
+  font-size: clamp(30px, 3.8vw, 44px);
+  color: #111111;
+  font-weight: 800;
+  line-height: 1.22;
+  margin: 8px 0 20px 0;
+  font-family: 'Playfair Display', serif, Georgia;
 }
 
 .lead-text {
   font-size: 18px;
-  line-height: 1.7;
-  color: #222222;
+  line-height: 1.75;
+  color: #1a1a1a;
   margin-bottom: 16px;
 }
 
@@ -60,157 +76,480 @@
   font-size: 15px;
   line-height: 1.8;
   color: #555555;
-}
-
-/* Mission & Vision */
-.mission-vision-section {
-  background: #F4F1EA;
-  border-radius: 12px;
-}
-
-.mv-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.mv-card {
-  padding: 40px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 8px;
-}
-
-.mv-card h3 {
-  font-size: 22px;
-  color: #111111;
-  margin: 10px 0 12px;
-  font-weight: 700;
-}
-
-.mv-card p {
-  color: #555555;
-  line-height: 1.7;
-  font-size: 15px;
-}
-
-/* Pillars Section */
-.pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.pillar-card {
-  background: #ffffff;
-  padding: 36px 28px;
-  border-radius: 8px;
-  border: 1px solid #E5E5E5;
-  border-top: 4px solid #C8A22C;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  transition: transform 0.3s ease;
-}
-
-.pillar-card:hover {
-  transform: translateY(-5px);
-}
-
-.pillar-icon {
-  margin-bottom: 20px;
-}
-
-.pillar-card h3 {
-  font-size: 22px;
-  color: #111111;
-  margin-bottom: 14px;
-}
-
-.pillar-card p {
-  font-size: 14.5px;
-  color: #555555;
-  line-height: 1.7;
-}
-
-/* Why Partner Grid */
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.why-card {
-  padding: 30px;
-  background: #ffffff;
-  border: 1px solid #EAEAEA;
-  border-radius: 8px;
-}
-
-.why-card .why-icon {
-  margin-bottom: 14px;
-}
-
-.why-card h3 {
-  font-size: 19px;
-  color: #111111;
-  margin-bottom: 10px;
-}
-
-.why-card p {
-  font-size: 14px;
-  color: #666666;
-  line-height: 1.65;
-}
-
-/* CTA Box */
-.about-cta-box {
-  margin-top: 60px;
-  background: #111111;
-  color: #ffffff;
-  padding: 48px 32px;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.about-cta-box h3 {
-  font-size: 26px;
-  margin-bottom: 10px;
-  color: #ffffff !important;
-}
-
-.about-cta-box p {
-  color: #BBBBBB;
   margin-bottom: 24px;
 }
 
-.cta-btn {
+.story-highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sh-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #222222;
+}
+
+/* Floating Image Composition */
+.story-visual-wrap {
+  position: relative;
+  min-height: 440px;
+  overflow: visible !important; /* Image ko cut hone se rokega */
+}
+
+.main-img-card {
+  width: 90%;
+  height: 420px;
+  background-size: 100% 100%;             /* Image pure box ke dimensions par 100% fit hogi */
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 14px;
+  position: relative;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  z-index: 1;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card-glass-badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: rgba(18, 18, 18, 0.88);
+  border: 1px solid var(--gold, #C8A22C);
+  backdrop-filter: blur(10px);
+  padding: 12px 18px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.card-glass-badge strong {
+  display: block;
+  font-size: 13px;
+  color: var(--gold, #C8A22C);
+}
+
+.card-glass-badge span {
+  font-size: 11px;
+  color: #cccccc;
+}
+
+.secondary-floating-card {
+  position: absolute;
+  bottom: -25px;
+  right: -10px;
+  width: 220px;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  border: 4px solid #ffffff;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25), 0 0 25px rgba(200, 162, 44, 0.25);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  z-index: 10 !important; /* Isse image sabhi layers aur overlays ke upar aa jayegi */
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.secondary-floating-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(200, 162, 44, 0.4);
+}
+
+.floating-badge-inner {
+  width: 100%;
+  background: rgba(18, 18, 18, 0.94);
+  backdrop-filter: blur(8px);
+  padding: 14px 16px;
+  text-align: center;
+  border-top: 1.5px solid var(--gold, #C8A22C);
+  z-index: 11;
+}
+
+.count-gold {
+  display: block;
+  font-family: 'Playfair Display', serif, Georgia;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--gold, #C8A22C);
+  line-height: 1;
+}
+
+.floating-badge-inner span:last-child {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #e0e0e0;
+  font-weight: 600;
+}
+
+/* --- 2. Mission & Vision Dual Section --- */
+.mv-interactive-section {
+  background-color: #F4F1EA;
+}
+
+.mv-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.mv-interactive-card {
+  background: #ffffff;
+  padding: 44px 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+.mv-interactive-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0%;
+  background: var(--gold, #C8A22C);
+  transition: height 0.35s ease;
+}
+
+.mv-interactive-card:hover {
+  border-color: var(--gold, #C8A22C);
+  box-shadow: 0 14px 35px rgba(200, 162, 44, 0.15);
+}
+
+.mv-interactive-card:hover::before {
+  height: 100%;
+}
+
+.mv-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mv-icon-box {
+  width: 54px;
+  height: 54px;
+  background: #faf8f2;
+  border: 1px solid rgba(200, 162, 44, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mv-tag {
+  color: var(--gold, #C8A22C);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.mv-interactive-card h3 {
+  font-size: 24px;
+  color: #111111;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+}
+
+.mv-interactive-card p {
+  color: #555555;
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* --- 3. Pillars Modern Cards --- */
+.pillars-section {
+  background-color: #ffffff;
+}
+
+.pillars-animated-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.pillar-modern-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 40px 30px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.pillar-modern-card:hover {
+  border-color: var(--gold, #C8A22C);
+  box-shadow: 0 16px 40px rgba(200, 162, 44, 0.16);
+}
+
+.pillar-watermark {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-family: 'Playfair Display', serif, Georgia;
+  font-size: 64px;
+  font-weight: 900;
+  color: rgba(200, 162, 44, 0.08);
+  pointer-events: none;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.pillar-modern-card:hover .pillar-watermark {
+  color: rgba(200, 162, 44, 0.18);
+}
+
+.pillar-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.pillar-icon-wrap {
+  width: 58px;
+  height: 58px;
+  background: #faf8f2;
+  border: 1px solid rgba(200, 162, 44, 0.25);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s ease;
+}
+
+.pillar-modern-card:hover .pillar-icon-wrap {
+  background: var(--gold, #C8A22C);
+  border-color: var(--gold, #C8A22C);
+  transform: rotate(6deg) scale(1.05);
+}
+
+.pillar-modern-card:hover .pillar-icon-wrap svg {
+  color: #111111 !important;
+}
+
+.pillar-tag-badge {
+  font-size: 11px;
+  color: var(--gold, #C8A22C);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 4px 10px;
+  background: #faf8f2;
+  border-radius: 4px;
+}
+
+.pillar-modern-card h3 {
+  font-size: 24px;
+  color: #111111;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+}
+
+.pillar-modern-card p {
+  color: #555555;
+  font-size: 14.5px;
+  line-height: 1.75;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.pillar-arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold, #C8A22C);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: gap 0.25s ease;
+  margin-top: auto;
+}
+
+.pillar-arrow-link:hover {
+  gap: 10px;
+}
+
+/* --- 4. The ATA Advantage Grid --- */
+.why-choose-section {
+  background-color: #FAFAFA;
+}
+
+.why-interactive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.why-modern-card {
+  background: #ffffff;
+  padding: 34px 26px;
+  border-radius: 8px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+  transition: all 0.35s ease;
+}
+
+.why-modern-card:hover {
+  border-color: var(--gold, #C8A22C);
+  box-shadow: 0 12px 30px rgba(200, 162, 44, 0.12);
+}
+
+.why-icon-circle {
+  width: 48px;
+  height: 48px;
+  background: #faf8f2;
+  border: 1px solid rgba(200, 162, 44, 0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.why-modern-card h3 {
+  font-size: 19px;
+  color: #111111;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+.why-modern-card p {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* --- 5. High-Impact Animated CTA --- */
+.about-cta-banner {
+  position: relative;
+  margin-top: 70px;
+  background: #0f0f0f;
+  padding: 60px 40px;
+  border-radius: 12px;
+  text-align: center;
+  overflow: hidden;
+  border: 1px solid rgba(200, 162, 44, 0.3);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.2);
+}
+
+.cta-glow {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(200, 162, 44, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-content-wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.cta-badge {
+  display: inline-block;
+  color: var(--gold, #C8A22C);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.about-cta-banner h3 {
+  font-size: clamp(26px, 3.6vw, 38px);
+  color: #ffffff !important;
+  margin: 0 0 14px 0;
+  font-family: 'Playfair Display', serif, Georgia;
+}
+
+.about-cta-banner p {
+  color: #b5b5b5;
+  font-size: 16px;
+  line-height: 1.65;
+  margin-bottom: 30px;
+}
+
+.cta-gold-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #C8A22C;
+  background: var(--gold, #C8A22C);
   color: #111111;
-  padding: 12px 28px;
-  border-radius: 6px;
-  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.cta-btn:hover {
+.cta-gold-btn:hover {
   background: #deb83b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(200, 162, 44, 0.4);
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-  .pillars-grid, .why-grid {
+/* --- Responsive Breakpoints --- */
+@media (max-width: 1024px) {
+  .story-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .story-visual-wrap {
+    min-height: 360px;
+  }
+  .pillars-animated-grid,
+  .why-interactive-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .about-grid, .mv-grid, .pillars-grid, .why-grid {
+  .section-padding {
+    padding: 60px 5%;
+  }
+  .mv-cards-grid,
+  .pillars-animated-grid,
+  .why-interactive-grid {
     grid-template-columns: 1fr;
   }
-  .section-padding {
-    padding: 50px 20px;
+  .main-img-card {
+    width: 100%;
+    height: 300px;
+  }
+  .secondary-floating-card {
+    display: none;
+  }
+  .about-cta-banner {
+    padding: 40px 20px;
   }
 }
