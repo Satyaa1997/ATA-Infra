@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
-
 import {
   FaFacebook,
   FaInstagram,
@@ -12,7 +11,11 @@ import {
   Mail,
   ChevronDown,
   Menu,
-  X
+  X,
+  Building2,
+  Coins,
+  TrendingUp,
+  MapPin
 } from "lucide-react";
 import "./Navbar.css";
 import logo from "../assets/ATA4.png";
@@ -35,16 +38,16 @@ export default function Navbar() {
 
   return (
     <header className="navbar-wrapper">
-      {/* 1. Top Black Strip (Contact Info & Social Links) */}
+      {/* 1. Top Black Strip */}
       <div className="navbar-topbar">
         <div className="topbar-container">
           <div className="topbar-left">
             <a href="tel:+91XXXXXXXXXX" className="topbar-item">
-              <Phone size={13} color="#C8A22C" /> <span>+91 (XXX) XXX-XXXX</span>
+              <Phone size={13} color="#C8A22C" /> <span>+91 XXXXXXXXXX</span>
             </a>
             <span className="topbar-divider">|</span>
-            <a href="mailto:enquiry@atainfratech.com" className="topbar-item">
-              <Mail size={13} color="#C8A22C" /> <span>enquiry@atainfratech.com</span>
+            <a href="mailto:contact@atainfra.com" className="topbar-item">
+              <Mail size={13} color="#C8A22C" /> <span>contact@atainfra.com</span>
             </a>
           </div>
 
@@ -56,7 +59,6 @@ export default function Navbar() {
               </a>
               <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
                 <FaFacebook size={13}/>
-
               </a>
               <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
                 <FaInstagram size={13}/>
@@ -91,71 +93,46 @@ export default function Navbar() {
             </span>
             {activeDropdown === "about" && (
               <div className="dropdown-menu">
-                <NavLink to="/about">Our Story & Approach</NavLink>
-                <NavLink to="/leadership">Leadership</NavLink>
-                <NavLink to="/why-ata">Why ATA Infratech</NavLink>
+                <NavLink to="/about">Who We Are</NavLink>
+                <NavLink to="/our-team">Our Team</NavLink>
+                <NavLink to="/why-ata">Why Choose Us</NavLink>
               </div>
             )}
           </div>
 
-          {/* What We Do Dropdown */}
+          {/* 3 Core Services Dropdown */}
           <div 
             className="nav-item dropdown-trigger"
             onMouseEnter={() => setActiveDropdown("services")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
             <span className="dropdown-label">
-              What We Do <ChevronDown size={14} />
+              Services <ChevronDown size={14} />
             </span>
             {activeDropdown === "services" && (
               <div className="dropdown-menu">
-                <NavLink to="/development">Development</NavLink>
-                <NavLink to="/investment">Investment</NavLink>
-                <NavLink to="/advisory">Advisory</NavLink>
-                <NavLink to="/land-asset-strategy">Land & Asset Strategy</NavLink>
+                <NavLink to="/development" className="service-nav-link">
+                  <Building2 size={15} color="#C8A22C" /> Aggregate (Sales)
+                </NavLink>
+                <NavLink to="/investment-opportunities" className="service-nav-link">
+                  <Coins size={15} color="#C8A22C" /> Invest (Capital)
+                </NavLink>
+                <NavLink to="/advisory" className="service-nav-link">
+                  <TrendingUp size={15} color="#C8A22C" /> Advise (Consulting)
+                </NavLink>
               </div>
             )}
           </div>
 
-          {/* Projects Dropdown */}
-          <div 
-            className="nav-item dropdown-trigger"
-            onMouseEnter={() => setActiveDropdown("projects")}
-            onMouseLeave={() => setActiveDropdown(null)}
-          >
-            <span className="dropdown-label">
-              Projects <ChevronDown size={14} />
-            </span>
-            {activeDropdown === "projects" && (
-              <div className="dropdown-menu">
-                <NavLink to="/projects">All Projects</NavLink>
-                <NavLink to="/projects?filter=ongoing">Ongoing Projects</NavLink>
-                <NavLink to="/projects?filter=completed">Completed Projects</NavLink>
-              </div>
-            )}
-          </div>
-
-          {/* Investment Dropdown */}
-          <div 
-            className="nav-item dropdown-trigger"
-            onMouseEnter={() => setActiveDropdown("investment")}
-            onMouseLeave={() => setActiveDropdown(null)}
-          >
-            <span className="dropdown-label">
-              Investment <ChevronDown size={14} />
-            </span>
-            {activeDropdown === "investment" && (
-              <div className="dropdown-menu">
-                <NavLink to="/investment-opportunities">Investment Opportunities</NavLink>
-                <NavLink to="/investment">Investment Philosophy</NavLink>
-              </div>
-            )}
-          </div>
+          <NavLink to="/projects" className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}>
+            Projects
+          </NavLink>
 
           <NavLink to="/blog" className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}>
             Blog
           </NavLink>
 
+          {/* Gallery Link Added Next to Blog */}
           <NavLink to="/gallery" className={({ isActive }) => (isActive ? "nav-item active" : "nav-item")}>
             Gallery
           </NavLink>
@@ -166,7 +143,7 @@ export default function Navbar() {
         </nav>
 
         <div className="navbar-action">
-          <Link to="/contact" className="cta-button desktop-cta">Contact Us</Link>
+          <Link to="/contact" className="cta-button desktop-cta">Talk to Our Team</Link>
           <button className="mobile-toggle" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle Menu">
             {mobileOpen ? <X size={26} color="#121212" /> : <Menu size={26} color="#121212" />}
           </button>
@@ -184,59 +161,41 @@ export default function Navbar() {
           </div>
           {mobileExpanded === "about" && (
             <div className="mobile-submenu">
-              <NavLink to="/about">Our Story & Approach</NavLink>
-              <NavLink to="/leadership">Leadership</NavLink>
-              <NavLink to="/why-ata">Why ATA Infratech</NavLink>
+              <NavLink to="/about">Who We Are</NavLink>
+              <NavLink to="/our-team">Our Team</NavLink>
+              <NavLink to="/why-ata">Why Choose Us</NavLink>
             </div>
           )}
         </div>
 
         <div className="mobile-accordion">
           <div className="mobile-accordion-header" onClick={() => toggleMobileSubmenu("services")}>
-            <span>What We Do</span>
+            <span>Services</span>
             <ChevronDown size={16} className={mobileExpanded === "services" ? "rotate" : ""} />
           </div>
           {mobileExpanded === "services" && (
             <div className="mobile-submenu">
-              <NavLink to="/development">Development</NavLink>
-              <NavLink to="/investment">Investment</NavLink>
-              <NavLink to="/advisory">Advisory</NavLink>
-              <NavLink to="/land-asset-strategy">Land & Asset Strategy</NavLink>
+              <NavLink to="/development">
+                <Building2 size={15} color="#C8A22C" style={{ display: "inline", verticalAlign: "middle", marginRight: 8 }} />
+                Aggregate (Sales Execution)
+              </NavLink>
+              <NavLink to="/investment-opportunities">
+                <Coins size={15} color="#C8A22C" style={{ display: "inline", verticalAlign: "middle", marginRight: 8 }} />
+                Invest (Capital & Funding)
+              </NavLink>
+              <NavLink to="/advisory">
+                <TrendingUp size={15} color="#C8A22C" style={{ display: "inline", verticalAlign: "middle", marginRight: 8 }} />
+                Advise (Growth Consulting)
+              </NavLink>
             </div>
           )}
         </div>
 
-        <div className="mobile-accordion">
-          <div className="mobile-accordion-header" onClick={() => toggleMobileSubmenu("projects")}>
-            <span>Projects</span>
-            <ChevronDown size={16} className={mobileExpanded === "projects" ? "rotate" : ""} />
-          </div>
-          {mobileExpanded === "projects" && (
-            <div className="mobile-submenu">
-              <NavLink to="/projects">All Projects</NavLink>
-              <NavLink to="/projects?filter=ongoing">Ongoing Projects</NavLink>
-              <NavLink to="/projects?filter=completed">Completed Projects</NavLink>
-            </div>
-          )}
-        </div>
-
-        <div className="mobile-accordion">
-          <div className="mobile-accordion-header" onClick={() => toggleMobileSubmenu("investment")}>
-            <span>Investment</span>
-            <ChevronDown size={16} className={mobileExpanded === "investment" ? "rotate" : ""} />
-          </div>
-          {mobileExpanded === "investment" && (
-            <div className="mobile-submenu">
-              <NavLink to="/investment-opportunities">Investment Opportunities</NavLink>
-              <NavLink to="/investment">Investment Philosophy</NavLink>
-            </div>
-          )}
-        </div>
-
+        <NavLink to="/projects">Projects</NavLink>
         <NavLink to="/blog">Blog</NavLink>
         <NavLink to="/gallery">Gallery</NavLink>
         <NavLink to="/contact">Contact</NavLink>
-        <Link to="/contact" className="cta-button mobile-cta">Contact Us</Link>
+        <Link to="/contact" className="cta-button mobile-cta">Talk to Our Team</Link>
       </div>
     </header>
   );

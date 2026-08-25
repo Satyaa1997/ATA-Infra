@@ -1,57 +1,80 @@
 .adv-page {
-  background-color: var(--primary, #050505);
+  background-color: #0d0d0d;
   min-height: 100vh;
   color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 .adv-page .section-header h2 {
   color: #ffffff !important;
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 700;
+  margin-top: 8px;
 }
 
 .adv-page .section-header p,
 .adv-page .section-subtitle {
-  color: #d1d5db !important;
+  color: #b5b5b5 !important;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .adv-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
+  gap: 28px;
   margin-top: 40px;
 }
 
 .adv-card {
-  background: #111111;
+  background: #141414;
   border: 1px solid rgba(200, 162, 44, 0.2);
-  padding: 40px 32px;
-  border-radius: 4px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  padding: 38px 30px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.adv-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0%;
+  background: var(--gold, #C8A22C);
+  transition: height 0.35s ease;
 }
 
 .adv-card:hover {
   transform: translateY(-6px);
   border-color: var(--gold, #C8A22C);
+  background: #181818;
+  box-shadow: 0 12px 30px rgba(200, 162, 44, 0.12);
+}
+
+.adv-card:hover::before {
+  height: 100%;
 }
 
 .adv-card h3 {
-  font-size: 22px;
+  font-size: 21px;
   color: var(--gold, #C8A22C);
   margin-bottom: 12px;
+  font-weight: 700;
 }
 
 .adv-card p {
-  color: #a3a3a3;
-  font-size: 14px;
-  line-height: 1.8;
+  color: #a8a8a8;
+  font-size: 14.5px;
+  line-height: 1.75;
 }
 
+/* Client Types Segment */
 .clients-section {
-  background: #0d0d0d;
+  background: #080808;
   border-top: 1px solid rgba(200, 162, 44, 0.15);
-}
-
-.clients-section h2 {
-  color: #ffffff !important;
 }
 
 .client-types {
@@ -64,12 +87,22 @@
 
 .client-types span {
   padding: 14px 28px;
-  background: #111111;
+  background: #141414;
   border: 1px solid rgba(200, 162, 44, 0.3);
   color: #ffffff;
   font-size: 14px;
-  letter-spacing: 1px;
-  border-radius: 3px;
+  letter-spacing: 0.5px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.client-types span:hover {
+  background: var(--gold, #C8A22C);
+  color: #111111;
+  border-color: var(--gold, #C8A22C);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(200, 162, 44, 0.3);
 }
 
 @media(max-width: 768px) {

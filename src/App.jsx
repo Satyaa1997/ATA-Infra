@@ -1,26 +1,28 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 
 // Core Pages
 import Home from "./Pages/Home";
 import About from "./Pages/About";
-import Investment from "./Pages/Investment";
 import Advisory from "./Pages/Advisory";
 import Projects from "./Pages/Projects";
 import ProjectDetail from "./Pages/ProjectDetail";
 import Contact from "./Pages/Contact";
+import OurTeam from "./Pages/OurTeam";
 
-// Dedicated Dropdown Pages
-import Leadership from "./Pages/Leadership";
+// 3 Pillars & Dedicated Pages
+import Devlopment from "./Pages/Devlopment.jsx"; // .jsx explicitly added for Vite resolution
+import InvestmentOpportunities from "./Pages/InvestmentOpportunities"; 
+
 import WhyATA from "./Pages/WhyATA";
-import LandAssetStrategy from "./Pages/LandAssetStrategy";
-import InvestmentOpportunities from "./Pages/InvestmentOpportunities";
+
 import Gallery from "./Pages/Gallery";
 import Blog from "./Pages/Blog";
+
+
+// Utilities
 import ScrollToTop from "./Pages/ScrollToTop";
-import Devlopment from "./Pages/Devlopment";
-import Careers from "./Pages/Careers";
 import WhatsAppButton from "./Pages/WhatsAppButton";
 
 export default function App() {
@@ -33,28 +35,41 @@ export default function App() {
         {/* Core Routes */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/our-team" element={<OurTeam />} />
         
-        {/* Dono spellings support karne ke liye (development & devlopment) */}
+        {/* 1. Aggregate Pillar Routes */}
         <Route path="/development" element={<Devlopment />} />
         <Route path="/devlopment" element={<Devlopment />} />
-        
-        <Route path="/investment" element={<Investment />} />
+        <Route path="/aggregate" element={<Navigate to="/development" replace />} />
+        <Route path="/services" element={<Devlopment />} />
+
+        {/* 2. Invest Pillar Routes */}
+        <Route path="/investment-opportunities" element={<InvestmentOpportunities />} />
+        <Route path="/investment" element={<InvestmentOpportunities />} />
+        <Route path="/invest" element={<Navigate to="/investment-opportunities" replace />} />
+
+        {/* 3. Advise Pillar Routes */}
         <Route path="/advisory" element={<Advisory />} />
+        <Route path="/advise" element={<Navigate to="/advisory" replace />} />
+        
+
+        {/* Projects & Portfolio */}
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:id" element={<ProjectDetail />} />
-        <Route path="/blog" element={<Blog />} />
+
+        {/* Visual & Insights */}
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/blog" element={<Blog />} />
+
+        {/* Company & Support */}
+        <Route path="/ourteam" element={<OurTeam />} />
+        <Route path="/why-ata" element={<WhyATA />} />
+        <Route path="/why-choose-us" element={<WhyATA />} />
+      
         <Route path="/contact" element={<Contact />} />
 
-        {/* Careers Routes (Fixed: ab /careers aur /career dono par page open hoga) */}
-        <Route path="/careers" element={<Careers />} />
-        <Route path="/career" element={<Careers />} />
-
-        {/* Dropdown Dedicated Routes */}
-        <Route path="/leadership" element={<Leadership />} />
-        <Route path="/why-ata" element={<WhyATA />} />
-        <Route path="/land-asset-strategy" element={<LandAssetStrategy />} />
-        <Route path="/investment-opportunities" element={<InvestmentOpportunities />} />
+        {/* Fallback */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
     </>

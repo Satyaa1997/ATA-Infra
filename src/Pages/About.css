@@ -1,203 +1,216 @@
+.about-page {
+  background-color: #FAFAFA;
+  color: #222222;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.section-padding {
+  padding: 80px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section Tags */
+.section-tag {
+  display: inline-block;
+  color: #C8A22C !important;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* Headings Visibility & Styling */
+.about-page h2,
+.about-grid h2,
+.section-header-center h2,
+#why-ata h2 {
+  color: #111111 !important;
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.section-header-center {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 50px auto;
+}
+
+/* Story Section */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 60px;
+  gap: 50px;
+  align-items: center;
 }
 
-/* 1. Main Headings: Black Color */
-.about-grid h2,
-.about-page h2 {
-  font-size: clamp(32px, 4vw, 50px);
-  line-height: 1.2;
-  color: #121212 !important;
-  font-weight: 700;
+.lead-text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #222222;
+  margin-bottom: 16px;
 }
 
+.sub-text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555555;
+}
+
+/* Mission & Vision */
 .mission-vision-section {
-  background: #F2EFE9;
+  background: #F4F1EA;
+  border-radius: 12px;
 }
 
 .mv-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 30px;
 }
 
 .mv-card {
-  padding: 48px;
+  padding: 40px;
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 4px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
 }
 
 .mv-card h3 {
-  font-size: 26px;
-  color: #121212;
-  margin: 20px 0 12px;
+  font-size: 22px;
+  color: #111111;
+  margin: 10px 0 12px;
+  font-weight: 700;
 }
 
 .mv-card p {
   color: #555555;
-  line-height: 1.8;
+  line-height: 1.7;
   font-size: 15px;
 }
 
-/* Core Values Slider Styles */
-.values-slider-section {
-  position: relative;
-  background: #EAE6DF;
-  overflow: hidden;
-}
-
-.section-header-center {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-/* 2. Values & Advantage Headings: Black Color */
-.section-header-center h2 {
-  color: #121212 !important;
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 700;
-}
-
-.slider-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.slider-cards-container {
+/* Pillars Section */
+.pillars-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  width: 100%;
-  max-width: 1200px;
+  gap: 28px;
 }
 
-.val-slider-card {
+.pillar-card {
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 6px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-  transition: transform 0.4s ease, border-color 0.4s ease;
+  padding: 36px 28px;
+  border-radius: 8px;
+  border: 1px solid #E5E5E5;
+  border-top: 4px solid #C8A22C;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease;
 }
 
-.val-slider-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--gold, #C8A22C);
+.pillar-card:hover {
+  transform: translateY(-5px);
 }
 
-.val-card-img {
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-  background-color: #e5e5e5;
-  position: relative;
+.pillar-icon {
+  margin-bottom: 20px;
 }
 
-.val-img-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
-}
-
-.val-card-num {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: #ffffff;
-  background: rgba(18, 18, 18, 0.7);
-  padding: 2px 10px;
-  border-radius: 3px;
-  border: 1px solid var(--gold, #C8A22C);
-}
-
-.val-card-body {
-  padding: 30px 24px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.val-card-body h4 {
+.pillar-card h3 {
   font-size: 22px;
-  color: var(--gold, #C8A22C);
-  margin-bottom: 12px;
+  color: #111111;
+  margin-bottom: 14px;
 }
 
-.val-card-body p {
+.pillar-card p {
+  font-size: 14.5px;
   color: #555555;
-  font-size: 14px;
   line-height: 1.7;
 }
 
-.slider-btn {
+/* Why Partner Grid */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.why-card {
+  padding: 30px;
   background: #ffffff;
-  border: 1.5px solid var(--gold, #C8A22C);
-  color: var(--gold, #C8A22C);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  border: 1px solid #EAEAEA;
+  border-radius: 8px;
 }
 
-.slider-btn:hover {
-  background: var(--gold, #C8A22C);
+.why-card .why-icon {
+  margin-bottom: 14px;
+}
+
+.why-card h3 {
+  font-size: 19px;
+  color: #111111;
+  margin-bottom: 10px;
+}
+
+.why-card p {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.65;
+}
+
+/* CTA Box */
+.about-cta-box {
+  margin-top: 60px;
+  background: #111111;
   color: #ffffff;
-  transform: scale(1.1);
+  padding: 48px 32px;
+  border-radius: 12px;
+  text-align: center;
 }
 
-.prev-btn {
-  margin-right: 20px;
+.about-cta-box h3 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #ffffff !important;
 }
 
-.next-btn {
-  margin-left: 20px;
+.about-cta-box p {
+  color: #BBBBBB;
+  margin-bottom: 24px;
 }
 
-@media (max-width: 1024px) {
-  .slider-cards-container {
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #C8A22C;
+  color: #111111;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #deb83b;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .pillars-grid, .why-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .about-grid, .mv-grid {
+  .about-grid, .mv-grid, .pillars-grid, .why-grid {
     grid-template-columns: 1fr;
   }
-  .slider-wrapper {
-    justify-content: space-between;
-  }
-  .slider-cards-container {
-    grid-template-columns: 1fr;
-    margin: 0 10px;
-  }
-  .slider-btn {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-  }
-  .prev-btn {
-    margin-right: 8px;
-  }
-  .next-btn {
-    margin-left: 8px;
+  .section-padding {
+    padding: 50px 20px;
   }
 }

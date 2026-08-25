@@ -13,7 +13,7 @@
 .navbar-topbar {
   background: #0a0a0a;
   color: #cccccc;
-  height: 36px;
+  height: 38px;
   border-bottom: 1px solid rgba(200, 162, 44, 0.25);
   font-size: 12px;
   display: flex;
@@ -68,7 +68,7 @@
 .topbar-social-icons {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .topbar-social-icons a {
@@ -80,7 +80,7 @@
 
 .topbar-social-icons a:hover {
   color: var(--gold, #C8A22C);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 /* 2. Main Navbar Strip */
@@ -92,36 +92,33 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* Logo Sizing */
 .navbar-logo {
   text-decoration: none;
   display: flex;
   align-items: center;
   height: 100%;
-  cursor: pointer;
 }
 
 .navbar-logo img {
-  height: 72px;
-  width: 95;
+  height: 64px;
+  width: auto;
   max-width: 220px;
   object-fit: contain;
   display: block;
   transition: transform 0.3s ease;
-  cursor: pointer;
 }
 
 .navbar-logo img:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 /* Desktop Navigation */
 .desktop-nav {
   display: flex;
-  gap: 24px;
+  gap: 28px;
   align-items: center;
 }
 
@@ -129,11 +126,11 @@
   color: #1a1a1a;
   text-decoration: none;
   font-size: 13px;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
   font-weight: 600;
   position: relative;
-  padding: 10px 0;
+  padding: 12px 0;
   transition: color 0.25s ease;
   cursor: pointer;
   user-select: none;
@@ -161,14 +158,12 @@
 /* Dropdown Container */
 .dropdown-trigger {
   position: relative;
-  cursor: pointer;
 }
 
 .dropdown-label {
   display: flex;
   align-items: center;
   gap: 4px;
-  cursor: pointer;
 }
 
 .dropdown-menu {
@@ -177,34 +172,34 @@
   left: 0;
   background: #ffffff !important;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-top: 2px solid var(--gold, #C8A22C);
+  border-top: 3px solid var(--gold, #C8A22C);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  min-width: 220px;
+  min-width: 240px;
   display: flex;
   flex-direction: column;
   padding: 8px 0;
-  border-radius: 0 0 4px 4px;
-  animation: fadeIn 0.2s ease forwards;
+  border-radius: 0 0 6px 6px;
+  animation: navFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   z-index: 1050;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
+@keyframes navFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .dropdown-menu a {
-  padding: 10px 20px;
+  padding: 12px 20px;
   color: #333333;
-  background: transparent;
   text-decoration: none;
-  font-size: 12px;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
+  font-size: 12.5px;
+  letter-spacing: 0.5px;
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   white-space: nowrap;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .dropdown-menu a:hover {
@@ -215,29 +210,27 @@
 
 /* CTA Button */
 .cta-button {
-  padding: 10px 22px;
+  padding: 11px 24px;
   background: var(--gold, #C8A22C);
-  color: #121212 !important;
+  color: #111111 !important;
   border: 1px solid var(--gold, #C8A22C);
   text-decoration: none;
   font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 1.2px;
+  font-size: 12.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  border-radius: 3px;
+  border-radius: 4px;
   transition: all 0.3s ease;
   display: inline-block;
   white-space: nowrap;
-  cursor: pointer;
 }
 
 .cta-button:hover {
-  background: #b59021;
-  color: #ffffff !important;
-  box-shadow: 0 4px 15px rgba(200, 162, 44, 0.3);
+  background: #deb83b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 162, 44, 0.35);
 }
 
-/* Mobile Toggle */
 .mobile-toggle {
   display: none;
   background: none;
@@ -245,34 +238,28 @@
   cursor: pointer;
 }
 
-/* Mobile Drawer */
 .mobile-nav {
   display: none;
 }
 
-@media (max-width: 1150px) {
-  .topbar-label {
-    display: none;
-  }
-  .desktop-nav, .desktop-cta {
-    display: none;
-  }
-  .mobile-toggle {
-    display: block;
-  }
+/* Mobile Responsiveness */
+@media (max-width: 1080px) {
+  .topbar-label { display: none; }
+  .desktop-nav, .desktop-cta { display: none; }
+  .mobile-toggle { display: block; }
   .mobile-nav {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 111px;
+    top: 113px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 111px);
+    height: calc(100vh - 113px);
     background: #ffffff !important;
     padding: 24px 7% 50px;
     gap: 16px;
     transform: translateX(100%);
-    transition: transform 0.35s ease;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
     overflow-y: auto;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
@@ -282,26 +269,25 @@
     transform: translateX(0);
   }
   .mobile-nav > a {
-    color: #121212;
+    color: #111111;
     text-decoration: none;
     font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    cursor: pointer;
+    padding: 6px 0;
   }
   .mobile-accordion-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #121212;
+    color: #111111;
     font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
-    padding: 6px 0;
-    user-select: none;
+    padding: 8px 0;
   }
   .mobile-accordion-header .rotate {
     transform: rotate(180deg);
@@ -314,15 +300,12 @@
     gap: 12px;
     margin-top: 8px;
     border-left: 2px solid var(--gold, #C8A22C);
-    background: transparent;
   }
   .mobile-submenu a {
     color: #555555;
     text-decoration: none;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
+    font-size: 13.5px;
+    letter-spacing: 0.5px;
   }
   .mobile-submenu a:hover {
     color: var(--gold, #C8A22C);
@@ -330,12 +313,5 @@
   .mobile-cta {
     text-align: center;
     margin-top: 20px;
-    cursor: pointer;
-  }
-}
-
-@media (max-width: 600px) {
-  .topbar-divider, .topbar-item:nth-child(3) {
-    display: none;
   }
 }

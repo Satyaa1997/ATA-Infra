@@ -2,57 +2,83 @@ import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useInView } from "framer-motion";
 import { 
-  ArrowRight, ArrowUpRight, 
-  HardHat, ShieldCheck, Truck, Ruler, CheckCircle2, ChevronRight 
+  ArrowRight, 
+  Coins,  
+  CheckCircle2, 
+  ChevronRight, 
+  MapPin, 
+  Layers, 
+  Zap, 
+  ShieldCheck 
 } from "lucide-react";
 import { SplitReveal } from "../Components/Effects";
 import "./Home.css";
 
-// 8 Unique Images for Services & Projects
 import service1Img from "../assets/highway.jpg";
 import service2Img from "../assets/project2.jpg";
 import service3Img from "../assets/project3.jpg";
-
 
 import proj1Img from "../assets/project1.jpg";
 import proj2Img from "../assets/insight2.jpg";
 import proj3Img from "../assets/project4.jpg";
 
-
 import heroVideo from "../assets/ATAvedio.mp4";
 
-// 1. Core Services Cards (4 Unique Images)
-const infraServices = [
+// 3 Core Services Snapshot
+const coreServices = [
   {
     id: "01",
-    title: "Highway & Arterial Roadways",
-    desc: "End-to-end alignment surveying, earthwork compaction, asphalt laying, and high-load commercial corridors.",
+    title: "Aggregate",
+    tagline: "Complete Sales Execution",
+    desc: "We build your complete project sales system — blueprint, channel partners, marketing events, and a full sales pipeline to bring in buyers for plots, residential, and commercial units.",
     img: service1Img,
-    link: "/development"
+    link: "/services"
   },
   {
     id: "02",
-    title: "Industrial & Gated Plotted Enclaves",
-    desc: "Integrated masterplanned land developments featuring RCC boundary enclosures, drainage networks, and utilities.",
+    title: "Invest",
+    tagline: "Connecting Builders with Capital",
+    desc: "We connect builders with the right investors, helping projects secure the funding they need to move forward without delay.",
     img: service2Img,
-    link: "/development"
+    link: "/services"
   },
   {
     id: "03",
-    title: "Civil Structures & Commercial Plazas",
-    desc: "Heavy-load structural foundations, multi-tier commercial hubs, and grade-A architectural frameworks.",
+    title: "Advise",
+    tagline: "Business & Growth Consulting",
+    desc: "We guide builders on scaling their business — team hiring, staff coaching, company branding material, and complete operational support.",
     img: service3Img,
-    link: "/development"
-  },
-  
+    link: "/advisory"
+  }
 ];
 
-// 2. Showcase Projects Cards (4 Unique Images)
-const projects = [
-  { id: 1, title: "Grand Horizon Corridor", type: "Residential Plotted", loc: "Lucknow, UP", status: "Ongoing", img: proj1Img },
-  { id: 2, title: "Apex Capital Commercial Hub", type: "Commercial Plaza", loc: "Varanasi, UP", status: "Planning", img: proj2Img },
-  { id: 3, title: "The Sovereign Greens", type: "Mixed Use Township", loc: "Noida, UP", status: "Development", img: proj3Img },
-  ];
+// Actual Projects Preview
+const featuredProjects = [
+  { 
+    id: 1, 
+    builder: "Anantjit Infra Developers Pvt. Ltd.", 
+    title: "Anant City", 
+    loc: "Gorakhpur", 
+    status: "Active", 
+    img: proj1Img 
+  },
+  { 
+    id: 2, 
+    builder: "Garden Square Ventures Pvt. Ltd.", 
+    title: "Garden Ganj", 
+    loc: "Lucknow", 
+    status: "Active", 
+    img: proj2Img 
+  },
+  { 
+    id: 3, 
+    builder: "Buildup Property Pvt. Ltd.", 
+    title: "Vayu Villa & Vayu Green", 
+    loc: "Pune", 
+    status: "Sold Out / Active", 
+    img: proj3Img 
+  }
+];
 
 function StatCounter({ target, suffix = "", duration = 1800 }) {
   const [count, setCount] = useState(0);
@@ -61,7 +87,6 @@ function StatCounter({ target, suffix = "", duration = 1800 }) {
 
   useEffect(() => {
     if (!isInView) return;
-
     let start = 0;
     const end = parseInt(target, 10);
     if (isNaN(end)) return;
@@ -93,7 +118,7 @@ function StatCounter({ target, suffix = "", duration = 1800 }) {
 export default function Home() {
   return (
     <div className="home-container">
-      {/* 1. Full-Screen Industrial Hero Section */}
+      {/* 1. Hero Section */}
       <section className="hero-section">
         <div className="hero-media-wrapper">
           <video 
@@ -107,89 +132,90 @@ export default function Home() {
         </div>
         <div className="hero-overlay" />
         <div className="hero-content">
-          <p className="hero-tag">CIVIL INFRASTRUCTURE &bull; LAND STRATEGY &bull; DEVELOPMENTS</p>
+          <p className="hero-tag">AGGREGATE &bull; INVEST &bull; ADVISE</p>
           <h1>
-            <SplitReveal text="Engineering Sustainable" /> <br />
-            <span className="gold-italic">Civil & Land Assets.</span>
+            <SplitReveal text="Your Real Estate Project." /> <br />
+            <span className="gold-italic">Fully Built, Fully Sold, Fully Supported.</span>
           </h1>
           <p className="hero-description">
-            ATA INFRATECH delivers world-class infrastructure engineering, high-velocity highway corridor development, and institutional land transformations across North India.
+            ATA Infratech helps real estate builders plan, fund, and sell their projects faster — through Aggregation, Investment, and Advisory, all under one roof.
           </p>
           <div className="hero-actions">
-            <Link to="/projects" className="btn-gold">View Infrastructure Projects</Link>
-            <Link to="/contact" className="btn-outline">Contact Us</Link>
+            <Link to="/contact" className="btn-gold">Talk to Our Team</Link>
+            <Link to="/services" className="btn-outline">Explore Our Services</Link>
           </div>
         </div>
       </section>
 
-      {/* 2. Running Counters Metric Strip */}
+      {/* 2. Key Metrics Strip */}
       <section className="stats-section">
         <div className="stats-grid">
           <div className="stat-box">
-            <h3><StatCounter target={15} suffix="+" /></h3>
-            <p>Years Industry Presence</p>
+            <h3><StatCounter target={3} suffix="" /></h3>
+            <p>Major Hubs (Gorakhpur, Lucknow, Pune)</p>
           </div>
           <div className="stat-box">
-            <h3><StatCounter target={500} suffix="+" /></h3>
-            <p>Acres Land Masterplanned</p>
-          </div>
-          <div className="stat-box">
-            <h3><StatCounter target={40} suffix="+" /></h3>
-            <p>Heavy Equipment & Fleet</p>
+            <h3><StatCounter target={3} suffix="-in-1" /></h3>
+            <p>End-to-End Solutions</p>
           </div>
           <div className="stat-box">
             <h3><StatCounter target={100} suffix="%" /></h3>
-            <p>On-Time Milestone Delivery</p>
+            <p>Dedicated Builder Support</p>
+          </div>
+          <div className="stat-box">
+            <h3><StatCounter target={2025} suffix="" /></h3>
+            <p>Built for Speed & Results</p>
           </div>
         </div>
       </section>
 
-      {/* 3. Corporate Intro Section */}
+      {/* 3. Quick Intro (Below Hero) */}
       <section className="section-padding intro-section">
         <div className="intro-grid">
           <div>
-            <span className="section-tag">ABOUT ATA INFRATECH</span>
-            <h2>Pioneering Resilient Infrastructure & Land Solutions.</h2>
+            <span className="section-tag">WE ARE ATA INFRATECH</span>
+            <h2>We Turn Project Ideas Into Fast-Selling Realities.</h2>
           </div>
           <div>
             <p className="lead-text">
-              We bring decades of civil engineering precision, modern earthmoving fleets, and disciplined land aggregation strategies under one robust roof.
+              We work with real estate builders and developers to turn a project idea into a successful, organized, fast-selling reality.
             </p>
             <p className="sub-text">
-              From large-scale arterial road connectivity to premium gated townships and commercial infrastructure, ATA INFRATECH executes with uncompromised quality, strict safety compliance, and clear-title transparency.
+              From the first blueprint to the last sale, we handle the pieces that slow builders down — sales execution, investor connections, and business growth — so you can focus on building.
             </p>
             <div className="intro-highlights">
-              <div className="ih-item"><CheckCircle2 size={16} color="#C8A22C" /> Modern Heavy Machinery Fleet</div>
-              <div className="ih-item"><CheckCircle2 size={16} color="#C8A22C" /> 100% Verified Title & Due Diligence</div>
-              <div className="ih-item"><CheckCircle2 size={16} color="#C8A22C" /> Advanced Topographical GIS Survey</div>
-              <div className="ih-item"><CheckCircle2 size={16} color="#C8A22C" /> Strict Environmental Compliance</div>
+              <div className="ih-item"><CheckCircle2 size={16} color="#C8A22C" /> End-to-end sales execution</div>
+              <div className="ih-item"><CheckCircle2 size={16} color="#C8A22C" /> Direct investor capital network</div>
+              <div className="ih-item"><CheckCircle2 size={16} color="#C8A22C" /> Complete channel partner setup</div>
+              <div className="ih-item"><CheckCircle2 size={16} color="#C8A22C" /> Business branding & advisory</div>
             </div>
             <Link to="/about" className="link-arrow">
-              Explore Our Corporate Overview <ArrowRight size={16} />
+              Learn More About Us <ArrowRight size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 4. Core Civil & Infrastructure Services (4 Unique Cards) */}
+      {/* 4. What We Do (3-Service Snapshot) */}
       <section className="section-padding verticals-section">
         <div className="section-header">
-          <span className="section-tag">SERVICES & CAPABILITIES</span>
-          <h2>Our Specialized Infrastructure Domains</h2>
-          <p className="section-subtitle">Delivering turnkey civil engineering, arterial connectivity, and planned layouts.</p>
+          <span className="section-tag">WHAT WE DO</span>
+          <h2>Three Core Services. One Unified Goal.</h2>
+          <p className="section-subtitle">Three services. One goal — help you sell faster, grow smarter, and build with confidence.</p>
         </div>
         
         <div className="ln-services-grid">
-          {infraServices.map((service) => (
+          {coreServices.map((service) => (
             <div key={service.id} className="ln-service-card">
               <div className="ln-service-img" style={{ backgroundImage: `url(${service.img})` }}>
                 <span className="ln-service-badge">{service.id}</span>
               </div>
               <div className="ln-service-body">
-                <h3>{service.title}</h3>
+                <span className="p-type" style={{ color: "#C8A22C", fontWeight: 700 }}>{service.tagline}</span>
+                <h3 style={{ marginTop: "6px" }}>{service.title}</h3>
                 <p>{service.desc}</p>
                 <Link to={service.link} className="service-read-more">
-                  Service Scope <ChevronRight size={16} />
+                  Learn More <ChevronRight size={16} />
                 </Link>
               </div>
             </div>
@@ -197,12 +223,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Project Showcase Grid (4 Unique Cards) */}
+      {/* 5. Projects Showcase */}
       <section className="section-padding projects-showcase-section">
         <div className="section-header-flex">
           <div>
-            <span className="section-tag">PORTFOLIO</span>
-            <h2>Featured Projects & Parcels</h2>
+            <span className="section-tag">OUR PROJECTS</span>
+            <h2>Working Across High-Growth Cities</h2>
+            <p className="section-subtitle">We are currently working with builders across Gorakhpur, Lucknow, and Pune.</p>
           </div>
           <Link to="/projects" className="link-arrow">
             View All Projects <ArrowRight size={16} />
@@ -210,16 +237,17 @@ export default function Home() {
         </div>
 
         <div className="projects-grid-ln">
-          {projects.map((p) => (
+          {featuredProjects.map((p) => (
             <div key={p.id} className="project-card-ln">
               <div className="p-img" style={{ backgroundImage: `url(${p.img})` }}>
                 <span className="p-status">{p.status}</span>
               </div>
               <div className="p-content">
-                <span className="p-type">{p.type} &bull; {p.loc}</span>
-                <h3>{p.title}</h3>
+                <span className="p-type"><MapPin size={12} style={{ display: 'inline', marginRight: 4 }} />{p.loc}</span>
+                <h3 style={{ marginBottom: "4px" }}>{p.title}</h3>
+                <p style={{ fontSize: "13px", color: "#666", marginBottom: "14px" }}>Builder: {p.builder}</p>
                 <Link to="/projects" className="link-arrow">
-                  Project Case Study <ArrowUpRight size={15} />
+                  Explore Project <ArrowRight size={15} />
                 </Link>
               </div>
             </div>
@@ -227,59 +255,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. Execution Strengths */}
+      {/* 6. Why Builders Choose Us */}
       <section className="section-padding strengths-section">
         <div className="section-header">
-          <span className="section-tag">EXECUTION STRENGTH</span>
-          <h2>Why ATA INFRATECH Leads</h2>
-          <p className="section-subtitle">A powerful combination of heavy asset capacity, engineering prowess, and structural compliance.</p>
+          <span className="section-tag">WHY BUILDERS CHOOSE ATA INFRATECH</span>
+          <h2>Built for Speed, Scale & Execution</h2>
+          <p className="section-subtitle">Real on-ground project experience across cities to accelerate your development lifecycle.</p>
         </div>
 
         <div className="strengths-grid">
           <div className="strength-card">
-            <div className="s-icon"><Truck size={28} /></div>
-            <h4>Modern Fleet & Equipment</h4>
-            <p>Owned earthmovers, motor graders, compactors, transit mixers, and concrete batching units for zero project delays.</p>
+            <div className="s-icon"><Layers size={28} /></div>
+            <h4>End-to-End Support</h4>
+            <p>From project blueprint to channel partner marketing and the final customer sale.</p>
           </div>
           <div className="strength-card">
-            <div className="s-icon"><Ruler size={28} /></div>
-            <h4>Engineering Precision</h4>
-            <p>High-precision DGPS spatial surveys, soil-bearing capacity assessments, and structural load compliance.</p>
+            <div className="s-icon"><Coins size={28} /></div>
+            <h4>Ready Investor Network</h4>
+            <p>Instant access to a curated network of channel partners and capital investors.</p>
           </div>
           <div className="strength-card">
-            <div className="s-icon"><HardHat size={28} /></div>
-            <h4>Experienced Workforce</h4>
-            <p>Veteran project managers, geotechnical consultants, and on-site health and safety (HSE) supervisors.</p>
+            <div className="s-icon"><Zap size={28} /></div>
+            <h4>Faster Project Launches</h4>
+            <p>Structured sales engines and organized marketing campaigns designed for speed.</p>
           </div>
           <div className="strength-card">
             <div className="s-icon"><ShieldCheck size={28} /></div>
-            <h4>Safety & Quality Standards</h4>
-            <p>Stringent internal quality control audits, certified raw material sourcing, and zero-compromise safety protocols.</p>
+            <h4>On-Ground Experience</h4>
+            <p>Active execution presence with a team founded in 2025 specifically for high-speed results.</p>
           </div>
         </div>
       </section>
 
-      {/* 7. Investment Banner */}
-      <section className="investment-banner-section">
-        <div className="inv-banner-content">
-          <span className="section-tag">COLLABORATION & JOINT VENTURES</span>
-          <h2>Partner with ATA INFRATECH on High-Growth Corridors</h2>
-          <p>We work with institutional investors, high-net-worth landowners, and government entities to unlock exponential land value.</p>
-          <div className="inv-btn-group">
-            <Link to="/contact" className="btn-gold">Submit Land / Joint Venture Proposal</Link>
-            <Link to="/investment" className="btn-outline">Explore Investment Models</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 8. Call to Action Box */}
+      {/* 7. Bottom CTA */}
       <section className="section-padding cta-section">
         <div className="cta-box">
-          <h2>Ready to Build Strategic Value Together?</h2>
-          <p>Connect directly with our corporate infrastructure and land development division.</p>
+          <h2>Ready to sell your project faster and grow your business?</h2>
+          <p>Let's talk about how ATA Infratech can support your next project.</p>
           <div className="hero-actions">
-            <Link to="/contact" className="btn-gold">Start a Conversation</Link>
-            <Link to="/contact" className="btn-outline-dark">Contact Us</Link>
+            <Link to="/contact" className="btn-gold">Contact Us</Link>
+            <Link to="/services" className="btn-outline-dark">Explore Our Services</Link>
           </div>
         </div>
       </section>

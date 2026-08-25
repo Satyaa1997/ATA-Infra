@@ -1,39 +1,47 @@
 import PageBanner from "../Components/PageBanner";
 import { Link } from "react-router-dom";
+import {  ArrowRight } from "lucide-react";
 import "./Devlopment.css";
-
-// Custom Banner Image
 import devBanner from "../assets/project2.jpg";
 
 export default function Development() {
+  const executionScope = [
+    { t: "Complete Project Blueprint", d: "Preparing a structured roadmap, pricing strategy, and launch timeline." },
+    { t: "Channel Partner Network", d: "Connecting and mobilizing an active network of real estate channel partners." },
+    { t: "Sales Events & Campaigns", d: "Planning and running targeted marketing events and lead generation drives." },
+    { t: "Trackable Sales Pipeline", d: "Setting up a transparent, structured system from first inquiry to deal closure." },
+    { t: "Multi-Segment Inventory Selling", d: "Dedicated sales execution for plotted layouts, residential units, and commercial spaces." }
+  ];
+
   const steps = [
-    "Opportunity Identification", "Land & Market Assessment", "Feasibility Study",
-    "Development Strategy", "Planning & Design", "Execution Management",
-    "Marketing & Positioning", "Value Realisation"
+    "Project Blueprint & Plan",
+    "Channel Partner Onboarding",
+    "Marketing & Event Launch",
+    "Sales Pipeline Execution",
+    "Booking & Inventory Closure",
+    "Handover Support"
   ];
 
   return (
     <div className="dev-page">
       <PageBanner
         bgImage={devBanner}
-        tag="CORE CAPABILITY"
-        title="Development With Purpose."
-        subtitle="We transform land and development opportunities into thoughtfully planned, high-value real estate assets."
+        tag="AGGREGATE PILLAR"
+        title="Aggregate — Complete Sales Execution"
+        subtitle="We take your project from blueprint to sold-out with an organized sales engine."
       />
 
+      {/* Scope */}
       <section className="section-padding">
         <div className="section-header">
-          <span className="section-tag">CAPABILITIES</span>
-          <h2>End-to-End Development Solutions</h2>
+          <span className="section-tag">WHAT WE DO</span>
+          <h2>Full-Cycle Project Aggregation</h2>
+          <p className="section-subtitle">
+            <strong>Who this is for:</strong> Builders who have a project ready but need an organized, professional sales engine behind it.
+          </p>
         </div>
         <div className="capabilities-grid">
-          {[
-            { t: "Land Identification", d: "Identifying high-potential land parcels aligned with regional growth corridors." },
-            { t: "Feasibility & Master Planning", d: "Evaluating technical, regulatory and economic feasibility prior to capital allocation." },
-            { t: "Project Strategy", d: "Formulating product typology, unit mix, positioning and target market alignment." },
-            { t: "Development Management", d: "Managing stakeholders, contractors and milestones from concept to final delivery." },
-            { t: "Asset Positioning", d: "Creating a premium corporate market identity that drives absorption and long-term value." }
-          ].map((item, i) => (
+          {executionScope.map((item, i) => (
             <div key={i} className="cap-card">
               <h3>{item.t}</h3>
               <p>{item.d}</p>
@@ -42,10 +50,11 @@ export default function Development() {
         </div>
       </section>
 
+      {/* Execution Roadmap */}
       <section className="section-padding process-section">
         <div className="section-header">
-          <span className="section-tag">OUR PROCESS</span>
-          <h2>The Development Lifecycle</h2>
+          <span className="section-tag">EXECUTION ROADMAP</span>
+          <h2>From Launch to Sold-Out</h2>
         </div>
         <div className="process-list">
           {steps.map((step, idx) => (
@@ -56,7 +65,9 @@ export default function Development() {
           ))}
         </div>
         <div className="dev-cta-wrapper">
-          <Link to="/contact" className="btn-gold">Discuss Your Development Project</Link>
+          <Link to="/contact" className="btn-gold">
+            Partner With Us for Sales Execution <ArrowRight size={16} style={{ display: 'inline', marginLeft: 6 }} />
+          </Link>
         </div>
       </section>
     </div>

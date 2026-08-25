@@ -1,36 +1,65 @@
 import PageBanner from "../Components/PageBanner";
 import { Link } from "react-router-dom";
-import { Compass, TrendingUp, Shield, Award, CheckCircle2, Users, ArrowRight } from "lucide-react";
+import { Layers, Zap, Coins, TrendingUp, MapPin, ArrowRight } from "lucide-react";
 import "./WhyATA.css";
+import whyBannerImg from "../assets/insight3.jpg";
 
-// Custom Banner Image Import
-import whyBannerImg from "../assets/insight3.jpg"; // Jo bhi banner image lagani ho
-
-const pillars = [
-  { t: "Strategic Thinking", d: "Every opportunity begins with a clear, research-backed strategy and measurable roadmap.", icon: Compass },
-  { t: "Market Intelligence", d: "Decisions are supported by exhaustive local demographic, economic, and infrastructure data.", icon: TrendingUp },
-  { t: "End-to-End Lifecycle", d: "From land acquisition to master development and asset exit, we manage all phases.", icon: Shield },
-  { t: "Sustainable Value", d: "Our focus extends beyond transactional gains to generational real estate asset valuation.", icon: Award },
-  { t: "Absolute Transparency", d: "Clear communication and responsible governance at every decision gate.", icon: CheckCircle2 },
-  { t: "Enduring Partnerships", d: "We build high-trust relationships with landowners, corporate partners, and investors.", icon: Users }
+const reasons = [
+  { 
+    num: "01",
+    t: "One Partner, Three Solutions", 
+    d: "No need to juggle separate sales agencies, investor networks, and consultants. We bring Aggregation, Investment, and Advisory together under one roof.", 
+    icon: Layers 
+  },
+  { 
+    num: "02",
+    t: "Built for Speed", 
+    d: "Our structured sales pipeline and ready channel partner network mean your project starts selling and scaling faster.", 
+    icon: Zap 
+  },
+  { 
+    num: "03",
+    t: "Real Capital Connections", 
+    d: "We don't just advise — we actively connect builders with investors ready to fund ongoing, upcoming, and scale-up projects.", 
+    icon: Coins 
+  },
+  { 
+    num: "04",
+    t: "Growth Beyond One Project", 
+    d: "Our advisory services help you build a lasting, recognizable real estate business, not just complete a one-off project.", 
+    icon: TrendingUp 
+  },
+  { 
+    num: "05",
+    t: "Proven On-Ground Work", 
+    d: "Already active across Gorakhpur, Lucknow, and Pune — with active, pre-launch, and sold-out projects in our portfolio.", 
+    icon: MapPin 
+  }
 ];
 
 export default function WhyATA() {
   return (
     <div className="why-ata-page">
-      {/* Custom Banner with Image */}
       <PageBanner
         bgImage={whyBannerImg}
-        tag="THE ATA ADVANTAGE"
-        title="Why Partner With ATA INFRATECH."
-        subtitle="Bridging the gap between raw real estate opportunity and high-value landmark execution."
+        tag="WHY CHOOSE US"
+        title="Why Real Estate Builders Trust ATA Infratech"
+        subtitle="We help builders sell faster, raise capital easier, and build a lasting brand."
       />
 
       <section className="section-padding">
+        <div className="section-header-center">
+          <span className="section-tag">THE ATA ADVANTAGE</span>
+          <h2>A Comprehensive Solution for Modern Developers</h2>
+        </div>
+
         <div className="pillars-grid">
-          {pillars.map((item, idx) => (
+          {reasons.map((item, idx) => (
             <div key={idx} className="pillar-card">
-              <item.icon size={32} color="#C8A22C" style={{ marginBottom: "14px" }} />
+              <div className="card-top-row">
+                <item.icon size={30} color="#C8A22C" />
+                <span className="reason-number">{item.num}</span>
+              </div>
               <h3>{item.t}</h3>
               <p>{item.d}</p>
             </div>
@@ -39,12 +68,10 @@ export default function WhyATA() {
       </section>
 
       <section className="section-padding cta-banner-section">
-        <h2>Experience the ATA Standard</h2>
-        <p>
-          Discover how our strategic advisory and development ecosystem can accelerate your land and asset value.
-        </p>
+        <h2>Ready to Sell Your Project Faster and Grow Your Business?</h2>
+        <p>Let's talk about how ATA Infratech can support your next project.</p>
         <Link to="/contact" className="btn-gold">
-          Start a Conversation <ArrowRight size={16} style={{ marginLeft: "6px", verticalAlign: "middle" }} />
+          Talk to Our Team <ArrowRight size={16} style={{ marginLeft: "6px", verticalAlign: "middle" }} />
         </Link>
       </section>
     </div>

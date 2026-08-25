@@ -1,62 +1,109 @@
 .investment-opportunities-page {
-  background-color: var(--primary, #050505);
+  background-color: #0c0c0c;
   min-height: 100vh;
   color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.investment-opportunities-page .section-header h2 {
+  color: #ffffff !important;
+  font-size: clamp(30px, 3.6vw, 44px);
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.investment-opportunities-page .section-subtitle {
+  color: #b0b0b0 !important;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .opp-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   gap: 30px;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .opp-card {
-  background: #111111;
-  border: 1px solid rgba(200, 162, 44, 0.2);
-  padding: 34px 28px;
-  border-radius: 4px;
+  background: #141414;
+  border: 1px solid rgba(200, 162, 44, 0.25);
+  padding: 36px 30px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.opp-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #C8A22C, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .opp-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   border-color: var(--gold, #C8A22C);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  background: #181818;
+  box-shadow: 0 14px 35px rgba(200, 162, 44, 0.15);
+}
+
+.opp-card:hover::before {
+  opacity: 1;
 }
 
 .opp-tag {
   color: var(--gold, #C8A22C);
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 8px;
 }
 
 .opp-card h3 {
-  font-size: 22px;
+  font-size: 24px;
   color: #ffffff;
-  margin: 10px 0 6px;
+  margin: 0 0 6px 0;
+  font-weight: 700;
+}
+
+.builder-name {
+  color: #999999;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.builder-name strong {
+  color: #e0e0e0;
 }
 
 .opp-loc {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #8c9b96;
+  color: var(--gold, #C8A22C);
   font-size: 14px;
-  margin-bottom: 20px;
+  font-weight: 600;
+  margin-bottom: 22px;
 }
 
 .opp-metrics-box {
-  background: #080808;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 18px 20px;
-  border-radius: 4px;
-  margin-bottom: 24px;
+  border-radius: 6px;
+  margin-bottom: 26px;
 }
 
 .opp-metric-row {
@@ -64,8 +111,8 @@
   justify-content: space-between;
   align-items: center;
   font-size: 13px;
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .opp-metric-row:last-child {
@@ -73,11 +120,13 @@
 }
 
 .opp-metric-row span {
-  color: #a3a3a3;
+  color: #888888;
 }
 
 .opp-metric-row strong {
   color: #ffffff;
+  text-align: right;
+  max-width: 60%;
 }
 
 .opp-metric-row .gold-val {
@@ -87,10 +136,11 @@
 .opp-btn {
   width: 100%;
   text-align: center;
+  justify-content: center;
 }
 
 .diligence-section {
-  background: #0d0d0d;
+  background: #080808;
   border-top: 1px solid rgba(200, 162, 44, 0.15);
   text-align: center;
 }
@@ -98,15 +148,16 @@
 .diligence-section h2 {
   color: #ffffff !important;
   font-size: clamp(28px, 3.5vw, 42px);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  font-weight: 700;
 }
 
 .diligence-desc {
-  color: #a3a3a3;
-  max-width: 620px;
-  margin: 0 auto 30px;
+  color: #a8a8a8;
+  max-width: 650px;
+  margin: 0 auto 35px;
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 @media (max-width: 768px) {

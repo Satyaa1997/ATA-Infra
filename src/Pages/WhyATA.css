@@ -1,6 +1,15 @@
 .why-ata-page {
-  background-color: var(--primary, #050505);
+  background-color: #0c0c0c;
   min-height: 100vh;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #ffffff;
+}
+
+.why-ata-page .section-header-center h2 {
+  color: #ffffff !important;
+  font-size: clamp(30px, 3.8vw, 44px);
+  font-weight: 700;
+  margin-top: 8px;
 }
 
 .pillars-grid {
@@ -11,59 +20,75 @@
 }
 
 .pillar-card {
-  background: #111111;
-  border: 1px solid rgba(200, 162, 44, 0.2);
+  background: #141414;
+  border: 1px solid rgba(200, 162, 44, 0.25);
   padding: 38px 28px;
-  border-radius: 4px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  border-radius: 8px;
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .pillar-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-7px);
   border-color: var(--gold, #C8A22C);
+  background: #181818;
+  box-shadow: 0 14px 35px rgba(200, 162, 44, 0.15);
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.reason-number {
+  font-family: 'Playfair Display', serif, Georgia;
+  font-size: 26px;
+  font-weight: 700;
+  color: rgba(200, 162, 44, 0.4);
+}
+
+.pillar-card:hover .reason-number {
+  color: var(--gold, #C8A22C);
 }
 
 .pillar-card h3 {
-  font-size: 20px;
+  font-size: 21px;
   color: #ffffff;
-  margin: 14px 0 10px;
+  margin-bottom: 12px;
+  font-weight: 700;
 }
 
 .pillar-card p {
-  color: #a3a3a3;
-  font-size: 14px;
-  line-height: 1.7;
+  color: #a0a0a0;
+  font-size: 14.5px;
+  line-height: 1.75;
 }
 
 .cta-banner-section {
-  background: #0d0d0d;
+  background: #080808;
   border-top: 1px solid rgba(200, 162, 44, 0.15);
   padding: 80px 7%;
   text-align: center;
 }
 
 .cta-banner-section h2 {
-  font-size: clamp(28px, 4vw, 44px);
+  font-size: clamp(28px, 3.6vw, 42px);
   color: #ffffff;
   margin-bottom: 16px;
+  font-weight: 700;
 }
 
 .cta-banner-section p {
-  color: #a3a3a3;
+  color: #a0a0a0;
   font-size: 16px;
-  max-width: 620px;
-  margin: 0 auto 30px;
+  max-width: 650px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
 }
 
 @media (max-width: 768px) {
-  .pillars-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .pillar-card {
-    padding: 28px 20px;
-  }
-  .cta-banner-section {
-    padding: 60px 20px;
-  }
+  .pillars-grid { grid-template-columns: 1fr; }
 }
