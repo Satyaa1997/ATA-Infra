@@ -1,23 +1,24 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
-import { X } from "lucide-react";
+import { Phone, X } from "lucide-react";
 import "./WhatsAppButton.css";
 
-export default function WhatsAppButton() {
+export default function WhatsAppButton({ onOpenContactModal }) {
   const [showTooltip, setShowTooltip] = useState(true);
 
-  // Direct WhatsApp click-to-chat link (Number aur pre-filled message)
-  const phoneNumber = "91XXXXXXXXXX"; // Apna actual 10-digit WhatsApp business number replace karein
+  // Phone Call & WhatsApp setup
+  const rawPhoneNumber = "+919876543210"; // Apna actual call number dalein
+  const whatsappNumber = "919876543210"; // Apna WhatsApp number dalein
   const defaultMessage = encodeURIComponent(
     "Hello ATA Infratech Team, I want to discuss a real estate project requirement (Aggregate / Invest / Advise)."
   );
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${defaultMessage}`;
 
   return (
-    <div className="floating-whatsapp-wrapper">
-      {/* 1. Interactive Tooltip Cloud */}
+    <div className="floating-action-wrapper">
+      {/* 1. Interactive Tooltip Card */}
       {showTooltip && (
-        <div className="whatsapp-tooltip-card">
+        <div className="action-tooltip-card">
           <button 
             className="tooltip-close-btn" 
             onClick={(e) => {
@@ -33,28 +34,41 @@ export default function WhatsAppButton() {
               <span className="online-dot" />
               <strong>ATA Advisory Desk</strong>
             </div>
-            <p>Need help with project sales, capital or advisory? Chat with our team.</p>
+            <p>Need instant help with project sales, capital or advisory? Call or WhatsApp us.</p>
           </div>
         </div>
       )}
 
-      {/* 2. Floating Action Button with WhatsApp Icon & Pulse Rings */}
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="whatsapp-floating-btn"
-        aria-label="Chat with ATA Infratech on WhatsApp"
-      >
-        {/* Animated Glow / Pulse Rings */}
-        <span className="whatsapp-pulse-ring" />
-        <span className="whatsapp-pulse-ring delay" />
+      {/* 2. Dual Action Buttons Stack */}
+      <div className="floating-buttons-stack">
+        {/* Light Blue Call Button */}
+        <a
+          href={`tel:${rawPhoneNumber}`}
+          className="floating-btn call-float-btn"
+          aria-label="Direct Call ATA Infratech"
+        >
+          <span className="btn-label-hover">Call Now</span>
+          <div className="btn-icon-inner">
+            <Phone size={22} />
+          </div>
+        </a>
 
-        {/* Official WhatsApp Logo Icon */}
-        <div className="whatsapp-icon-inner">
-          <FaWhatsapp size={32} />
-        </div>
-      </a>
+        {/* WhatsApp Official Button */}
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="floating-btn whatsapp-float-btn"
+          aria-label="Chat with ATA Infratech on WhatsApp"
+        >
+          <span className="btn-label-hover">WhatsApp</span>
+          <span className="whatsapp-pulse-ring" />
+          <span className="whatsapp-pulse-ring delay" />
+          <div className="btn-icon-inner">
+            <FaWhatsapp size={28} />
+          </div>
+        </a>
+      </div>
     </div>
   );
 }
