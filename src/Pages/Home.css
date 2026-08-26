@@ -219,13 +219,14 @@
   align-items: center;
 }
 
+/* --- Hero Primary Gold Button --- */
 .btn-gold {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   background: var(--gold, #C8A22C);
-  color: #111111 !important;
+  color: #ffffff !important;
   font-weight: 700;
   font-size: 13.5px;
   padding: 12px 24px;
@@ -238,12 +239,21 @@
   white-space: nowrap;
 }
 
+.btn-gold:visited,
+.btn-gold:hover,
+.hero-actions .btn-gold,
+.hero-actions .btn-gold *,
+.btn-gold * {
+  color: #ffffff !important;
+}
+
 .btn-gold:hover {
   background: #deb83b;
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(200, 162, 44, 0.45);
 }
 
+/* --- Hero Outline Button --- */
 .btn-outline {
   display: inline-flex !important;
   align-items: center !important;
@@ -266,9 +276,16 @@
   visibility: visible !important;
 }
 
+.btn-outline:visited,
+.btn-outline:hover,
+.hero-actions .btn-outline,
+.hero-actions .btn-outline *,
+.btn-outline * {
+  color: #ffffff !important;
+}
+
 .btn-outline:hover {
   background: var(--gold, #C8A22C) !important;
-  color: #111111 !important;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(200, 162, 44, 0.4);
 }
@@ -840,7 +857,6 @@
   width: 100%;
 }
 
-/* Desktop: 3 Cards per view (33.333% width each) */
 .testimonial-slide {
   flex: 0 0 calc(100% / 3);
   max-width: calc(100% / 3);
@@ -1119,13 +1135,13 @@
 }
 
 /* ========================================================
-   SECTION 9: HALF-OVERLAP GOLDEN CTA SECTION (FOOTER OVERLAY FIX)
+   SECTION 9: HALF-OVERLAP GOLDEN CTA SECTION
    ======================================================== */
 .cta-overlap-section {
   width: 100% !important;
   background: transparent !important;
   padding: 0 3% !important;
-  margin-bottom: -85px !important; /* Half on home, half on footer */
+  margin-bottom: -85px !important;
   position: relative !important;
   z-index: 100 !important;
 }
@@ -1133,9 +1149,9 @@
 .cta-overlap-box {
   background: linear-gradient(135deg, #DFB738 0%, #C8A22C 50%, #A8831A 100%);
   border: 1.5px solid rgba(255, 255, 255, 0.45);
-  padding: 32px 40px !important; /* Height kam karne ke liye compact vertical padding */
+  padding: 32px 40px !important;
   text-align: center;
-  max-width: 1240px !important;  /* Width ko aur badhaya gaya */
+  max-width: 1240px !important;
   width: 100% !important;
   margin: 0 auto !important;
   border-radius: 12px;
@@ -1150,7 +1166,7 @@
   background: rgba(17, 17, 17, 0.88);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 10px !important; /* Compact badge font */
+  font-size: 10px !important;
   font-weight: 800;
   letter-spacing: 1.5px;
   padding: 3px 12px !important;
@@ -1160,7 +1176,7 @@
 }
 
 .cta-overlap-box h2 {
-  font-size: clamp(20px, 2.4vw, 28px) !important; /* Choti aur crisp heading */
+  font-size: clamp(20px, 2.4vw, 28px) !important;
   color: #111111 !important;
   margin-bottom: 8px !important;
   font-weight: 800;
@@ -1169,7 +1185,7 @@
 
 .cta-overlap-box p {
   color: #222222 !important;
-  font-size: 14px !important; /* Chota aur compact paragraph */
+  font-size: 14px !important;
   line-height: 1.55;
   max-width: 800px;
   margin: 0 auto 20px auto !important;
@@ -1192,7 +1208,7 @@
   background: #111111;
   color: #ffffff !important;
   font-weight: 700;
-  font-size: 13px !important; /* Compact button */
+  font-size: 13px !important;
   padding: 10px 24px !important;
   border-radius: 4px;
   text-decoration: none;
@@ -1215,7 +1231,7 @@
   color: #111111 !important;
   border: 1.5px solid #111111;
   font-weight: 700;
-  font-size: 13px !important; /* Compact button */
+  font-size: 13px !important;
   padding: 9px 22px !important;
   border-radius: 4px;
   text-decoration: none;
@@ -1345,7 +1361,6 @@
     right: 5px !important;
   }
 
-  /* Testimonials Mobile: 1 Card per view */
   .testimonial-slide {
     flex: 0 0 100% !important;
     max-width: 100% !important;
@@ -1368,13 +1383,12 @@
     width: 100%;
   }
 
-  /* Overlapping CTA Mobile */
- .cta-overlap-section {
+  .cta-overlap-section {
     margin-bottom: -60px !important;
     padding: 0 4% !important;
   }
 
- .cta-overlap-box {
+  .cta-overlap-box {
     padding: 24px 16px !important;
   }
   .cta-overlap-box h2 {
