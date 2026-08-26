@@ -1,8 +1,10 @@
 .gallery-page {
-  background-color: #0c0c0c;
+  background-color: #FAFAFA;
   min-height: 100vh;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  color: #ffffff;
+  color: #121212;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Category Filter Bar */
@@ -16,14 +18,15 @@
 
 .gallery-filter-btn {
   padding: 10px 24px;
-  background: #141414;
-  border: 1px solid rgba(200, 162, 44, 0.25);
-  color: #ffffff;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #121212;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -34,6 +37,7 @@
   color: #111111;
   border-color: var(--gold, #C8A22C);
   box-shadow: 0 4px 18px rgba(200, 162, 44, 0.35);
+  transform: translateY(-2px);
 }
 
 /* Grid Layout */
@@ -45,11 +49,12 @@
 
 /* Project Album Card */
 .project-album-card {
-  background: #141414;
-  border: 1px solid rgba(200, 162, 44, 0.2);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   display: flex;
   flex-direction: column;
@@ -84,9 +89,9 @@
   inset: 0;
   background: linear-gradient(
     180deg, 
-    rgba(5, 5, 5, 0.3) 0%, 
-    rgba(5, 5, 5, 0.6) 40%, 
-    rgba(12, 12, 12, 0.95) 100%
+    rgba(10, 10, 10, 0.3) 0%, 
+    rgba(10, 10, 10, 0.55) 40%, 
+    rgba(10, 10, 10, 0.95) 100%
   );
   display: flex;
   flex-direction: column;
@@ -105,8 +110,8 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(18, 18, 18, 0.85);
-  border: 1px solid rgba(200, 162, 44, 0.4);
+  background: rgba(18, 18, 18, 0.88);
+  border: 1px solid var(--gold, #C8A22C);
   color: var(--gold, #C8A22C);
   padding: 4px 10px;
   font-size: 11px;
@@ -121,13 +126,13 @@
   font-weight: 700;
   text-transform: uppercase;
   border-radius: 4px;
-  background: rgba(200, 162, 44, 0.15);
+  background: rgba(200, 162, 44, 0.2);
   border: 1px solid var(--gold, #C8A22C);
   color: var(--gold, #C8A22C);
 }
 
 .album-status.sold-out {
-  background: #111111;
+  background: #1e1e1e;
   color: #deb83b;
   border-color: #666;
 }
@@ -156,7 +161,7 @@
 }
 
 .album-builder {
-  color: #a0a0a0;
+  color: #d1d5db;
   font-size: 13px;
   display: flex;
   align-items: center;
@@ -187,13 +192,13 @@
   transform: scale(1);
 }
 
-/* Thumbnail Strip Below Cover */
+/* Thumbnail Strip Below Cover (Light Theme) */
 .album-thumbnails-strip {
   display: flex;
   gap: 8px;
   padding: 12px 16px;
-  background: #101010;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .mini-thumb {
@@ -202,20 +207,21 @@
   background-size: cover;
   background-position: center;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   transition: all 0.25s ease;
 }
 
 .mini-thumb:hover {
   border-color: var(--gold, #C8A22C);
   transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* --- Lightbox Modal Styles --- */
 .lightbox-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.96);
+  background: rgba(0, 0, 0, 0.94);
   backdrop-filter: blur(14px);
   z-index: 2500;
   display: flex;
@@ -234,13 +240,13 @@
   position: relative;
   max-width: 1000px;
   width: 100%;
-  background: #141414;
-  border: 1px solid rgba(200, 162, 44, 0.35);
+  background: #ffffff;
+  border: 1px solid rgba(200, 162, 44, 0.4);
   border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
 }
 
 .lightbox-topbar {
@@ -248,8 +254,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 24px;
-  background: #0d0d0d;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #F4F1EA;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .lightbox-meta {
@@ -268,17 +274,18 @@
 }
 
 .lightbox-sep {
-  color: #555555;
+  color: #888888;
 }
 
 .lightbox-proj {
-  color: #ffffff;
-  font-weight: 600;
+  color: #111111;
+  font-weight: 700;
 }
 
 .lightbox-counter {
-  background: #222222;
-  color: #b0b0b0;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #333333;
   padding: 2px 8px;
   border-radius: 4px;
   font-size: 11.5px;
@@ -289,7 +296,7 @@
 .lightbox-close-btn {
   background: none;
   border: none;
-  color: #ffffff;
+  color: #111111;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -311,7 +318,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 16px;
-  background: #080808;
+  background: #0d0d0d;
 }
 
 .lightbox-image-container {
@@ -338,9 +345,9 @@
 }
 
 .lightbox-nav-btn {
-  background: rgba(20, 20, 20, 0.85);
-  border: 1px solid rgba(200, 162, 44, 0.3);
-  color: #ffffff;
+  background: rgba(18, 18, 18, 0.85);
+  border: 1px solid var(--gold, #C8A22C);
+  color: var(--gold, #C8A22C);
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -356,15 +363,14 @@
 .lightbox-nav-btn:hover {
   background: var(--gold, #C8A22C);
   color: #111111;
-  border-color: var(--gold, #C8A22C);
   transform: scale(1.1);
 }
 
-/* Footer & Thumbnails */
+/* Footer & Thumbnails (Light Theme) */
 .lightbox-footer {
   padding: 16px 24px;
-  background: #0d0d0d;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #F4F1EA;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -372,20 +378,20 @@
 }
 
 .lightbox-caption h4 {
-  color: #ffffff;
+  color: #111111;
   font-size: 16px;
   margin: 0 0 4px 0;
   font-weight: 700;
 }
 
 .lightbox-caption p {
-  color: #888888;
+  color: #666666;
   font-size: 13px;
   margin: 0;
 }
 
 .lightbox-caption strong {
-  color: #e0e0e0;
+  color: #111111;
 }
 
 .lightbox-thumbs {
@@ -401,7 +407,7 @@
   border-radius: 4px;
   border: 2px solid transparent;
   cursor: pointer;
-  opacity: 0.6;
+  opacity: 0.65;
   transition: all 0.25s ease;
 }
 
