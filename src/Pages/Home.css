@@ -1349,16 +1349,46 @@
     box-sizing: border-box !important;
   }
 
-  .home-main-img-card {
-    width: 100% !important;
-    height: 280px !important;
+  /* --- Story Section Visual Tweaks for Mobile --- */
+  .home-story-visual-wrap {
+    min-height: 320px !important;
+    margin-top: 15px;
   }
 
+  .home-main-img-card {
+    width: 88% !important;
+    height: 300px !important;
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+
+  /* Floating Image (Full visible fix) */
   .home-secondary-card {
     width: 150px !important;
     height: 150px !important;
     bottom: -15px !important;
-    right: 5px !important;
+    right: 0 !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    border: 3px solid #ffffff !important;
+    border-radius: 10px !important;
+  }
+
+  /* Compact 3 Core Hub Overlay */
+  .home-floating-badge-inner {
+    padding: 5px 8px !important;
+    border-top: 1px solid var(--gold, #C8A22C) !important;
+  }
+
+  .home-floating-badge-inner .count-gold {
+    font-size: 15px !important;
+    line-height: 1.1 !important;
+  }
+
+  .home-floating-badge-inner span:last-child {
+    font-size: 9px !important;
+    letter-spacing: 0.5px !important;
+    display: block !important;
   }
 
   .testimonial-slide {
