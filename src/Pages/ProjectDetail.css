@@ -452,23 +452,52 @@
 
 @media (max-width: 768px) {
   .section-padding {
-    padding: 60px 5%;
+    padding: 50px 5%;
   }
+
+  /* Hero Banner Fix for Mobile (Clears Navbar) */
   .project-hero {
-    min-height: 420px;
-    padding: 110px 5% 50px;
+    min-height: auto;
+    padding: 150px 6% 40px 6%;
+    background-position: center center;
   }
+
+  .back-link {
+    font-size: 11.5px;
+    margin-bottom: 12px;
+  }
+
+  .project-hero-content h1 {
+    font-size: 28px !important;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .hero-tagline {
+    font-size: 14.5px;
+    margin-bottom: 16px;
+    line-height: 1.45;
+  }
+
+  .project-location-bar {
+    font-size: 12.5px;
+    gap: 8px;
+  }
+
   .project-gallery-strip {
     grid-template-columns: 1fr;
   }
+
   .gallery-strip-item {
     height: 180px;
   }
+
   .proj-nav-container {
     flex-direction: column;
     align-items: stretch;
     text-align: center;
   }
+
   .pn-item {
     text-align: center;
   }
