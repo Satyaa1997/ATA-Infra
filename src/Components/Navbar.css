@@ -83,10 +83,10 @@
   transform: translateY(-2px);
 }
 
-/* 2. Main Navbar Strip (Enlarged to 100px) */
+/* 2. Main Navbar Strip (Compact Height: 72px) */
 .navbar-main {
   background: #ffffff;
-  height: 100px !important;
+  height: 72px !important;
   padding: 0 4%;
   display: flex;
   justify-content: space-between;
@@ -94,6 +94,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   position: relative;
+  overflow: visible !important;
 }
 
 .navbar-logo {
@@ -102,22 +103,24 @@
   align-items: center;
   height: 100%;
   padding: 0;
+  position: relative;
+  overflow: visible !important;
 }
 
-/* Super Enlarged Logo */
+/* Large Logo without Increasing Navbar Height */
 .navbar-logo img {
-  height: 95px !important;
+  height: 68px !important;
   width: auto !important;
-  max-width: 380px !important;
+  max-width: 320px !important;
   object-fit: contain !important;
   display: block;
-  transform: scale(1.08);
+  transform: scale(1.35);
   transform-origin: left center;
   transition: transform 0.3s ease;
 }
 
 .navbar-logo img:hover {
-  transform: scale(1.12);
+  transform: scale(1.4);
 }
 
 /* Desktop Navigation */
@@ -215,13 +218,13 @@
 
 /* CTA Button */
 .cta-button {
-  padding: 11px 24px;
+  padding: 9px 20px;
   background: var(--gold, #C8A22C);
   color: #ffffff !important;
   border: 1px solid var(--gold, #C8A22C);
   text-decoration: none;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
   border-radius: 4px;
@@ -255,23 +258,23 @@
   .mobile-toggle { display: block; }
   
   .navbar-main {
-    height: 86px !important;
+    height: 68px !important;
   }
 
   .navbar-logo img {
-    height: 82px !important;
-    max-width: 290px !important;
-    transform: scale(1.05);
+    height: 60px !important;
+    max-width: 250px !important;
+    transform: scale(1.25);
   }
 
   .mobile-nav {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 122px; /* 36px topbar + 86px navbar */
+    top: 104px; /* 36px topbar + 68px navbar */
     left: 0;
     width: 100%;
-    height: calc(100vh - 122px);
+    height: calc(100vh - 104px);
     background: #ffffff !important;
     padding: 24px 7% 50px;
     gap: 16px;
