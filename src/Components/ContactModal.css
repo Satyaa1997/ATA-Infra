@@ -1,0 +1,223 @@
+/* Backdrop Overlay */
+.modal-backdrop-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999 !important;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Glass Modal Container */
+.modal-glass-container {
+  background: #ffffff;
+  border: 1.5px solid rgba(200, 162, 44, 0.4);
+  border-radius: 12px;
+  max-width: 620px;
+  width: 100%;
+  padding: 36px 32px;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 40px rgba(200, 162, 44, 0.2);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* Close Button */
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: #f4f4f4;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #333333;
+  transition: all 0.25s ease;
+}
+
+.modal-close-btn:hover {
+  background: #111111;
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+/* Header Text */
+.modal-header-block {
+  margin-bottom: 24px;
+  padding-right: 25px;
+}
+
+.modal-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold, #C8A22C);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.modal-header-block h2 {
+  font-size: 24px !important;
+  color: #111111 !important;
+  font-weight: 800 !important;
+  line-height: 1.25;
+  margin: 0 0 6px 0 !important;
+  font-family: 'Playfair Display', serif, Georgia;
+}
+
+.modal-header-block p {
+  color: #555555;
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Form Styles */
+.modal-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.modal-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-input-group.full-width {
+  margin-bottom: 16px;
+}
+
+.modal-input-group label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #222222;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon .field-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--gold, #C8A22C);
+  pointer-events: none;
+}
+
+.input-with-icon input,
+.input-with-icon select,
+.modal-input-group textarea {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fafafa;
+  border-radius: 6px;
+  padding: 10px 12px 10px 38px;
+  font-size: 13px;
+  color: #111111;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.modal-input-group textarea {
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+.input-with-icon input:focus,
+.input-with-icon select:focus,
+.modal-input-group textarea:focus {
+  background: #ffffff;
+  border-color: var(--gold, #C8A22C);
+  box-shadow: 0 0 0 3px rgba(200, 162, 44, 0.15);
+}
+
+/* Submit Button */
+.modal-submit-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--gold, #C8A22C);
+  color: #ffffff;
+  border: none;
+  padding: 13px 24px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 13.5px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(200, 162, 44, 0.3);
+}
+
+.modal-submit-btn:hover {
+  background: #deb83b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 162, 44, 0.45);
+}
+
+/* Success State */
+.modal-success-state {
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.success-icon-wrap {
+  margin-bottom: 16px;
+}
+
+.modal-success-state h3 {
+  font-size: 22px;
+  color: #111111;
+  font-weight: 800;
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', serif, Georgia;
+}
+
+.modal-success-state p {
+  color: #555555;
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .modal-glass-container {
+    padding: 28px 20px;
+  }
+  .modal-form-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .modal-header-block h2 {
+    font-size: 20px !important;
+  }
+}
