@@ -86,7 +86,7 @@
 /* 2. Main Navbar Strip (Height fixed at 68px) */
 .navbar-main {
   background: #ffffff;
-  height: 68px;
+  height: 78px;
   padding: 0 5%;
   display: flex;
   justify-content: space-between;
