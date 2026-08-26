@@ -3,6 +3,8 @@
   min-height: 100vh;
   color: #121212;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .dev-page section:first-of-type .section-header h2 {
@@ -103,13 +105,62 @@
   color: #ffffff !important;
 }
 
+/* CTA Wrapper & Button Alignment */
 .dev-cta-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   margin-top: 45px;
+  width: 100%;
 }
 
+.dev-cta-wrapper .btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--gold, #C8A22C);
+  color: #111111 !important;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 30px;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid var(--gold, #C8A22C);
+  box-shadow: 0 4px 15px rgba(200, 162, 44, 0.25);
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+.dev-cta-wrapper .btn-gold:hover {
+  background: #deb83b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(200, 162, 44, 0.45);
+}
+
+/* Responsive Styles */
 @media(max-width: 768px) {
-  .capabilities-grid, .process-list {
+  .capabilities-grid, 
+  .process-list {
     grid-template-columns: 1fr;
+  }
+
+  .dev-cta-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 35px;
+  }
+
+  .dev-cta-wrapper .btn-gold {
+    width: 100%;
+    max-width: 360px;
+    box-sizing: border-box;
+    justify-content: center;
+    text-align: center;
+    padding: 13px 20px;
+    font-size: 13.5px;
   }
 }
