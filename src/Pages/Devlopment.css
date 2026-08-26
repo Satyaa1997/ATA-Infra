@@ -152,15 +152,20 @@
     align-items: center;
     width: 100%;
     margin-top: 35px;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
 
   .dev-cta-wrapper .btn-gold {
     width: 100%;
-    max-width: 360px;
+    max-width: 100%;
     box-sizing: border-box;
     justify-content: center;
     text-align: center;
-    padding: 13px 20px;
-    font-size: 13.5px;
+    padding: 12px 14px;
+    font-size: 12.5px;
+    letter-spacing: 0.2px;
+    line-height: 1.35;
+    white-space: normal;
   }
 }
