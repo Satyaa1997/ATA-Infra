@@ -9,7 +9,6 @@ import {
   BadgeCheck, 
   MapPin, 
   ArrowRight,
-  ShieldCheck,
   CheckCircle2,
   Sparkles,
   Target,
@@ -108,10 +107,9 @@ export default function About() {
         subtitle="Your extended team for sales execution, investor capital, and business growth." 
       />
 
-      {/* 2. Overlapping Story Section with Visual Composition */}
+      {/* 2. Overlapping Story Section */}
       <section id="our-story" className="section-padding story-section">
         <div className="story-layout-grid">
-          {/* Left Text Content */}
           <motion.div 
             className="story-text-wrap"
             variants={fadeUp}
@@ -146,7 +144,6 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right Floating Visual Composition */}
           <motion.div 
             className="story-visual-wrap"
             initial={{ opacity: 0, x: 40 }}
@@ -174,7 +171,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* 3. Mission & Vision - Dual Interactive Cards */}
+      {/* 3. Mission & Vision */}
       <section className="section-padding mv-interactive-section">
         <div className="mv-cards-grid">
           <motion.div 
@@ -221,7 +218,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* 4. Three Core Pillars with Interactive Hover & Watermark */}
+      {/* 4. Three Core Pillars */}
       <section className="section-padding pillars-section">
         <div className="section-header-center">
           <span className="section-tag">OUR THREE PILLARS</span>
@@ -266,7 +263,7 @@ export default function About() {
         </motion.div>
       </section>
 
-      {/* 5. The ATA Advantage (Why Partner) */}
+      {/* 5. The ATA Advantage */}
       <section id="why-ata" className="section-padding why-choose-section">
         <div className="section-header-center">
           <span className="section-tag">THE ATA ADVANTAGE</span>
@@ -296,25 +293,23 @@ export default function About() {
             </motion.div>
           ))}
         </div>
+      </section>
 
-        {/* High-Impact CTA Box */}
-        <motion.div 
-          className="about-cta-banner"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <div className="cta-glow" />
-          <div className="cta-content-wrap">
-            <span className="cta-badge">LET'S COLLABORATE</span>
-            <h3>Ready to sell your project faster and grow your business?</h3>
-            <p>Let's talk about how ATA Infratech can support your next residential, commercial, or plotted project.</p>
-            <Link to="/contact" className="cta-gold-btn">
+      {/* 6. HALF-OVERLAP GOLDEN CTA SECTION (EXACT HOME PAGE PATTERN) */}
+      <section id="cta" className="cta-overlap-section">
+        <div className="cta-overlap-box">
+          <div className="cta-badge">LET'S COLLABORATE</div>
+          <h2>Ready to sell your project faster and grow your business?</h2>
+          <p>Let's talk about how ATA Infratech can support your next residential, commercial, or plotted project.</p>
+          <div className="cta-overlap-actions">
+            <Link to="/contact" className="btn-cta-dark">
               Talk to Our Team <ArrowRight size={16} />
             </Link>
+            <Link to="/services" className="btn-cta-outline">
+              Explore Our Services
+            </Link>
           </div>
-        </motion.div>
+        </div>
       </section>
     </div>
   );

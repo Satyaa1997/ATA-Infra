@@ -11,8 +11,7 @@ import {
   ShieldCheck, 
   CheckCircle2, 
   XCircle, 
-  ArrowRight, 
-  Sparkles
+  ArrowRight
 } from "lucide-react";
 import "./WhyATA.css";
 import whyBannerImg from "../assets/insight3.jpg";
@@ -320,28 +319,21 @@ export default function WhyATA() {
         </motion.div>
       </section>
 
-      {/* 5. Bottom Call-To-Action Banner */}
-      <section className="section-padding cta-banner-section">
-        <motion.div 
-          className="why-cta-glassbox"
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="cta-ambient-glow" />
-          <Sparkles size={28} color="#C8A22C" style={{ margin: "0 auto 12px auto" }} />
+      {/* 5. HALF-OVERLAP GOLDEN CTA SECTION (FOOTER OVERLAY) */}
+      <section id="cta" className="cta-overlap-section">
+        <div className="cta-overlap-box">
+          <div className="cta-badge">LET'S COLLABORATE</div>
           <h2>Ready to Put the ATA Engine to Work on Your Next Project?</h2>
           <p>Let's discuss how we can accelerate sales velocity, structure private capital, and build your corporate brand equity.</p>
-          <div className="cta-buttons-wrap">
-            <Link to="/contact" className="btn-gold">
+          <div className="cta-overlap-actions">
+            <Link to="/contact" className="btn-cta-dark">
               Talk to Our Team <ArrowRight size={16} />
             </Link>
-            <Link to="/projects" className="btn-outline-gold">
+            <Link to="/projects" className="btn-cta-outline">
               Explore Active Portfolio
             </Link>
           </div>
-        </motion.div>
+        </div>
       </section>
     </div>
   );

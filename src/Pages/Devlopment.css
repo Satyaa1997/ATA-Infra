@@ -36,12 +36,36 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   transition: all 0.35s ease;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .cap-card:hover {
   transform: translateY(-6px);
   border-color: var(--gold, #C8A22C);
   box-shadow: 0 12px 30px rgba(200, 162, 44, 0.15);
+}
+
+.cap-icon-box {
+  width: 54px;
+  height: 54px;
+  background: #faf8f2;
+  border: 1px solid rgba(200, 162, 44, 0.25);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.cap-card:hover .cap-icon-box {
+  background: var(--gold, #C8A22C);
+  transform: rotate(6deg) scale(1.05);
+}
+
+.cap-card:hover .cap-icon-box svg {
+  color: #ffffff !important;
 }
 
 .cap-card h3 {
@@ -55,6 +79,7 @@
   color: #555555;
   line-height: 1.75;
   font-size: 14.5px;
+  margin: 0;
 }
 
 /* Process List */

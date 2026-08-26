@@ -1,16 +1,43 @@
 import PageBanner from "../Components/PageBanner";
 import { Link } from "react-router-dom";
-import {  ArrowRight } from "lucide-react";
+import { 
+  ArrowRight, 
+  FileSpreadsheet, 
+  Users2, 
+  Megaphone, 
+  TrendingUp, 
+  Building 
+} from "lucide-react";
 import "./Devlopment.css";
 import devBanner from "../assets/project2.jpg";
 
 export default function Development() {
   const executionScope = [
-    { t: "Complete Project Blueprint", d: "Preparing a structured roadmap, pricing strategy, and launch timeline." },
-    { t: "Channel Partner Network", d: "Connecting and mobilizing an active network of real estate channel partners." },
-    { t: "Sales Events & Campaigns", d: "Planning and running targeted marketing events and lead generation drives." },
-    { t: "Trackable Sales Pipeline", d: "Setting up a transparent, structured system from first inquiry to deal closure." },
-    { t: "Multi-Segment Inventory Selling", d: "Dedicated sales execution for plotted layouts, residential units, and commercial spaces." }
+    { 
+      t: "Complete Project Blueprint", 
+      d: "Preparing a structured roadmap, pricing strategy, and launch timeline.",
+      icon: FileSpreadsheet
+    },
+    { 
+      t: "Channel Partner Network", 
+      d: "Connecting and mobilizing an active network of real estate channel partners.",
+      icon: Users2
+    },
+    { 
+      t: "Sales Events & Campaigns", 
+      d: "Planning and running targeted marketing events and lead generation drives.",
+      icon: Megaphone
+    },
+    { 
+      t: "Trackable Sales Pipeline", 
+      d: "Setting up a transparent, structured system from first inquiry to deal closure.",
+      icon: TrendingUp
+    },
+    { 
+      t: "Multi-Segment Inventory Selling", 
+      d: "Dedicated sales execution for plotted layouts, residential units, and commercial spaces.",
+      icon: Building
+    }
   ];
 
   const steps = [
@@ -41,12 +68,18 @@ export default function Development() {
           </p>
         </div>
         <div className="capabilities-grid">
-          {executionScope.map((item, i) => (
-            <div key={i} className="cap-card">
-              <h3>{item.t}</h3>
-              <p>{item.d}</p>
-            </div>
-          ))}
+          {executionScope.map((item, i) => {
+            const IconComponent = item.icon;
+            return (
+              <div key={i} className="cap-card">
+                <div className="cap-icon-box">
+                  <IconComponent size={26} color="#C8A22C" />
+                </div>
+                <h3>{item.t}</h3>
+                <p>{item.d}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
