@@ -160,7 +160,6 @@ export default function Navbar() {
           {mobileExpanded === "about" && (
             <div className="mobile-submenu">
               <NavLink to="/about">Who We Are</NavLink>
-              <NavLink to="/our-team">Our Team</NavLink>
               <NavLink to="/why-ata">Why Choose Us</NavLink>
             </div>
           )}
