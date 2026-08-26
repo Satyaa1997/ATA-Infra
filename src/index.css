@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap');
 
 :root {
   /* Luxury White & Warm Ivory Theme */
@@ -11,13 +11,16 @@
   
   --text-dark: #121212;        /* Deep Charcoal/Black for Headings */
   --text-muted: #555555;       /* Refined Slate for Body Text */
+  
+  /* Global Font */
+  --font-main: 'Montserrat', system-ui, -apple-system, sans-serif;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: auto !important;
+  font-family: var(--font-main) !important;
 }
 
 html, body {
@@ -25,13 +28,19 @@ html, body {
   width: 100%;
   background-color: var(--primary);
   color: var(--text-dark);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-main) !important;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, .font-serif {
-  font-family: 'Playfair Display', serif;
+h1, h2, h3, h4, h5, h6, .font-serif, p, span, a, button, input, textarea, select {
+  font-family: var(--font-main) !important;
+}
+
+h1, h2, h3, h4 {
   color: var(--text-dark);
+  font-weight: 700;
 }
 
 p {

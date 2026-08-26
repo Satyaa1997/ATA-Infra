@@ -1,9 +1,11 @@
 .footer-section {
   background: #080808;
   border-top: 1px solid rgba(200, 162, 44, 0.25);
-  padding: 80px 7% 35px;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  padding: 150px 7% 35px; /* 150px top padding ensures overlapping CTA sits on top cleanly */
+  font-family: var(--font-main, 'Montserrat', sans-serif);
   color: #ffffff;
+  position: relative;
+  z-index: 1; /* Sits below the CTA card */
 }
 
 .footer-top {
@@ -14,15 +16,17 @@
 }
 
 .footer-brand img {
-  height: 115px;                  /* 80px se badha kar 115px */
+  height: 115px;
   width: auto;
-  max-width: 280px;               /* 220px se badha kar 280px */
+  max-width: 280px;
   object-fit: contain;
   display: block;
   margin-bottom: 22px;
+  margin-left: -18px;
   filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.9));
   transition: transform 0.3s ease;
 }
+
 .footer-brand img:hover {
   transform: scale(1.04);
 }
@@ -97,8 +101,9 @@
 
 @media (max-width: 768px) {
   .footer-section {
-    padding: 60px 20px 30px;
+    padding: 110px 20px 30px; /* Mobile adjustment */
   }
+  
   .footer-brand img {
     height: 100px !important;
     max-width: 240px !important;
