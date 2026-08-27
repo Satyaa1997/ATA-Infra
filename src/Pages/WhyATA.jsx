@@ -167,7 +167,7 @@ const comparisonData = [
 
 export default function WhyATA() {
   return (
-    <div className="w-full bg-[#FAFAFA] text-dark font-main min-h-screen overflow-x-hidden">
+    <div className="w-full bg-[#FAFAFA] text-dark font-main relative z-20">
       {/* 1. Page Header Banner */}
       <PageBanner
         bgImage={whyBannerImg}
@@ -287,7 +287,7 @@ export default function WhyATA() {
       </section>
 
       {/* 4. Comparison Table: Traditional Brokerage vs ATA Infratech */}
-      <section className="w-full py-20 pb-36 bg-[#F4F1EA] border-t border-black/5">
+      <section className="w-full py-20 pb-28 md:pb-36 bg-[#F4F1EA] border-t border-black/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-gold text-xs font-bold uppercase tracking-[2px] block mb-2">STRATEGIC DIFFERENCE</span>
@@ -321,24 +321,24 @@ export default function WhyATA() {
         </div>
       </section>
 
-      {/* 5. Overlapping Golden CTA Section */}
-      <section className="w-full bg-transparent px-4 -mb-20 relative z-30">
+      {/* 5. EXACT HALF-OVERLAP GOLDEN CTA (HALF ON PAGE / HALF ON FOOTER) */}
+      <section className="w-full bg-transparent px-4 -mb-28 md:-mb-32 relative z-30 pointer-events-auto">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
-          <div className="bg-gradient-to-r from-[#D4A946] via-[#BA8E2E] to-[#8C671A] border border-white/45 rounded-2xl p-8 md:p-12 text-center shadow-2xl max-w-5xl mx-auto text-dark">
+          <div className="bg-gradient-to-r from-[#D4A946] via-[#BA8E2E] to-[#8C671A] border-2 border-white/60 rounded-2xl p-8 sm:p-10 md:p-12 text-center shadow-[0_20px_60px_rgba(0,0,0,0.6)] max-w-6xl mx-auto text-dark">
             <span className="inline-block bg-[#111111]/90 text-white border border-white/20 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1 rounded-full mb-3">
               LET'S COLLABORATE
             </span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-extrabold text-dark mb-3">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-extrabold text-dark mb-3 leading-tight">
               Ready to Put the ATA Engine to Work on Your Next Project?
             </h2>
             <p className="text-gray-900 text-sm md:text-base font-semibold max-w-2xl mx-auto mb-6 leading-relaxed">
               Let's discuss how we can accelerate sales velocity, structure private capital, and build your corporate brand equity.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link to="/contact" className="w-full sm:w-auto px-6 py-3 bg-dark hover:bg-black text-white text-xs font-bold uppercase tracking-wider rounded flex items-center justify-center gap-2 shadow-lg hover:-translate-y-0.5 transition-all">
+              <Link to="/contact" className="w-full sm:w-auto px-7 py-3.5 bg-dark hover:bg-black text-white text-xs font-bold uppercase tracking-wider rounded flex items-center justify-center gap-2 shadow-xl hover:-translate-y-0.5 transition-all">
                 Talk to Our Team <ArrowRight size={15} />
               </Link>
-              <Link to="/projects" className="w-full sm:w-auto px-6 py-3 bg-white/25 hover:bg-dark hover:text-white text-dark border border-dark text-xs font-bold uppercase tracking-wider rounded flex items-center justify-center backdrop-blur-sm transition-all">
+              <Link to="/projects" className="w-full sm:w-auto px-7 py-3.5 bg-white/30 hover:bg-dark hover:text-white text-dark border-1.5 border-dark text-xs font-bold uppercase tracking-wider rounded flex items-center justify-center backdrop-blur-md transition-all">
                 Explore Active Portfolio
               </Link>
             </div>

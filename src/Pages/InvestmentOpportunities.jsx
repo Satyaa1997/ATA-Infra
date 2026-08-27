@@ -107,7 +107,7 @@ export default function InvestmentOpportunities() {
           <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8">
             We help structure clear investor conversations, assist in fundraising for ongoing and pre-launch developments, and secure capital so construction never stops.
           </p>
-          <Link to="/contact" className="inline-flex items-center px-8 py-3.5 bg-dark hover:bg-black text-white text-xs font-bold uppercase tracking-wider rounded shadow-md hover:-translate-y-0.5 transition-all">
+          <Link to="/contact" className="inline-flex items-center px-8 py-3.5 bg-dark hover:bg-gold text-white text-xs font-bold uppercase tracking-wider rounded shadow-md hover:-translate-y-0.5 transition-all">
             Connect with Our Investment Team
           </Link>
         </div>

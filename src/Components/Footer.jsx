@@ -11,8 +11,7 @@ import logo from "../assets/ATA1.png";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#080808] border-t border-gold/25 pt-36 pb-8 text-white relative z-10 font-main">
-      {/* Centered Container with Balanced Side Gutters */}
+    <footer className="w-full bg-[#080808] border-t border-gold/25 pt-44 sm:pt-48 pb-8 text-white relative z-10 font-main">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Top 4-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-white/10">

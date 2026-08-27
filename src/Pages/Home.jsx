@@ -264,7 +264,7 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full text-dark font-main overflow-x-hidden">
+    <div className="w-full text-dark font-main relative z-20">
 
       {/* 1. HERO SECTION */}
       <section className="relative w-full min-h-[640px] md:h-screen bg-[#0c0c0c] flex items-end pb-16 md:pb-24 pt-32 overflow-hidden">
@@ -584,7 +584,7 @@ export default function Home() {
       </section>
 
       {/* 8. LATEST BLOGS */}
-      <section className="w-full py-20 pb-36 bg-[#FAFAFA]">
+      <section className="w-full py-20 pb-28 md:pb-36 bg-[#FAFAFA]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
             <div>
@@ -627,24 +627,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. OVERLAPPING GOLDEN CTA */}
-      <section className="w-full bg-transparent px-4 -mb-20 relative z-30">
+      {/* 9. EXACT HALF-OVERLAP GOLDEN CTA (HALF ON PAGE / HALF OVER FOOTER) */}
+      <section className="w-full bg-transparent px-4 -mb-28 md:-mb-32 relative z-30 pointer-events-auto">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
-          <div className="bg-gradient-to-r from-[#D4A946] via-[#BA8E2E] to-[#8C671A] border border-white/45 rounded-2xl p-8 md:p-12 text-center shadow-2xl max-w-5xl mx-auto text-dark">
+          <div className="bg-gradient-to-r from-[#D4A946] via-[#BA8E2E] to-[#8C671A] border-2 border-white/60 rounded-2xl p-8 sm:p-10 md:p-12 text-center shadow-[0_20px_60px_rgba(0,0,0,0.6)] max-w-6xl mx-auto text-dark">
             <span className="inline-block bg-[#111111]/90 text-white border border-white/20 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1 rounded-full mb-3">
               LET'S COLLABORATE
             </span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-extrabold text-dark mb-3">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-extrabold text-dark mb-3 leading-tight">
               Ready to sell your project faster and grow your business?
             </h2>
             <p className="text-gray-900 text-sm md:text-base font-semibold max-w-2xl mx-auto mb-6 leading-relaxed">
               Let's talk about how ATA Infratech can support your next project with aggregation, capital, and advisory.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link to="/contact" className="w-full sm:w-auto px-6 py-3 bg-dark hover:bg-black text-white text-xs font-bold uppercase tracking-wider rounded flex items-center justify-center gap-2 shadow-lg hover:-translate-y-0.5 transition-all">
+              <Link to="/contact" className="w-full sm:w-auto px-7 py-3.5 bg-dark hover:bg-black text-white text-xs font-bold uppercase tracking-wider rounded flex items-center justify-center gap-2 shadow-xl hover:-translate-y-0.5 transition-all">
                 Contact Us <ArrowRight size={15} />
               </Link>
-              <Link to="/services" className="w-full sm:w-auto px-6 py-3 bg-white/25 hover:bg-dark hover:text-white text-dark border border-dark text-xs font-bold uppercase tracking-wider rounded flex items-center justify-center backdrop-blur-sm transition-all">
+              <Link to="/services" className="w-full sm:w-auto px-7 py-3.5 bg-white/30 hover:bg-dark hover:text-white text-dark border-1.5 border-dark text-xs font-bold uppercase tracking-wider rounded flex items-center justify-center backdrop-blur-md transition-all">
                 Explore Our Services
               </Link>
             </div>

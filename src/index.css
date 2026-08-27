@@ -1,102 +1,92 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html, body {
-    @apply bg-[#FAFAFA] text-dark font-main overflow-x-hidden antialiased;
-  }
-
-  /* Safe Side Gutters for All Standard Sections */
-  section {
-    @apply px-4 sm:px-6 md:px-10 lg:px-12 w-full box-border;
-  }
-}
-
 :root {
   --primary: #F9F8F5;
-  --primary-light: #FFFFFF;
-  --primary-border: rgba(186, 142, 46, 0.25);
-
   --gold: #BA8E2E;
   --gold-hover: #A37A24;
-  --gold-light: rgba(186, 142, 46, 0.12);
-
   --text-dark: #121212;
   --text-muted: #555555;
-
-  --font-main: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-main: 'Montserrat', sans-serif;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--font-main) !important;
 }
 
-html,
-body {
-  min-height: 100%;
+/* 1. Global Document Scrolling Setup */
+html {
+  margin: 0;
+  padding: 0;
   width: 100%;
-  background-color: var(--primary);
-  color: var(--text-dark);
-  font-family: var(--font-main) !important;
   overflow-x: hidden;
+  overflow-y: auto !important; /* Enables single clean vertical scrollbar */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #FAFAFA;
+  color: var(--text-dark);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  overflow-y: visible !important; /* Prevents hidden/locked scrolling */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.font-serif,
-p,
-span,
-a,
-button,
-input,
-textarea,
-select {
-  font-family: var(--font-main) !important;
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  color: var(--text-dark);
-  font-weight: 700;
+/* 2. Custom Gold Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-p {
-  color: var(--text-muted);
+::-webkit-scrollbar-track {
+  background: #F4F1EA;
 }
 
+::-webkit-scrollbar-thumb {
+  background: #BA8E2E;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A37A24;
+}
+
+/* 3. Utility Button Styles */
 .btn-gold {
   padding: 14px 32px;
-  background: var(--gold);
+  background: #BA8E2E;
   color: #ffffff !important;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   font-size: 13px;
-  border-radius: 2px;
-  border: 1px solid var(--gold);
+  border-radius: 4px;
+  border: 1px solid #BA8E2E;
   transition: all 0.3s ease;
   display: inline-block;
   text-decoration: none;
 }
 
 .btn-gold:hover {
-  background: var(--gold-hover);
-  border-color: var(--gold-hover);
+  background: #A37A24;
+  border-color: #A37A24;
   box-shadow: 0 4px 15px rgba(186, 142, 46, 0.35);
   transform: translateY(-2px);
 }
@@ -104,105 +94,21 @@ p {
 .btn-outline {
   padding: 14px 32px;
   background: transparent;
-  color: var(--text-dark) !important;
-  border: 1.5px solid var(--text-dark);
+  color: #121212 !important;
+  border: 1.5px solid #121212;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   font-size: 13px;
-  border-radius: 2px;
+  border-radius: 4px;
   transition: all 0.3s ease;
   display: inline-block;
   text-decoration: none;
 }
 
 .btn-outline:hover {
-  background: var(--gold);
-  border-color: var(--gold);
+  background: #BA8E2E;
+  border-color: #BA8E2E;
   color: #ffffff !important;
   transform: translateY(-2px);
-}
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: #F9F8F5;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--gold);
-  border-radius: 3px;
-}
-
-
-h1, h2, h3, h4, h5, h6, .font-serif, p, span, a, button, input, textarea, select {
-  font-family: var(--font-main) !important;
-}
-
-h1, h2, h3, h4 {
-  color: var(--text-dark);
-  font-weight: 700;
-}
-
-p {
-  color: var(--text-muted);
-}
-
-/* Luxury Gold Buttons */
-.btn-gold {
-  padding: 14px 32px;
-  background: var(--gold);
-  color: #ffffff !important;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  font-size: 13px;
-  border-radius: 2px;
-  border: 1px solid var(--gold);
-  transition: all 0.3s ease;
-  display: inline-block;
-  text-decoration: none;
-}
-
-.btn-gold:hover {
-  background: var(--gold-hover);
-  border-color: var(--gold-hover);
-  box-shadow: 0 4px 15px rgba(186, 142, 46, 0.35);
-  transform: translateY(-2px);
-}
-
-.btn-outline {
-  padding: 14px 32px;
-  background: transparent;
-  color: var(--text-dark) !important;
-  border: 1.5px solid var(--text-dark);
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  font-size: 13px;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-  display: inline-block;
-  text-decoration: none;
-}
-
-.btn-outline:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: #ffffff !important;
-  transform: translateY(-2px);
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #F9F8F5;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--gold);
-  border-radius: 3px;
 }

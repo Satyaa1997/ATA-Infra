@@ -105,7 +105,7 @@ export default function Blog() {
   const featured = comprehensiveArticles.find(a => a.featured) || comprehensiveArticles[0];
 
   return (
-    <div className="w-full bg-[#080808] text-white font-main min-h-screen">
+    <div className="w-full bg-[#fffff] text-white font-main min-h-screen">
       <PageBanner
         bgImage={blogBannerImg}
         tag="ATA ADVISORY & INSIGHTS"
