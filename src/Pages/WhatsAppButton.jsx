@@ -6,8 +6,8 @@ export default function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(true);
 
   // Phone Call & WhatsApp setup
-  const rawPhoneNumber = "+919876543210"; // Apna actual call number dalein
-  const whatsappNumber = "919876543210"; // Apna WhatsApp number dalein
+  const rawPhoneNumber = "+917503796513"; // Apna actual call number dalein
+  const whatsappNumber = "917503796513"; // Apna WhatsApp number dalein
   const defaultMessage = encodeURIComponent(
     "Hello ATA Infratech Team, I want to discuss a real estate project requirement (Aggregate / Invest / Advise)."
   );

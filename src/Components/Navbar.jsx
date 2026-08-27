@@ -48,8 +48,8 @@ export default function Navbar() {
         <div className="bg-[#0a0a0a] text-[#cccccc] h-9 border-b border-gold/25 text-xs flex items-center">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full flex justify-between items-center">
             <div className="flex items-center gap-3.5">
-              <a href="tel:+91XXXXXXXXXX" className="text-gray-300 hover:text-gold transition-colors duration-200 flex items-center gap-1.5 text-xs">
-                <Phone size={13} className="text-gold" /> <span>+91 XXXXXXXXXX</span>
+              <a href="tel:+917503796513" className="text-gray-300 hover:text-gold transition-colors duration-200 flex items-center gap-1.5 text-xs">
+                <Phone size={13} className="text-gold" /> <span>+917503796513</span>
               </a>
               <span className="text-white/20">|</span>
               <a href="mailto:contact@atainfra.com" className="text-gray-300 hover:text-gold transition-colors duration-200 flex items-center gap-1.5 text-xs">
