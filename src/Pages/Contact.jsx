@@ -4,8 +4,7 @@ import {
   Mail, 
   Phone, 
   MapPin,  
-  Sparkles,
-  ArrowRight
+  Sparkles
 } from "lucide-react";
 import { 
   FaFacebookF, 
@@ -25,9 +24,30 @@ export default function Contact() {
     message: ""
   });
 
+  // Apna WhatsApp Number yaha replace karein (with country code, bina '+' sign ke)
+  const whatsappNumber = "+917503796510"; 
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Thank you! Your inquiry has been sent to the ATA Infratech team.");
+
+    // WhatsApp structured message format
+    const whatsappMessage = 
+      `*New Project Inquiry - ATA Infratech*\n\n` +
+      `👤 *Name:* ${formData.name}\n` +
+      `📞 *Phone:* ${formData.phone}\n` +
+      `📧 *Email:* ${formData.email || "Not Provided"}\n` +
+      `🏢 *Service Required:* ${formData.serviceType}\n` +
+      `📍 *Project Location/City:* ${formData.city}\n` +
+      `📝 *Message/Details:* ${formData.message}\n\n` +
+      `_Sent via ATA Infratech Website Form_`;
+
+    // WhatsApp API URL generator
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+    // Naye tab me WhatsApp chat open karega
+    window.open(whatsappUrl, "_blank");
+
+    // Form reset
     setFormData({
       name: "",
       phone: "",
@@ -108,7 +128,7 @@ export default function Contact() {
                   <a href="https://instagram.com" target="_blank" rel="noreferrer" className="px-4 py-2 bg-gradient-to-r from-[#F09433] via-[#DC2743] to-[#BC1888] text-white rounded-md text-xs font-bold flex items-center gap-2 hover:opacity-90">
                     <FaInstagram size={14} /> Instagram
                   </a>
-                  <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noreferrer" className="px-4 py-2 bg-[#25D366] text-white rounded-md text-xs font-bold flex items-center gap-2 hover:opacity-90">
+                  <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noreferrer" className="px-4 py-2 bg-[#25D366] text-white rounded-md text-xs font-bold flex items-center gap-2 hover:opacity-90">
                     <FaWhatsapp size={14} /> WhatsApp
                   </a>
                 </div>
@@ -120,7 +140,7 @@ export default function Contact() {
               <div className="mb-6">
                 <Sparkles size={20} className="text-gold mb-1" />
                 <h3 className="text-2xl font-serif font-extrabold text-dark">Send Us a Project Brief</h3>
-                <p className="text-gray-500 text-sm">Fill out the details below and an ATA strategist will reach out to you.</p>
+                <p className="text-gray-500 text-sm">Fill out the details below to send an instant brief directly to our WhatsApp desk.</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -129,7 +149,7 @@ export default function Contact() {
                   <input 
                     type="text" 
                     required 
-                    placeholder="e.g. Satyam Kumar" 
+                    placeholder="e.g. Ajay Kumar" 
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full p-3 bg-gray-50 border border-black/10 rounded-md text-sm text-dark focus:bg-white focus:border-gold outline-none"
@@ -150,10 +170,9 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-dark mb-1">Email Address *</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-dark mb-1">Email Address</label>
                     <input 
                       type="email" 
-                      required 
                       placeholder="name@company.com" 
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -170,15 +189,15 @@ export default function Contact() {
                       onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
                       className="w-full p-3 bg-gray-50 border border-black/10 rounded-md text-sm text-dark focus:bg-white focus:border-gold outline-none"
                     >
-                      <option value="Aggregate (Sales)">Aggregate (Turnkey Project Sales)</option>
-                      <option value="Invest (Capital)">Invest (Private Capital & Funding)</option>
-                      <option value="Advise (Consulting)">Advise (Brand & Growth Consulting)</option>
+                      <option value="Aggregate (Sales Execution)">Aggregate (Turnkey Project Sales)</option>
+                      <option value="Invest (Capital & Funding)">Invest (Private Capital & Funding)</option>
+                      <option value="Advise (Growth Consulting)">Advise (Brand & Growth Consulting)</option>
                       <option value="General Partnership">General Partnership / Other</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-dark mb-1">Project City *</label>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-dark mb-1">Project City / Location *</label>
                     <input 
                       type="text" 
                       required 
@@ -191,7 +210,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-dark mb-1">Project Details *</label>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-dark mb-1">Project Details / Message *</label>
                   <textarea 
                     rows="4" 
                     required 
@@ -204,9 +223,9 @@ export default function Contact() {
 
                 <button 
                   type="submit" 
-                  className="w-full py-3.5 bg-gold hover:bg-gold-hover text-white text-xs font-bold uppercase tracking-widest rounded-md shadow-md flex items-center justify-center gap-2 hover:-translate-y-0.5 transition-all"
+                  className="w-full py-3.5 bg-[#25D366] hover:bg-[#1ebd5a] text-white text-xs font-bold uppercase tracking-widest rounded-md shadow-md flex items-center justify-center gap-2 hover:-translate-y-0.5 transition-all"
                 >
-                  Send Message <ArrowRight size={16} />
+                  <FaWhatsapp size={16} /> Send via WhatsApp
                 </button>
               </form>
             </div>
