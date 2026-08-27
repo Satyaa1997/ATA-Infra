@@ -9,39 +9,26 @@ import {
   Images, 
   Expand 
 } from "lucide-react";
-import "./Gallery.css";
 
 import galleryBanner from "../assets/Projects.png";
-
-// Project 1: Anant City
 import anant1 from "../assets/AnantCity.jpg";
-import anant2 from "../assets/AnantCity2.jpg"; // Placeholder
-import anant3 from "../assets/Anant3.jpg"; // Placeholder
-
-// Project 2: Garden Ganj
+import anant2 from "../assets/AnantCity2.jpg";
+import anant3 from "../assets/Anant3.jpg";
 import garden1 from "../assets/Gardenganj1.webp";
-import garden2 from "../assets/gardenganj2.webp"; // Placeholder
-import garden3 from "../assets/Gardenganj1.webp"; // Placeholder
-
-// Project 3: Vayu Villa
+import garden2 from "../assets/gardenganj2.webp";
+import garden3 from "../assets/Gardenganj1.webp";
 import villa1 from "../assets/Vayuvilla1.png";
-import villa2 from "../assets/vayu3.jpg"; // Placeholder
-import villa3 from "../assets/Vayuvilla1.png"; // Placeholder
-
-// Project 4: Vayu Green
+import villa2 from "../assets/vayu3.jpg";
+import villa3 from "../assets/Vayuvilla1.png";
 import vgreen1 from "../assets/Vayugreen.png";
-import vgreen2 from "../assets/vayugreen2.jpg"; // Placeholder
-import vgreen3 from "../assets/vayugreen3.jpg"; // Placeholder
-
-// Project 5: Green Valley
+import vgreen2 from "../assets/vayugreen2.jpg";
+import vgreen3 from "../assets/vayugreen3.jpg";
 import gvalley1 from "../assets/Greenvally.png";
-import gvalley2 from "../assets/Greenvally2.jpg"; // Placeholder
-import gvalley3 from "../assets/greenvally3.jpg"; // Placeholder
-
-// Project 6: Vayu Mantra
+import gvalley2 from "../assets/Greenvally2.jpg";
+import gvalley3 from "../assets/greenvally3.jpg";
 import vmantra1 from "../assets/Vayumantra.png";
-import vmantra2 from "../assets/vayumantra2.jpg"; // Placeholder
-import vmantra3 from "../assets/Vayumantra.png"; // Placeholder
+import vmantra2 from "../assets/vayumantra2.jpg";
+import vmantra3 from "../assets/Vayumantra.png";
 
 const projectGalleries = [
   {
@@ -151,7 +138,6 @@ export default function Gallery() {
     );
   }, [activeGallery]);
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!activeGallery) return;
@@ -168,7 +154,7 @@ export default function Gallery() {
     : projectGalleries.filter((p) => p.loc === filter);
 
   return (
-    <div className="gallery-page">
+    <div className="w-full bg-[#FAFAFA] text-dark font-main min-h-screen">
       <PageBanner
         bgImage={galleryBanner}
         tag="VISUAL PORTFOLIO"
@@ -176,129 +162,151 @@ export default function Gallery() {
         subtitle="Explore dedicated photo albums for each of our builder partner projects across Gorakhpur, Lucknow, and Pune."
       />
 
-      <section className="section-padding">
-        {/* City Filter Pills */}
-        <div className="gallery-filter-bar">
-          {["All", "Gorakhpur", "Lucknow", "Pune"].map((hub) => (
-            <button
-              key={hub}
-              className={`gallery-filter-btn ${filter === hub ? "active" : ""}`}
-              onClick={() => setFilter(hub)}
-            >
-              {hub === "All" ? "All Locations" : hub}
-            </button>
-          ))}
-        </div>
+      <section className="w-full py-16">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+          
+          {/* Filter Pills */}
+          <div className="flex flex-wrap gap-3 justify-center mb-12">
+            {["All", "Gorakhpur", "Lucknow", "Pune"].map((hub) => (
+              <button
+                key={hub}
+                className={`px-6 py-2.5 rounded text-xs font-bold uppercase tracking-wider transition-all border ${
+                  filter === hub 
+                    ? "bg-gold text-white border-gold shadow-md" 
+                    : "bg-white text-dark border-black/10 hover:border-gold"
+                }`}
+                onClick={() => setFilter(hub)}
+              >
+                {hub === "All" ? "All Locations" : hub}
+              </button>
+            ))}
+          </div>
 
-        {/* Project Gallery Cards */}
-        <div className="gallery-projects-grid">
-          {filteredProjects.map((project) => (
-            <div 
-              key={project.id} 
-              className="project-album-card"
-              onClick={() => openGallery(project, 0)}
-            >
-              <div className="album-cover-wrapper">
-                <img src={project.coverImg} alt={project.title} className="album-img" />
-                <div className="album-overlay">
-                  <div className="album-badge-row">
-                    <span className="album-count-badge">
-                      <Images size={14} /> {project.images.length} Photos
-                    </span>
-                    <span className={`album-status ${project.status.toLowerCase().replace(" ", "-")}`}>
-                      {project.status}
-                    </span>
-                  </div>
+          {/* Project Albums Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((project) => (
+              <div 
+                key={project.id} 
+                className="bg-white border border-black/10 rounded-xl overflow-hidden shadow-sm hover:border-gold hover:-translate-y-2 hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col"
+                onClick={() => openGallery(project, 0)}
+              >
+                <div className="relative h-64 overflow-hidden group">
+                  <img src={project.coverImg} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-5 flex flex-col justify-between">
+                    <div className="flex justify-between items-center">
+                      <span className="bg-[#121212]/90 border border-gold text-gold text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded flex items-center gap-1.5">
+                        <Images size={13} /> {project.images.length} Photos
+                      </span>
+                      <span className="bg-gold/20 border border-gold text-gold text-[10px] font-bold uppercase px-2.5 py-1 rounded">
+                        {project.status}
+                      </span>
+                    </div>
 
-                  <div className="album-bottom-info">
-                    <span className="album-loc">
-                      <MapPin size={12} /> {project.loc}
-                    </span>
-                    <h3>{project.title}</h3>
-                    <p className="album-builder">
-                      <Building2 size={13} /> {project.builder}
-                    </p>
-                  </div>
+                    <div>
+                      <span className="text-gold text-xs font-bold uppercase flex items-center gap-1 mb-1">
+                        <MapPin size={12} /> {project.loc}
+                      </span>
+                      <h3 className="text-xl font-bold text-white mb-1">{project.title}</h3>
+                      <p className="text-gray-300 text-xs flex items-center gap-1.5">
+                        <Building2 size={13} className="text-gold" /> {project.builder}
+                      </p>
+                    </div>
 
-                  <div className="album-expand-btn">
-                    <Expand size={18} />
+                    <div className="absolute top-5 right-5 w-8 h-8 rounded-full bg-[#121212]/80 border border-gold text-gold flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Expand size={16} />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Mini Thumbnails Strip */}
-              <div className="album-thumbnails-strip">
-                {project.images.map((img, i) => (
-                  <div 
-                    key={i} 
-                    className="mini-thumb" 
-                    style={{ backgroundImage: `url(${img.src})` }}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      openGallery(project, i);
-                    }}
-                  />
-                ))}
+                {/* Thumbnails Strip */}
+                <div className="flex gap-2 p-3 bg-white border-t border-black/5">
+                  {project.images.map((img, i) => (
+                    <div 
+                      key={i} 
+                      className="h-12 flex-1 rounded bg-cover bg-center border border-black/10 hover:border-gold hover:scale-105 transition-all"
+                      style={{ backgroundImage: `url(${img.src})` }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openGallery(project, i);
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
         </div>
       </section>
 
-      {/* Advanced Lightbox Modal with Next / Prev */}
+      {/* Lightbox Modal */}
       {activeGallery && (
-        <div className="lightbox-backdrop" onClick={closeGallery}>
-          <div className="lightbox-modal" onClick={(e) => e.stopPropagation()}>
+        <div 
+          className="fixed inset-0 bg-black/95 backdrop-blur-md z-[99999] flex items-center justify-center p-4"
+          onClick={closeGallery}
+        >
+          <div 
+            className="bg-white border border-gold/40 rounded-xl max-w-4xl w-full overflow-hidden shadow-2xl relative"
+            onClick={(e) => e.stopPropagation()}
+          >
             {/* Top Bar */}
-            <div className="lightbox-topbar">
-              <div className="lightbox-meta">
-                <span className="lightbox-city"><MapPin size={13} /> {activeGallery.loc}</span>
-                <span className="lightbox-sep">•</span>
-                <span className="lightbox-proj">{activeGallery.title}</span>
-                <span className="lightbox-counter">
+            <div className="flex justify-between items-center px-6 py-4 bg-[#F4F1EA] border-b border-black/10">
+              <div className="flex items-center gap-2.5 text-xs font-bold uppercase tracking-wider">
+                <span className="text-gold flex items-center gap-1"><MapPin size={13} /> {activeGallery.loc}</span>
+                <span className="text-gray-400">•</span>
+                <span className="text-dark font-extrabold">{activeGallery.title}</span>
+                <span className="bg-white border border-black/10 px-2 py-0.5 rounded text-gray-700">
                   {currentImageIndex + 1} / {activeGallery.images.length}
                 </span>
               </div>
-              <button className="lightbox-close-btn" onClick={closeGallery} aria-label="Close modal">
+              <button onClick={closeGallery} className="text-dark hover:text-gold transition-colors">
                 <X size={22} />
               </button>
             </div>
 
-            {/* Stage / Slider */}
-            <div className="lightbox-stage">
-              <button className="lightbox-nav-btn prev" onClick={showPrev} aria-label="Previous image">
-                <ChevronLeft size={28} />
+            {/* Slider View */}
+            <div className="relative bg-[#0D0D0D] flex items-center justify-between p-4 min-h-[380px] md:h-[55vh]">
+              <button 
+                onClick={showPrev}
+                className="w-10 h-10 rounded-full bg-[#181818]/90 border border-gold text-gold flex items-center justify-center hover:bg-gold hover:text-white transition-all z-10"
+              >
+                <ChevronLeft size={24} />
               </button>
 
-              <div className="lightbox-image-container">
+              <div className="w-full h-full flex items-center justify-center overflow-hidden">
                 <img 
                   key={`${activeGallery.id}-${currentImageIndex}`}
                   src={activeGallery.images[currentImageIndex].src} 
                   alt={activeGallery.images[currentImageIndex].caption} 
-                  className="lightbox-active-img"
+                  className="max-h-[50vh] object-contain rounded"
                 />
               </div>
 
-              <button className="lightbox-nav-btn next" onClick={showNext} aria-label="Next image">
-                <ChevronRight size={28} />
+              <button 
+                onClick={showNext}
+                className="w-10 h-10 rounded-full bg-[#181818]/90 border border-gold text-gold flex items-center justify-center hover:bg-gold hover:text-white transition-all z-10"
+              >
+                <ChevronRight size={24} />
               </button>
             </div>
 
-            {/* Caption & Thumbnail Selector */}
-            <div className="lightbox-footer">
-              <div className="lightbox-caption">
-                <h4>{activeGallery.images[currentImageIndex].caption}</h4>
-                <p>Builder: <strong>{activeGallery.builder}</strong></p>
+            {/* Caption & Thumbs */}
+            <div className="p-5 bg-[#F4F1EA] border-t border-black/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <div>
+                <h4 className="text-sm font-bold text-dark">{activeGallery.images[currentImageIndex].caption}</h4>
+                <p className="text-xs text-gray-600 mt-0.5">Builder: <strong>{activeGallery.builder}</strong></p>
               </div>
 
-              <div className="lightbox-thumbs">
+              <div className="flex gap-2">
                 {activeGallery.images.map((img, idx) => (
                   <button
                     key={idx}
-                    className={`thumb-btn ${idx === currentImageIndex ? "active" : ""}`}
+                    className={`w-12 h-9 rounded bg-cover bg-center border-2 transition-all ${
+                      idx === currentImageIndex ? "border-gold scale-105 shadow-md" : "border-transparent opacity-60 hover:opacity-100"
+                    }`}
                     onClick={() => setCurrentImageIndex(idx)}
                     style={{ backgroundImage: `url(${img.src})` }}
-                    aria-label={`View photo ${idx + 1}`}
                   />
                 ))}
               </div>

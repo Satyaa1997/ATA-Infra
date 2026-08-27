@@ -11,7 +11,6 @@ import {
   CheckCircle2, 
   Sparkles 
 } from "lucide-react";
-import "./ContactModal.css";
 
 export default function ContactModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);
@@ -51,68 +50,78 @@ export default function ContactModal({ isOpen, onClose }) {
     setTimeout(() => {
       setSubmitted(false);
       onClose();
-    }, 2800);
+    }, 2500);
   };
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="modal-backdrop-overlay" onClick={onClose}>
+        <div 
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[999999] flex items-center justify-center p-4 sm:p-6"
+          onClick={onClose}
+        >
           <motion.div
-            className="modal-glass-container"
+            className="bg-white border border-gold/40 rounded-xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
-            initial={{ opacity: 0, scale: 0.92, y: 30 }}
+            initial={{ opacity: 0, scale: 0.92, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.92, y: 30 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            exit={{ opacity: 0, scale: 0.92, y: 20 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
-            <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
-              <X size={20} />
+            {/* Close Button */}
+            <button 
+              type="button" 
+              onClick={onClose}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-dark hover:text-white flex items-center justify-center text-gray-700 transition-all duration-200"
+              aria-label="Close modal"
+            >
+              <X size={18} />
             </button>
 
             {submitted ? (
-              <motion.div 
-                className="modal-success-state"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-              >
-                <div className="success-icon-wrap">
-                  <CheckCircle2 size={54} color="#C8A22C" />
+              <div className="text-center py-10">
+                <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle2 size={42} className="text-gold" />
                 </div>
-                <h3>Inquiry Submitted!</h3>
-                <p>Thank you for reaching out. Our real estate advisory team will connect with you within 24 hours.</p>
-              </motion.div>
+                <h3 className="text-2xl font-serif font-extrabold text-dark mb-2">Inquiry Submitted!</h3>
+                <p className="text-gray-500 text-sm max-w-md mx-auto leading-relaxed">
+                  Thank you for reaching out. Our real estate advisory desk will connect with you within 24 hours.
+                </p>
+              </div>
             ) : (
               <>
-                <div className="modal-header-block">
-                  <span className="modal-tag">
-                    <Sparkles size={13} color="#C8A22C" /> CONNECT WITH ATA INFRATECH
+                <div className="mb-6 pr-6">
+                  <span className="inline-flex items-center gap-1.5 text-gold text-xs font-bold tracking-widest uppercase mb-1.5">
+                    <Sparkles size={13} /> CONNECT WITH ATA INFRATECH
                   </span>
-                  <h2>Talk to Our Core Team</h2>
-                  <p>Tell us about your project or growth requirements. We build scalable sales & capital pipelines.</p>
+                  <h2 className="text-2xl font-serif font-extrabold text-dark leading-tight">Talk to Our Core Team</h2>
+                  <p className="text-gray-500 text-xs sm:text-sm mt-1">
+                    Tell us about your project requirements. We build scalable sales & capital pipelines.
+                  </p>
                 </div>
 
-                <form className="modal-inquiry-form" onSubmit={handleSubmit}>
-                  <div className="modal-form-grid">
-                    <div className="modal-input-group">
-                      <label>Your Full Name *</label>
-                      <div className="input-with-icon">
-                        <User size={16} className="field-icon" />
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-dark mb-1">Your Full Name *</label>
+                      <div className="relative flex items-center">
+                        <User size={16} className="absolute left-3 text-gold pointer-events-none" />
                         <input
                           type="text"
                           name="name"
                           required
-                          placeholder="e.g. Rajeshwar Singh"
+                          placeholder="e.g. Satyam Kumar"
                           value={formData.name}
                           onChange={handleChange}
+                          className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-black/10 rounded-md text-sm text-dark focus:bg-white focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                         />
                       </div>
                     </div>
 
-                    <div className="modal-input-group">
-                      <label>Contact Number *</label>
-                      <div className="input-with-icon">
-                        <Phone size={16} className="field-icon" />
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-dark mb-1">Contact Number *</label>
+                      <div className="relative flex items-center">
+                        <Phone size={16} className="absolute left-3 text-gold pointer-events-none" />
                         <input
                           type="tel"
                           name="phone"
@@ -120,29 +129,36 @@ export default function ContactModal({ isOpen, onClose }) {
                           placeholder="+91 98765 43210"
                           value={formData.phone}
                           onChange={handleChange}
+                          className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-black/10 rounded-md text-sm text-dark focus:bg-white focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                         />
                       </div>
                     </div>
 
-                    <div className="modal-input-group">
-                      <label>Email Address</label>
-                      <div className="input-with-icon">
-                        <Mail size={16} className="field-icon" />
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-dark mb-1">Email Address</label>
+                      <div className="relative flex items-center">
+                        <Mail size={16} className="absolute left-3 text-gold pointer-events-none" />
                         <input
                           type="email"
                           name="email"
                           placeholder="name@company.com"
                           value={formData.email}
                           onChange={handleChange}
+                          className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-black/10 rounded-md text-sm text-dark focus:bg-white focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                         />
                       </div>
                     </div>
 
-                    <div className="modal-input-group">
-                      <label>Project Hub / City</label>
-                      <div className="input-with-icon">
-                        <MapPin size={16} className="field-icon" />
-                        <select name="city" value={formData.city} onChange={handleChange}>
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-dark mb-1">Project Hub / City</label>
+                      <div className="relative flex items-center">
+                        <MapPin size={16} className="absolute left-3 text-gold pointer-events-none" />
+                        <select 
+                          name="city" 
+                          value={formData.city} 
+                          onChange={handleChange}
+                          className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-black/10 rounded-md text-sm text-dark focus:bg-white focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
+                        >
                           <option value="Gorakhpur">Gorakhpur</option>
                           <option value="Lucknow">Lucknow</option>
                           <option value="Pune">Pune</option>
@@ -152,11 +168,16 @@ export default function ContactModal({ isOpen, onClose }) {
                     </div>
                   </div>
 
-                  <div className="modal-input-group full-width">
-                    <label>Required Service Pillar *</label>
-                    <div className="input-with-icon">
-                      <Building size={16} className="field-icon" />
-                      <select name="service" value={formData.service} onChange={handleChange}>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-dark mb-1">Required Service Pillar *</label>
+                    <div className="relative flex items-center">
+                      <Building size={16} className="absolute left-3 text-gold pointer-events-none" />
+                      <select 
+                        name="service" 
+                        value={formData.service} 
+                        onChange={handleChange}
+                        className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-black/10 rounded-md text-sm text-dark focus:bg-white focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
+                      >
                         <option value="Aggregate (Sales Execution)">Aggregate — Full Sales Engine & Partner Blueprints</option>
                         <option value="Invest (Capital & Funding)">Invest — Milestone-Linked Private Investor Syndication</option>
                         <option value="Advise (Growth Consulting)">Advise — Corporate Scaling, Branding & Team Hiring</option>
@@ -165,19 +186,23 @@ export default function ContactModal({ isOpen, onClose }) {
                     </div>
                   </div>
 
-                  <div className="modal-input-group full-width">
-                    <label>Project Details / Message (Optional)</label>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-dark mb-1">Project Details / Message</label>
                     <textarea
                       name="message"
                       rows={3}
                       placeholder="Brief details about your project size, stage, or requirements..."
                       value={formData.message}
                       onChange={handleChange}
+                      className="w-full p-3 bg-gray-50 border border-black/10 rounded-md text-sm text-dark focus:bg-white focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all resize-none"
                     />
                   </div>
 
-                  <button type="submit" className="modal-submit-btn">
-                    Submit Inquiry <Send size={16} />
+                  <button 
+                    type="submit" 
+                    className="w-full py-3 bg-gold hover:bg-gold-hover text-white text-xs font-bold uppercase tracking-widest rounded-md shadow-md flex items-center justify-center gap-2 hover:-translate-y-0.5 transition-all duration-200"
+                  >
+                    Submit Inquiry <Send size={15} />
                   </button>
                 </form>
               </>

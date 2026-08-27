@@ -1,21 +1,15 @@
-import  { useEffect } from "react";
+import { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 import { 
   ArrowLeft, 
   CheckCircle2, 
   MapPin, 
   Building2,  
-  ArrowRight,  
-  Layers, 
-  TrendingUp, 
+  ArrowRight,   
   Sparkles,
-  Calendar,
   Images
 } from "lucide-react";
-import "./ProjectDetail.css";
 
-// Asset Imports
 import anantImg from "../assets/AnantCity.jpg";
 import gardenImg from "../assets/Gardenganj1.webp";
 import vayuVillaImg from "../assets/Vayuvilla1.png";
@@ -23,7 +17,6 @@ import vayuGreenImg from "../assets/Vayugreen.png";
 import greenValleyImg from "../assets/Greenvally.png";
 import vayuMantraImg from "../assets/Vayumantra.png";
 
-// Extra gallery / insight shots
 import extra1 from "../assets/insight1.jpg";
 import extra2 from "../assets/insight2.jpg";
 import extra3 from "../assets/insight3.jpg";
@@ -198,22 +191,6 @@ export const projectsDatabase = {
   }
 };
 
-// Motion Variants
-const pageVariants = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
-  exit: { opacity: 0, y: -20, transition: { duration: 0.3 } }
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }
-  })
-};
-
 export default function ProjectDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -224,206 +201,148 @@ export default function ProjectDetail() {
   }, [id]);
 
   return (
-    <motion.div 
-      className="project-detail-page"
-      variants={pageVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-    >
-      {/* 1. Hero Banner with Parallax Background */}
+    <div className="w-full bg-[#FAFAFA] text-dark font-main min-h-screen">
+      
+      {/* 1. Hero Banner */}
       <div 
-        className="project-hero" 
+        className="relative w-full min-h-[460px] md:min-h-[520px] bg-cover bg-center flex items-end pb-14 pt-32"
         style={{ backgroundImage: `url(${project.heroImg})` }}
       >
-        <div className="project-hero-overlay" />
-        
-        <div className="project-hero-content">
-          <Link to="/projects" className="back-link">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/40 z-10" />
+
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full relative z-20">
+          <Link to="/projects" className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-widest mb-4 hover:text-white transition-colors">
             <ArrowLeft size={16} /> Back to All Projects
           </Link>
-          
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="hero-badge-wrap"
-          >
-            <span className="section-tag">{project.category}</span>
-            <span className={`status-pill ${project.status.toLowerCase().replace(" ", "-")}`}>
+
+          <div className="flex items-center gap-3 mb-3">
+            <span className="text-gold text-xs font-bold tracking-widest uppercase">{project.category}</span>
+            <span className="bg-gold text-white text-[10px] font-bold uppercase px-3 py-0.5 rounded">
               {project.status}
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-extrabold text-white mb-2 leading-tight drop-shadow-md">
             {project.title}
-          </motion.h1>
+          </h1>
+          <p className="text-gray-200 text-sm md:text-base font-semibold mb-4">{project.tagline}</p>
 
-          <p className="hero-tagline">{project.tagline}</p>
-
-          <div className="project-location-bar">
-            <span><MapPin size={16} color="#C8A22C" /> {project.loc}</span>
-            <span className="sep">•</span>
-            <span><Building2 size={16} color="#C8A22C" /> {project.builder}</span>
+          <div className="flex items-center gap-3 text-xs md:text-sm text-gray-300">
+            <span className="flex items-center gap-1"><MapPin size={14} className="text-gold" /> {project.loc}</span>
+            <span>•</span>
+            <span className="flex items-center gap-1"><Building2 size={14} className="text-gold" /> {project.builder}</span>
           </div>
         </div>
       </div>
 
-      {/* 2. Main Two-Column Detailed Layout */}
-      <section className="section-padding">
-        <div className="detail-layout">
-          {/* Main Info Column */}
-          <div className="detail-main">
-            {/* Overview Card */}
-            <motion.div 
-              className="detail-block"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-            >
-              <span className="section-tag">PROJECT OVERVIEW</span>
-              <h2>About {project.title}</h2>
-              <p className="lead-text">{project.overview}</p>
-            </motion.div>
-
-            {/* Scope / ATA Role */}
-            <motion.div 
-              className="detail-block highlight-box"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-            >
-              <div className="hl-header">
-                <Sparkles size={22} color="#C8A22C" />
-                <h3>{project.scopeTitle}</h3>
+      {/* 2. Main Content & Sidebar Grid */}
+      <section className="w-full py-16">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            
+            {/* Main Detail Body */}
+            <div className="lg:col-span-8 space-y-12">
+              <div>
+                <span className="text-gold text-xs font-bold uppercase tracking-[2px] block mb-2">PROJECT OVERVIEW</span>
+                <h2 className="text-2xl md:text-3xl font-serif font-extrabold text-dark mb-4">About {project.title}</h2>
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed">{project.overview}</p>
               </div>
-              <p className="sub-text">{project.scopeDesc}</p>
-            </motion.div>
 
-            {/* Key Deliverables & Highlights */}
-            <motion.div 
-              className="detail-block"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-            >
-              <h3 className="section-subtitle">Key Project Highlights</h3>
-              <div className="highlights-grid">
-                {project.highlights.map((h, i) => (
-                  <motion.div 
-                    key={i} 
-                    className="highlight-item"
-                    variants={fadeUp}
-                    custom={i}
-                  >
-                    <CheckCircle2 color="#C8A22C" size={22} className="hl-icon" />
-                    <span>{h}</span>
-                  </motion.div>
-                ))}
+              {/* Scope Box */}
+              <div className="bg-white border-l-4 border-gold p-6 md:p-8 rounded-r-xl border border-black/10 shadow-sm">
+                <div className="flex items-center gap-2 mb-2 text-dark font-bold text-lg">
+                  <Sparkles size={18} className="text-gold" />
+                  <h3>{project.scopeTitle}</h3>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed">{project.scopeDesc}</p>
               </div>
-            </motion.div>
 
-            {/* Project Photo Gallery Strip */}
-            <motion.div 
-              className="detail-block"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-            >
-              <div className="gallery-header-row">
-                <h3 className="section-subtitle" style={{ margin: 0 }}>
-                  <Images size={20} color="#C8A22C" style={{ display: 'inline', marginRight: 8 }} />
-                  Project Visuals
-                </h3>
-                <Link to="/gallery" className="gallery-link">
-                  View Full Gallery <ArrowRight size={14} />
+              {/* Highlights */}
+              <div>
+                <h3 className="text-xl font-bold text-dark mb-5">Key Project Highlights</h3>
+                <div className="space-y-3">
+                  {project.highlights.map((h, i) => (
+                    <div key={i} className="flex items-start gap-3.5 p-4 bg-white rounded-lg border border-black/10 shadow-sm">
+                      <CheckCircle2 size={18} className="text-gold flex-shrink-0 mt-0.5" />
+                      <span className="text-xs md:text-sm text-gray-700 font-medium leading-relaxed">{h}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Visuals Strip */}
+              <div>
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-lg font-bold text-dark flex items-center gap-2">
+                    <Images size={18} className="text-gold" /> Project Visuals
+                  </h3>
+                  <Link to="/gallery" className="text-gold text-xs font-bold uppercase tracking-wider flex items-center gap-1 hover:translate-x-1 transition-transform">
+                    View Full Gallery <ArrowRight size={13} />
+                  </Link>
+                </div>
+                <div className="grid grid-cols-3 gap-3.5">
+                  {project.gallery.map((imgSrc, idx) => (
+                    <div key={idx} className="h-28 md:h-36 rounded-lg overflow-hidden border border-black/10 shadow-sm">
+                      <img src={imgSrc} alt={`Shot ${idx + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar Information Card */}
+            <div className="lg:col-span-4 sticky top-28 bg-white p-6 md:p-8 rounded-2xl border border-black/10 shadow-md space-y-4">
+              <h3 className="text-lg font-bold text-dark pb-3 border-b border-black/10">Project Information</h3>
+
+              <div className="space-y-3 text-xs">
+                <div className="flex justify-between items-center py-1.5 border-b border-black/5">
+                  <span className="text-gray-500 font-medium">Builder Partner:</span>
+                  <strong className="text-dark font-bold text-right max-w-[55%]">{project.metrics.builder}</strong>
+                </div>
+                <div className="flex justify-between items-center py-1.5 border-b border-black/5">
+                  <span className="text-gray-500 font-medium">Location:</span>
+                  <strong className="text-dark font-bold">{project.metrics.location}</strong>
+                </div>
+                <div className="flex justify-between items-center py-1.5 border-b border-black/5">
+                  <span className="text-gray-500 font-medium">Typology:</span>
+                  <strong className="text-dark font-bold">{project.metrics.type}</strong>
+                </div>
+                <div className="flex justify-between items-center py-1.5 border-b border-black/5">
+                  <span className="text-gray-500 font-medium">ATA Role:</span>
+                  <strong className="text-gold font-bold text-right max-w-[55%]">{project.metrics.role}</strong>
+                </div>
+                <div className="flex justify-between items-center py-1.5">
+                  <span className="text-gray-500 font-medium">Timeline:</span>
+                  <strong className="text-sky-600 font-bold">{project.metrics.timeline}</strong>
+                </div>
+              </div>
+
+              <div className="pt-4 space-y-2.5">
+                <Link to="/contact" className="w-full py-3 bg-gold hover:bg-gold-hover text-white text-xs font-bold uppercase tracking-wider rounded text-center shadow-md flex items-center justify-center gap-1.5 hover:-translate-y-0.5 transition-all">
+                  Partner on This Project <ArrowRight size={14} />
                 </Link>
-              </div>
-
-              <div className="project-gallery-strip">
-                {project.gallery.map((imgSrc, idx) => (
-                  <motion.div 
-                    key={idx}
-                    className="gallery-strip-item"
-                    whileHover={{ scale: 1.03 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <img src={imgSrc} alt={`${project.title} shot ${idx + 1}`} />
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Sidebar Specifications */}
-          <div className="detail-sidebar">
-            <motion.div 
-              className="metrics-box"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <h3>Project Information</h3>
-
-              <div className="metric-row">
-                <span><Building2 size={15} /> Builder Partner</span>
-                <strong>{project.metrics.builder}</strong>
-              </div>
-
-              <div className="metric-row">
-                <span><MapPin size={15} /> City & Location</span>
-                <strong>{project.metrics.location}</strong>
-              </div>
-
-              <div className="metric-row">
-                <span><Layers size={15} /> Project Typology</span>
-                <strong>{project.metrics.type}</strong>
-              </div>
-
-              <div className="metric-row">
-                <span><TrendingUp size={15} /> ATA Services</span>
-                <strong className="gold-text">{project.metrics.role}</strong>
-              </div>
-
-              <div className="metric-row">
-                <span><Calendar size={15} /> Current Timeline</span>
-                <strong className="status-highlight">{project.metrics.timeline}</strong>
-              </div>
-
-              <div className="sidebar-action-wrap">
-                <Link to="/contact" className="btn-gold project-cta">
-                  Partner on This Project <ArrowRight size={16} />
-                </Link>
-                <Link to="/services" className="btn-outline-dark project-cta-sec">
+                <Link to="/services" className="w-full py-2.5 bg-gray-50 hover:bg-dark hover:text-white text-dark text-xs font-bold uppercase tracking-wider rounded text-center border border-black/10 block transition-all">
                   Explore ATA Services
                 </Link>
               </div>
-            </motion.div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* 3. Bottom Next/Prev Project Navigation */}
-      <section className="section-padding project-nav-bar">
-        <div className="proj-nav-container">
-          <div className="pn-item prev-item" onClick={() => navigate("/projects")}>
-            <span>BACK TO OVERVIEW</span>
-            <h4>Explore All 6 Projects</h4>
+      {/* 3. Bottom Next/Prev Project Bar */}
+      <section className="w-full py-8 bg-[#F4F1EA] border-t border-black/10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="cursor-pointer text-center sm:text-left" onClick={() => navigate("/projects")}>
+            <span className="text-gold text-[10px] font-bold uppercase tracking-widest block">BACK TO OVERVIEW</span>
+            <h4 className="text-base font-bold text-dark hover:text-gold transition-colors">Explore All 6 Projects</h4>
           </div>
-          <Link to="/contact" className="btn-gold">
-            Discuss Your Project with Us <ArrowRight size={16} />
+          <Link to="/contact" className="px-6 py-3 bg-gold hover:bg-gold-hover text-white text-xs font-bold uppercase tracking-wider rounded shadow-md flex items-center gap-2">
+            Discuss Your Project with Us <ArrowRight size={14} />
           </Link>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 }

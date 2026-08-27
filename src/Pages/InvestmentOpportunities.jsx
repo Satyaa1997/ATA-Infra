@@ -1,7 +1,6 @@
 import PageBanner from "../Components/PageBanner";
 import { Link } from "react-router-dom";
 import { MapPin, ShieldCheck, ArrowRight } from "lucide-react";
-import "./InvestmentOpportunities.css";
 import oppBannerImg from "../assets/investment.jpg";
 
 const activeBuilderProjects = [
@@ -39,7 +38,7 @@ const activeBuilderProjects = [
 
 export default function InvestmentOpportunities() {
   return (
-    <div className="investment-opportunities-page">
+    <div className="w-full bg-[#FAFAFA] text-dark font-main min-h-screen">
       <PageBanner
         bgImage={oppBannerImg}
         tag="INVEST PILLAR"
@@ -47,61 +46,71 @@ export default function InvestmentOpportunities() {
         subtitle="We bridge the gap between high-potential real estate projects and active capital partners."
       />
 
-      {/* Overview Snapshot */}
-      <section className="section-padding">
-        <div className="section-header" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 40px auto" }}>
-          <span className="section-tag">CAPITAL STRUCTURING</span>
-          <h2>Fueling High-Growth Real Estate Projects</h2>
-          <p className="section-subtitle" style={{ margin: "0 auto" }}>
-            <strong>Who this is for:</strong> Builders who need funding partners to launch, complete, or scale their residential, commercial, or plotted developments without cashflow friction.
-          </p>
-        </div>
+      {/* Opportunities Grid */}
+      <section className="w-full py-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+          
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-gold text-xs font-bold uppercase tracking-[2px] block mb-2">CAPITAL STRUCTURING</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold text-dark mb-3">Fueling High-Growth Real Estate Projects</h2>
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+              <strong>Who this is for:</strong> Builders who need funding partners to launch, complete, or scale their residential, commercial, or plotted developments without cashflow friction.
+            </p>
+          </div>
 
-        <div className="opp-grid">
-          {activeBuilderProjects.map((opp) => (
-            <div key={opp.id} className="opp-card">
-              <div>
-                <span className="opp-tag">{opp.type}</span>
-                <h3>{opp.name}</h3>
-                <p className="builder-name">Builder: <strong>{opp.builder}</strong></p>
-                <p className="opp-loc">
-                  <MapPin size={16} color="#C8A22C" /> {opp.loc}
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {activeBuilderProjects.map((opp) => (
+              <div 
+                key={opp.id} 
+                className="bg-white p-8 rounded-xl border border-black/10 shadow-sm hover:border-gold hover:-translate-y-2 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <span className="text-gold text-xs font-bold uppercase tracking-wider block mb-2">{opp.type}</span>
+                  <h3 className="text-2xl font-bold text-dark mb-1">{opp.name}</h3>
+                  <p className="text-gray-600 text-xs mb-3">Builder: <strong className="text-dark font-semibold">{opp.builder}</strong></p>
+                  
+                  <p className="text-gold text-xs font-bold uppercase flex items-center gap-1.5 mb-6">
+                    <MapPin size={14} /> {opp.loc}
+                  </p>
 
-                <div className="opp-metrics-box">
-                  <div className="opp-metric-row">
-                    <span>Scope:</span>
-                    <strong>{opp.scale}</strong>
-                  </div>
-                  <div className="opp-metric-row">
-                    <span>Project Stage:</span>
-                    <strong className="gold-val">{opp.stage}</strong>
-                  </div>
-                  <div className="opp-metric-row">
-                    <span>ATA Role:</span>
-                    <strong>{opp.support}</strong>
+                  <div className="bg-[#F9F8F5] border border-black/5 p-4 rounded-lg space-y-2.5 text-xs mb-8">
+                    <div className="flex justify-between items-center pb-2 border-b border-black/5">
+                      <span className="text-gray-500 font-medium">Scope:</span>
+                      <strong className="text-dark font-semibold">{opp.scale}</strong>
+                    </div>
+                    <div className="flex justify-between items-center pb-2 border-b border-black/5">
+                      <span className="text-gray-500 font-medium">Project Stage:</span>
+                      <strong className="text-gold font-bold">{opp.stage}</strong>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-500 font-medium">ATA Role:</span>
+                      <strong className="text-dark font-semibold text-right max-w-[60%]">{opp.support}</strong>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <Link to="/contact" className="btn-gold opp-btn">
-                Discuss Project Funding <ArrowRight size={15} style={{ display: 'inline', marginLeft: 6 }} />
-              </Link>
-            </div>
-          ))}
+                <Link to="/contact" className="w-full py-3 bg-gold hover:bg-gold-hover text-white text-xs font-bold uppercase tracking-wider rounded text-center shadow-md flex items-center justify-center gap-2 hover:-translate-y-0.5 transition-all">
+                  Discuss Project Funding <ArrowRight size={14} />
+                </Link>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
-      {/* Diligence & Advantage */}
-      <section className="section-padding diligence-section">
-        <ShieldCheck size={42} color="#C8A22C" style={{ margin: "0 auto 16px" }} />
-        <h2>The ATA Investment Connection</h2>
-        <p className="diligence-desc">
-          We help structure clear investor conversations, assist in fundraising for ongoing and pre-launch developments, and secure capital so construction never stops.
-        </p>
-        <Link to="/contact" className="btn-outline">
-          Connect with Our Investment Team
-        </Link>
+      {/* Diligence & Connection */}
+      <section className="w-full py-20 bg-white border-t border-black/5 text-center">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full max-w-2xl">
+          <ShieldCheck size={44} className="text-gold mx-auto mb-4" />
+          <h2 className="text-3xl md:text-4xl font-serif font-extrabold text-dark mb-3">The ATA Investment Connection</h2>
+          <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8">
+            We help structure clear investor conversations, assist in fundraising for ongoing and pre-launch developments, and secure capital so construction never stops.
+          </p>
+          <Link to="/contact" className="inline-flex items-center px-8 py-3.5 bg-dark hover:bg-black text-white text-xs font-bold uppercase tracking-wider rounded shadow-md hover:-translate-y-0.5 transition-all">
+            Connect with Our Investment Team
+          </Link>
+        </div>
       </section>
     </div>
   );

@@ -15,7 +15,6 @@ import {
   Calendar,
   Clock
 } from "lucide-react";
-import "./Home.css";
 
 import service1Img from "../assets/Aggregate.jpg";
 import service2Img from "../assets/investment.jpg";
@@ -28,7 +27,6 @@ import proj4Img from "../assets/Banner.png";
 
 import heroVideo from "../assets/ATAvedio.mp4";
 
-// Motion Animation Variant
 const fadeUp = {
   hidden: { opacity: 0, y: 35 },
   visible: (i = 0) => ({
@@ -38,7 +36,6 @@ const fadeUp = {
   })
 };
 
-// 3 Core Services Snapshot
 const coreServices = [
   {
     id: "01",
@@ -66,7 +63,6 @@ const coreServices = [
   }
 ];
 
-// Actual Projects Preview
 const featuredProjects = [
   { 
     id: 1, 
@@ -94,7 +90,6 @@ const featuredProjects = [
   }
 ];
 
-// 9 Testimonials with Photo Avatars
 const testimonials = [
   {
     id: 1,
@@ -179,7 +174,6 @@ const testimonials = [
   }
 ];
 
-// 3 Featured Blogs Data
 const featuredBlogs = [
   {
     id: 1,
@@ -239,7 +233,7 @@ function StatCounter({ target, suffix = "", duration = 1800 }) {
   }, [isInView, target, duration]);
 
   return (
-    <span ref={ref} className="stat-number-black">
+    <span ref={ref} className="text-white font-serif font-extrabold text-4xl md:text-5xl">
       {count}{suffix}
     </span>
   );
@@ -265,356 +259,395 @@ export default function Home() {
   }, [maxSteps]);
 
   const getTranslateX = () => {
-    if (isMobile) {
-      return currentIndex * 100;
-    }
+    if (isMobile) return currentIndex * 100;
     return currentIndex * (100 / 3);
   };
 
   return (
-    <div className="home-container">
+    <div className="w-full text-dark font-main overflow-x-hidden">
 
-      {/* ========================================================
-          1. HERO SECTION (DARK BACKGROUND)
-          ======================================================== */}
-      <section id="hero" className="hero-section">
-        <div className="hero-media-wrapper">
+      {/* 1. HERO SECTION */}
+      <section className="relative w-full min-h-[640px] md:h-screen bg-[#0c0c0c] flex items-end pb-16 md:pb-24 pt-32 overflow-hidden">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <video 
             src={heroVideo} 
             autoPlay 
             loop 
             muted 
             playsInline 
-            className="hero-video-bg"
+            className="w-full h-full object-cover transform scale-105"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/75 to-[#0a0a0a]/95" />
         </div>
-        <div className="hero-overlay" />
-        <div className="hero-content">
-          <h1 className="hero-multi-title">
-            <span className="word-your">Your</span>{" "}
-            <span className="word-real-estate">Real Estate</span>{" "}
-            <span className="word-project">Project<span className="gold-dot">.</span></span>
-            <br />
-            <span className="hero-sub-row">
-              <span className="word-built">Fully Built,</span>{" "}
-              <span className="word-sold">Fully Sold,</span>{" "}
-              <span className="word-supported">Fully Supported.</span>
-            </span>
-          </h1>
 
-          <p className="hero-description">
-            ATA Infratech helps real estate builders plan, fund, and sell their projects faster — through Aggregation, Investment, and Advisory, all under one roof.
-          </p>
-          <div className="hero-actions">
-            <Link to="/contact" className="btn-gold">Talk to Our Team</Link>
-            <Link to="/services" className="btn-outline">Explore Our Services</Link>
-          </div>
-        </div>
-      </section>
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full relative z-10">
+          <div className="max-w-3xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.18] font-extrabold text-white mb-6 drop-shadow-md">
+              <span className="font-serif italic text-gray-200">Your</span>{" "}
+              <span className="text-gold uppercase tracking-wider font-bold">Real Estate</span>{" "}
+              <span className="font-serif font-extrabold text-white">Project<span className="text-gold">.</span></span>
+              <br />
+              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-2 block font-normal">
+                <span className="text-white font-bold">Fully Built,</span>{" "}
+                <span className="font-serif text-gold font-bold">Fully Sold,</span>{" "}
+                <span className="text-gray-300 font-semibold">Fully Supported.</span>
+              </span>
+            </h1>
 
-      {/* ========================================================
-          2. HOME STORY / OVERVIEW (LIGHT BACKGROUND)
-          ======================================================== */}
-      <section id="home-overview" className="section-padding home-story-section">
-        <div className="home-story-layout-grid">
-          <motion.div 
-            className="home-story-text-wrap"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-          >
-            <span className="section-tag">WHO WE ARE</span>
-            <h2>Bridging Opportunity, Capital & Execution.</h2>
-            
-            <p className="lead-text">
-              ATA Infratech was founded in November 2025 with one simple idea: <strong>real estate builders shouldn't have to handle everything alone.</strong>
-            </p>
-            
-            <p className="sub-text">
-              Building a project is hard enough. Selling it — organizing a sales team, finding channel partners, running events, reaching the right buyers — is a whole different skill. And growing a real estate business beyond one project takes structure, branding, and the right guidance.
+            <p className="text-gray-200 text-sm md:text-base lg:text-lg leading-relaxed mb-8 max-w-2xl drop-shadow">
+              ATA Infratech helps real estate builders plan, fund, and sell their projects faster — through Aggregation, Investment, and Advisory, all under one roof.
             </p>
 
-            <div className="home-story-highlights-list">
-              <div className="hs-item">
-                <CheckCircle2 size={18} color="#C8A22C" />
-                <span>Turnkey sales engines for plots, villas & commercial spaces</span>
-              </div>
-              <div className="hs-item">
-                <CheckCircle2 size={18} color="#C8A22C" />
-                <span>Active presence across Gorakhpur, Lucknow & Pune</span>
-              </div>
-              <div className="hs-item">
-                <CheckCircle2 size={18} color="#C8A22C" />
-                <span>Direct investor syndication & developer coaching</span>
-              </div>
-            </div>
-
-            <div className="home-story-btn-row">
-              <Link to="/about" className="btn-gold">
-                Learn More About Us <ArrowRight size={16} />
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link to="/contact" className="px-7 py-3.5 bg-gold hover:bg-gold-hover text-white text-xs font-bold uppercase tracking-widest rounded border border-gold shadow-lg hover:-translate-y-0.5 transition-all text-center">
+                Talk to Our Team
+              </Link>
+              <Link to="/services" className="px-7 py-3.5 bg-gold/15 hover:bg-gold text-white text-xs font-bold uppercase tracking-widest rounded border border-gold backdrop-blur-sm transition-all text-center">
+                Explore Our Services
               </Link>
             </div>
-          </motion.div>
+          </div>
+        </div>
+      </section>
 
-          <motion.div 
-            className="home-story-visual-wrap"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className="home-main-img-card" style={{ backgroundImage: `url(${service4Img})` }}>
-              <div className="home-glass-badge">
-                <Sparkles size={18} color="#C8A22C" />
+      {/* 2. OVERVIEW / WHO WE ARE */}
+      <section className="w-full py-20 md:py-24 bg-white border-y border-gold/15">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            <motion.div 
+              className="lg:col-span-7"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <span className="inline-block text-gold text-xs font-bold tracking-[2px] uppercase mb-3">WHO WE ARE</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold text-dark leading-tight mb-5">
+                Bridging Opportunity, Capital & Execution.
+              </h2>
+              
+              <p className="text-base md:text-lg text-dark font-semibold leading-relaxed mb-4">
+                ATA Infratech was founded in November 2025 with one simple idea: <span className="text-gold font-bold">real estate builders shouldn't have to handle everything alone.</span>
+              </p>
+              
+              <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-6">
+                Building a project is hard enough. Selling it — organizing a sales team, finding channel partners, running events, reaching the right buyers — is a whole different skill. And growing a real estate business beyond one project takes structure, branding, and the right guidance.
+              </p>
+
+              <div className="space-y-3.5 mb-8">
+                <div className="flex items-center gap-3 text-sm md:text-base font-semibold text-dark">
+                  <CheckCircle2 size={18} className="text-gold flex-shrink-0" />
+                  <span>Turnkey sales engines for plots, villas & commercial spaces</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm md:text-base font-semibold text-dark">
+                  <CheckCircle2 size={18} className="text-gold flex-shrink-0" />
+                  <span>Active presence across Gorakhpur, Lucknow & Pune</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm md:text-base font-semibold text-dark">
+                  <CheckCircle2 size={18} className="text-gold flex-shrink-0" />
+                  <span>Direct investor syndication & developer coaching</span>
+                </div>
+              </div>
+
+              <Link to="/about" className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold hover:bg-gold-hover text-white text-xs font-bold uppercase tracking-widest rounded shadow-md hover:-translate-y-0.5 transition-all">
+                Learn More About Us <ArrowRight size={16} />
+              </Link>
+            </motion.div>
+
+            {/* Media Box */}
+            <motion.div 
+              className="lg:col-span-5 relative min-h-[360px] md:min-h-[420px]"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <div 
+                className="w-full md:w-[90%] h-[340px] md:h-[400px] rounded-xl bg-cover bg-center border border-gold/25 shadow-2xl relative"
+                style={{ backgroundImage: `url(${service4Img})` }}
+              >
+                <div className="absolute top-4 left-4 bg-[#121212]/90 border border-gold backdrop-blur-md px-4 py-2.5 rounded-lg flex items-center gap-3 text-white shadow-lg">
+                  <Sparkles size={18} className="text-gold" />
+                  <div>
+                    <strong className="block text-xs font-bold text-gold uppercase tracking-wider">Founded Nov 2025</strong>
+                    <span className="text-[10px] text-gray-300">Built for Speed & Results</span>
+                  </div>
+                </div>
+              </div>
+
+              <div 
+                className="absolute -bottom-4 right-0 w-44 md:w-52 h-44 md:h-52 rounded-xl bg-cover bg-center border-4 border-white shadow-2xl flex items-end overflow-hidden"
+                style={{ backgroundImage: `url(${proj4Img})` }}
+              >
+                <div className="w-full bg-[#121212]/95 border-t border-gold py-2 text-center">
+                  <span className="block font-serif text-lg font-bold text-gold">3</span>
+                  <span className="text-[9px] uppercase tracking-wider text-gray-300 font-bold block">Core Hubs Active</span>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 3. STATS STRIP */}
+      <section className="w-full py-14 bg-[#111111] border-y border-black/10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="p-2">
+              <h3><StatCounter target={3} suffix="" /></h3>
+              <p className="text-gray-300 text-xs font-semibold uppercase tracking-wider mt-1.5">Major Hubs (Gorakhpur, Lucknow, Pune)</p>
+            </div>
+            <div className="p-2">
+              <h3><StatCounter target={3} suffix="-in-1" /></h3>
+              <p className="text-gray-300 text-xs font-semibold uppercase tracking-wider mt-1.5">End-to-End Solutions</p>
+            </div>
+            <div className="p-2">
+              <h3><StatCounter target={100} suffix="%" /></h3>
+              <p className="text-gray-300 text-xs font-semibold uppercase tracking-wider mt-1.5">Dedicated Builder Support</p>
+            </div>
+            <div className="p-2">
+              <h3><StatCounter target={2025} suffix="" /></h3>
+              <p className="text-gray-300 text-xs font-semibold uppercase tracking-wider mt-1.5">Built for Speed & Results</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. THREE PILLARS */}
+      <section className="w-full py-20 bg-[#FAFAFA]">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+          <div className="max-w-2xl mb-12">
+            <span className="text-gold text-xs font-bold uppercase tracking-[2px] block mb-2">WHAT WE DO</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold text-dark mb-2">Three Core Services. One Unified Goal.</h2>
+            <p className="text-gray-600 text-sm md:text-base">Three services. One goal — help you sell faster, grow smarter, and build with confidence.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {coreServices.map((service) => (
+              <div key={service.id} className="bg-white rounded-xl border border-black/10 shadow-sm overflow-hidden flex flex-col justify-between hover:border-gold hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <div 
+                  className="h-52 bg-cover bg-center p-4 relative"
+                  style={{ backgroundImage: `url(${service.img})` }}
+                >
+                  <span className="bg-dark/90 text-gold border border-gold px-3 py-1 text-xs font-bold rounded">
+                    {service.id}
+                  </span>
+                </div>
+                <div className="p-6 md:p-8 flex flex-col flex-grow justify-between">
+                  <div>
+                    <span className="text-gold text-xs font-bold uppercase tracking-wider block mb-1">{service.tagline}</span>
+                    <h3 className="text-2xl font-bold text-dark mb-3">{service.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-6">{service.desc}</p>
+                  </div>
+                  <Link to={service.link} className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-gold hover:translate-x-1 transition-transform">
+                    Learn More <ChevronRight size={16} />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. PROJECTS SHOWCASE */}
+      <section className="w-full py-20 bg-[#0E0E0E] text-white border-y border-gold/15">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
+            <div>
+              <span className="text-gold text-xs font-bold uppercase tracking-[2px] block mb-2">OUR PROJECTS</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold text-white">Working Across High-Growth Cities</h2>
+              <p className="text-gray-400 text-sm md:text-base mt-1">We are currently working with builders across Gorakhpur, Lucknow, and Pune.</p>
+            </div>
+            <Link to="/projects" className="text-gold hover:text-white text-xs font-bold uppercase tracking-widest flex items-center gap-1.5 transition-colors">
+              View All Projects <ArrowRight size={15} />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredProjects.map((p) => (
+              <div key={p.id} className="bg-[#181818] border border-white/10 rounded-xl overflow-hidden hover:border-gold hover:-translate-y-2 transition-all duration-300">
+                <div className="h-56 bg-cover bg-center p-4 relative" style={{ backgroundImage: `url(${p.img})` }}>
+                  <span className="bg-dark/90 text-gold border border-gold text-[10px] font-bold uppercase px-3 py-1 rounded">
+                    {p.status}
+                  </span>
+                </div>
+                <div className="p-6">
+                  <span className="text-gold text-xs font-bold uppercase tracking-wider flex items-center gap-1 mb-1">
+                    <MapPin size={12} /> {p.loc}
+                  </span>
+                  <h3 className="text-xl font-bold text-white mb-2">{p.title}</h3>
+                  <p className="text-gray-400 text-xs mb-5">Builder: {p.builder}</p>
+                  <Link to="/projects" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gold hover:translate-x-1 transition-transform">
+                    Explore Project <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. WHY CHOOSE US / STRENGTHS */}
+      <section className="w-full py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+          <div className="max-w-2xl mb-12">
+            <span className="text-gold text-xs font-bold uppercase tracking-[2px] block mb-2">WHY BUILDERS CHOOSE ATA INFRATECH</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold text-dark mb-2">Built for Speed, Scale & Execution</h2>
+            <p className="text-gray-600 text-sm md:text-base">Real on-ground project experience across cities to accelerate your development lifecycle.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-[#FAFAFA] p-8 rounded-xl border border-black/10 hover:border-gold hover:bg-white hover:-translate-y-1.5 transition-all shadow-sm">
+              <div className="w-14 h-14 rounded-full bg-[#FBF8F0] border border-gold/30 flex items-center justify-center text-gold mb-5">
+                <Layers size={26} />
+              </div>
+              <h4 className="text-xl font-bold text-dark mb-2.5">End-to-End Support</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">From project blueprint to channel partner marketing and the final customer sale.</p>
+            </div>
+
+            <div className="bg-[#FAFAFA] p-8 rounded-xl border border-black/10 hover:border-gold hover:bg-white hover:-translate-y-1.5 transition-all shadow-sm">
+              <div className="w-14 h-14 rounded-full bg-[#FBF8F0] border border-gold/30 flex items-center justify-center text-gold mb-5">
+                <Coins size={26} />
+              </div>
+              <h4 className="text-xl font-bold text-dark mb-2.5">Ready Investor Network</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">Instant access to a curated network of channel partners and capital investors.</p>
+            </div>
+
+            <div className="bg-[#FAFAFA] p-8 rounded-xl border border-black/10 hover:border-gold hover:bg-white hover:-translate-y-1.5 transition-all shadow-sm">
+              <div className="w-14 h-14 rounded-full bg-[#FBF8F0] border border-gold/30 flex items-center justify-center text-gold mb-5">
+                <Zap size={26} />
+              </div>
+              <h4 className="text-xl font-bold text-dark mb-2.5">Faster Project Launches</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">Structured sales engines and organized marketing campaigns designed for speed.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. TESTIMONIALS SLIDER */}
+      <section className="w-full py-20 bg-[#0C0C0C] text-white border-y border-gold/20 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-gold text-xs font-bold uppercase tracking-[2px] block mb-2">TESTIMONIALS</span>
+            <h2 className="text-3xl md:text-4xl font-serif font-extrabold text-white mb-2">Trusted by Forward-Thinking Developers</h2>
+            <p className="text-gray-400 text-sm md:text-base">Real feedback from builder partners across Gorakhpur, Lucknow, and Pune.</p>
+          </div>
+
+          <div className="relative w-full overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${getTranslateX()}%)` }}
+            >
+              {testimonials.map((t) => (
+                <div key={t.id} className="w-full md:w-1/3 flex-shrink-0 px-3">
+                  <div className="bg-[#141414] border border-gold/25 rounded-xl p-6 h-full flex flex-col justify-between hover:border-gold transition-colors">
+                    <div>
+                      <div className="flex justify-between items-center mb-3">
+                        <Quote size={20} className="text-gold" />
+                        <div className="flex gap-1">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} size={13} fill="#BA8E2E" color="#BA8E2E" />
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-gray-300 text-xs md:text-sm italic leading-relaxed mb-6">"{t.review}"</p>
+                    </div>
+
+                    <div className="flex items-center gap-3 pt-4 border-t border-white/10">
+                      <img src={t.photo} alt={t.name} className="w-11 h-11 rounded-full object-cover border border-gold" />
+                      <div>
+                        <h4 className="text-sm font-bold text-white">{t.name}</h4>
+                        <span className="text-[11px] text-gray-400 block">{t.role} • <strong className="text-gold">{t.company}</strong></span>
+                        <span className="text-[10px] text-gray-500 uppercase flex items-center gap-1 mt-0.5"><MapPin size={10} /> {t.loc}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-2 mt-8">
+              {[...Array(maxSteps)].map((_, i) => (
+                <button
+                  key={i}
+                  className={`h-2 rounded-full transition-all duration-300 ${currentIndex === i ? "w-6 bg-gold" : "w-2 bg-white/20"}`}
+                  onClick={() => setCurrentIndex(i)}
+                  aria-label={`Go to slide ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. LATEST BLOGS */}
+      <section className="w-full py-20 pb-36 bg-[#FAFAFA]">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
+            <div>
+              <span className="text-gold text-xs font-bold uppercase tracking-[2px] block mb-2">INSIGHTS & STRATEGY</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold text-dark">Latest From Our Real Estate Blog</h2>
+              <p className="text-gray-600 text-sm md:text-base mt-1">Actionable intelligence on project sales, investor relations, and builder growth.</p>
+            </div>
+            <Link to="/blog" className="px-5 py-2.5 bg-dark hover:bg-black text-white text-xs font-bold uppercase tracking-wider rounded flex items-center gap-1.5 transition-all">
+              View All Blogs <ArrowRight size={15} />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {featuredBlogs.map((b) => (
+              <div key={b.id} className="bg-white rounded-xl border border-black/10 overflow-hidden shadow-sm hover:border-gold hover:-translate-y-1.5 transition-all flex flex-col justify-between">
                 <div>
-                  <strong>Founded Nov 2025</strong>
-                  <span>Built for Speed & Results</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="home-secondary-card" style={{ backgroundImage: `url(${proj4Img})` }}>
-              <div className="home-floating-badge-inner">
-                <span className="count-gold">3</span>
-                <span>Core Hubs Active</span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          3. STATS SECTION (DARK BACKGROUND)
-          ======================================================== */}
-      <section id="stats" className="stats-section">
-        <div className="stats-grid">
-          <div className="stat-box">
-            <h3><StatCounter target={3} suffix="" /></h3>
-            <p>Major Hubs (Gorakhpur, Lucknow, Pune)</p>
-          </div>
-          <div className="stat-box">
-            <h3><StatCounter target={3} suffix="-in-1" /></h3>
-            <p>End-to-End Solutions</p>
-          </div>
-          <div className="stat-box">
-            <h3><StatCounter target={100} suffix="%" /></h3>
-            <p>Dedicated Builder Support</p>
-          </div>
-          <div className="stat-box">
-            <h3><StatCounter target={2025} suffix="" /></h3>
-            <p>Built for Speed & Results</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          4. THREE PILLARS (LIGHT BACKGROUND)
-          ======================================================== */}
-      <section id="services-verticals" className="section-padding verticals-section">
-        <div className="section-header">
-          <span className="section-tag">WHAT WE DO</span>
-          <h2>Three Core Services. One Unified Goal.</h2>
-          <p className="section-subtitle">Three services. One goal — help you sell faster, grow smarter, and build with confidence.</p>
-        </div>
-        
-        <div className="ln-services-grid">
-          {coreServices.map((service) => (
-            <div key={service.id} className="ln-service-card">
-              <div className="ln-service-img" style={{ backgroundImage: `url(${service.img})` }}>
-                <span className="ln-service-badge">{service.id}</span>
-              </div>
-              <div className="ln-service-body">
-                <span className="p-type" style={{ color: "#C8A22C", fontWeight: 700 }}>{service.tagline}</span>
-                <h3 style={{ marginTop: "6px" }}>{service.title}</h3>
-                <p>{service.desc}</p>
-                <Link to={service.link} className="service-read-more">
-                  Learn More <ChevronRight size={16} />
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ========================================================
-          5. PROJECTS SHOWCASE (DARK BACKGROUND)
-          ======================================================== */}
-      <section id="projects" className="section-padding projects-showcase-section">
-        <div className="section-header-flex">
-          <div>
-            <span className="section-tag">OUR PROJECTS</span>
-            <h2>Working Across High-Growth Cities</h2>
-            <p className="section-subtitle">We are currently working with builders across Gorakhpur, Lucknow, and Pune.</p>
-          </div>
-          <Link to="/projects" className="link-arrow">
-            View All Projects <ArrowRight size={16} />
-          </Link>
-        </div>
-
-        <div className="projects-grid-ln">
-          {featuredProjects.map((p) => (
-            <div key={p.id} className="project-card-ln">
-              <div className="p-img" style={{ backgroundImage: `url(${p.img})` }}>
-                <span className="p-status">{p.status}</span>
-              </div>
-              <div className="p-content">
-                <span className="p-type"><MapPin size={12} style={{ display: 'inline', marginRight: 4 }} />{p.loc}</span>
-                <h3 style={{ marginBottom: "4px" }}>{p.title}</h3>
-                <p style={{ fontSize: "13px", color: "#aaaaaa", marginBottom: "14px" }}>Builder: {p.builder}</p>
-                <Link to="/projects" className="link-arrow">
-                  Explore Project <ArrowRight size={15} />
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ========================================================
-          6. WHY CHOOSE US / STRENGTHS (LIGHT BACKGROUND)
-          ======================================================== */}
-      <section id="strengths" className="section-padding strengths-section">
-        <div className="section-header">
-          <span className="section-tag">WHY BUILDERS CHOOSE ATA INFRATECH</span>
-          <h2>Built for Speed, Scale & Execution</h2>
-          <p className="section-subtitle">Real on-ground project experience across cities to accelerate your development lifecycle.</p>
-        </div>
-
-        <div className="strengths-grid">
-          <div className="strength-card">
-            <div className="s-icon"><Layers size={28} /></div>
-            <h4>End-to-End Support</h4>
-            <p>From project blueprint to channel partner marketing and the final customer sale.</p>
-          </div>
-          <div className="strength-card">
-            <div className="s-icon"><Coins size={28} /></div>
-            <h4>Ready Investor Network</h4>
-            <p>Instant access to a curated network of channel partners and capital investors.</p>
-          </div>
-          <div className="strength-card">
-            <div className="s-icon"><Zap size={28} /></div>
-            <h4>Faster Project Launches</h4>
-            <p>Structured sales engines and organized marketing campaigns designed for speed.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          7. COMPACT TESTIMONIALS AUTO-SLIDER (DARK THEME)
-          ======================================================== */}
-      <section id="testimonials" className="section-padding testimonials-section">
-        <div className="section-header-center">
-          <span className="section-tag">TESTIMONIALS</span>
-          <h2>Trusted by Forward-Thinking Developers</h2>
-          <p className="section-subtitle">Real feedback from builder partners across Gorakhpur, Lucknow, and Pune.</p>
-        </div>
-
-        <div className="testimonial-slider-wrapper">
-          <div 
-            className="testimonial-slider-track" 
-            style={{ transform: `translateX(-${getTranslateX()}%)` }}
-          >
-            {testimonials.map((t) => (
-              <div key={t.id} className="testimonial-slide">
-                <div className="testimonial-card">
-                  <div className="t-top-row">
-                    <Quote size={22} color="#C8A22C" className="t-quote-icon" />
-                    <div className="t-stars">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={13} fill="#C8A22C" color="#C8A22C" />
-                      ))}
-                    </div>
+                  <div className="h-48 bg-cover bg-center p-4" style={{ backgroundImage: `url(${b.img})` }}>
+                    <span className="bg-dark/90 text-gold border border-gold text-[10px] font-bold uppercase px-2.5 py-1 rounded">
+                      {b.category}
+                    </span>
                   </div>
-
-                  <p className="t-review">"{t.review}"</p>
-
-                  <div className="t-author-wrap">
-                    <img src={t.photo} alt={t.name} className="t-avatar" />
-                    <div className="t-info">
-                      <h4>{t.name}</h4>
-                      <span className="t-role">{t.role} • <strong>{t.company}</strong></span>
-                      <span className="t-project"><MapPin size={11} style={{ display: 'inline', marginRight: 3 }} />{t.loc}</span>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 text-xs text-gray-400 mb-2">
+                      <span className="flex items-center gap-1"><Calendar size={12} /> {b.date}</span>
+                      <span>•</span>
+                      <span className="flex items-center gap-1"><Clock size={12} /> {b.readTime}</span>
                     </div>
+                    <h3 className="text-lg font-bold text-dark mb-2.5">{b.title}</h3>
+                    <p className="text-gray-600 text-xs leading-relaxed mb-4">{b.desc}</p>
                   </div>
                 </div>
+                <div className="p-6 pt-0">
+                  <Link to="/blog" className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-gold hover:translate-x-1 transition-transform">
+                    Read Full Article <ChevronRight size={15} />
+                  </Link>
+                </div>
               </div>
-            ))}
-          </div>
-
-          {/* Carousel Pagination Dots */}
-          <div className="testimonial-dots">
-            {[...Array(maxSteps)].map((_, i) => (
-              <button
-                key={i}
-                className={`t-dot ${currentIndex === i ? "active" : ""}`}
-                onClick={() => setCurrentIndex(i)}
-                aria-label={`Go to slide ${i + 1}`}
-              />
             ))}
           </div>
         </div>
       </section>
 
-      {/* ========================================================
-          8. LATEST BLOG SECTION (LIGHT BACKGROUND)
-          ======================================================== */}
-      <section id="home-blog" className="section-padding blog-section">
-        <div className="section-header-flex">
-          <div>
-            <span className="section-tag">INSIGHTS & STRATEGY</span>
-            <h2>Latest From Our Real Estate Blog</h2>
-            <p className="section-subtitle">Actionable intelligence on project sales, investor relations, and builder growth.</p>
-          </div>
-          <Link to="/blog" className="btn-gold-link">
-            View All Blogs <ArrowRight size={16} />
-          </Link>
-        </div>
-
-        <div className="blog-grid">
-          {featuredBlogs.map((b) => (
-            <div key={b.id} className="blog-card">
-              <div className="b-img-wrap" style={{ backgroundImage: `url(${b.img})` }}>
-                <span className="b-category">{b.category}</span>
-              </div>
-              <div className="b-body">
-                <div className="b-meta">
-                  <span><Calendar size={13} /> {b.date}</span>
-                  <span>•</span>
-                  <span><Clock size={13} /> {b.readTime}</span>
-                </div>
-                <h3>{b.title}</h3>
-                <p>{b.desc}</p>
-                <Link to="/blog" className="b-read-more">
-                  Read Full Article <ChevronRight size={15} />
-                </Link>
-              </div>
+      {/* 9. OVERLAPPING GOLDEN CTA */}
+      <section className="w-full bg-transparent px-4 -mb-20 relative z-30">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+          <div className="bg-gradient-to-r from-[#D4A946] via-[#BA8E2E] to-[#8C671A] border border-white/45 rounded-2xl p-8 md:p-12 text-center shadow-2xl max-w-5xl mx-auto text-dark">
+            <span className="inline-block bg-[#111111]/90 text-white border border-white/20 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1 rounded-full mb-3">
+              LET'S COLLABORATE
+            </span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-extrabold text-dark mb-3">
+              Ready to sell your project faster and grow your business?
+            </h2>
+            <p className="text-gray-900 text-sm md:text-base font-semibold max-w-2xl mx-auto mb-6 leading-relaxed">
+              Let's talk about how ATA Infratech can support your next project with aggregation, capital, and advisory.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link to="/contact" className="w-full sm:w-auto px-6 py-3 bg-dark hover:bg-black text-white text-xs font-bold uppercase tracking-wider rounded flex items-center justify-center gap-2 shadow-lg hover:-translate-y-0.5 transition-all">
+                Contact Us <ArrowRight size={15} />
+              </Link>
+              <Link to="/services" className="w-full sm:w-auto px-6 py-3 bg-white/25 hover:bg-dark hover:text-white text-dark border border-dark text-xs font-bold uppercase tracking-wider rounded flex items-center justify-center backdrop-blur-sm transition-all">
+                Explore Our Services
+              </Link>
             </div>
-          ))}
-        </div>
-
-        <div className="blog-mobile-cta">
-          <Link to="/blog" className="btn-gold">
-            View All Blogs <ArrowRight size={16} />
-          </Link>
-        </div>
-      </section>
-
-      {/* ========================================================
-          9. HALF-OVERLAP GOLDEN CTA SECTION
-          ======================================================== */}
-      <section id="cta" className="cta-overlap-section">
-        <div className="cta-overlap-box">
-          <div className="cta-badge">LET'S COLLABORATE</div>
-          <h2>Ready to sell your project faster and grow your business?</h2>
-          <p>Let's talk about how ATA Infratech can support your next project with aggregation, capital, and advisory.</p>
-          <div className="cta-overlap-actions">
-            <Link to="/contact" className="btn-cta-dark">
-              Contact Us <ArrowRight size={16} />
-            </Link>
-            <Link to="/services" className="btn-cta-outline">
-              Explore Our Services
-            </Link>
           </div>
         </div>
       </section>

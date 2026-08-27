@@ -1,17 +1,14 @@
 import { useState } from "react";
 import PageBanner from "../Components/PageBanner";
 import { 
-   Calendar, Clock, ArrowUpRight, User,  
-  X,  CheckCircle2 
+  Calendar, Clock, ArrowUpRight, User, X, CheckCircle2 
 } from "lucide-react";
-import "./Blog.css";
 
 import blogBannerImg from "../assets/Projects.png";
 import insight1 from "../assets/insight1.jpg";
 import insight2 from "../assets/insight2.jpg";
 import insight3 from "../assets/insight3.jpg";
 import project1 from "../assets/project1.jpg";
-
 
 export const comprehensiveArticles = [
   {
@@ -97,22 +94,18 @@ export const comprehensiveArticles = [
 
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState("All");
-  const [searchQuery, setSearchQuery] = useState("");
   const [selectedArticle, setSelectedArticle] = useState(null);
 
   const categories = ["All", "Aggregate", "Invest", "Advise", "Market Trends"];
 
   const filteredArticles = comprehensiveArticles.filter((art) => {
-    const matchesCategory = activeCategory === "All" || art.category === activeCategory;
-    const matchesSearch = art.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          art.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+    return activeCategory === "All" || art.category === activeCategory;
   });
 
   const featured = comprehensiveArticles.find(a => a.featured) || comprehensiveArticles[0];
 
   return (
-    <div className="infratech-blog-page">
+    <div className="w-full bg-[#080808] text-white font-main min-h-screen">
       <PageBanner
         bgImage={blogBannerImg}
         tag="ATA ADVISORY & INSIGHTS"
@@ -120,106 +113,146 @@ export default function Blog() {
         subtitle="Practical strategies on sales aggregation, investor fundraising, and scaling real estate developments."
       />
 
-      <section className="section-padding">
-        {/* Category Pills */}
-        <div className="infratech-category-scroll">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              className={`infratech-category-pill ${activeCategory === cat ? "active" : ""}`}
-              onClick={() => setActiveCategory(cat)}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Featured Hero Article */}
-        {!searchQuery && activeCategory === "All" && (
-          <div className="hero-primary-card" style={{ marginBottom: "50px" }} onClick={() => setSelectedArticle(featured)}>
-            <div className="hero-primary-img" style={{ backgroundImage: `url(${featured.img})` }}>
-              <span className="hero-tag-badge">{featured.tag}</span>
-            </div>
-            <div className="hero-primary-content">
-              <div className="card-top-meta">
-                <span className="gold-category">{featured.category}</span>
-                <span className="meta-sep">&bull;</span>
-                <span><Calendar size={13} style={{ display: 'inline', verticalAlign: 'middle' }} /> {featured.date}</span>
-                <span className="meta-sep">&bull;</span>
-                <span><Clock size={13} style={{ display: 'inline', verticalAlign: 'middle' }} /> {featured.readTime}</span>
-              </div>
-              <h2>{featured.title}</h2>
-              <p>{featured.excerpt}</p>
-              <div className="card-footer-action">
-                <div className="author-badge">
-                  <User size={14} color="#C8A22C" />
-                  <div>
-                    <strong>{featured.author}</strong>
-                    <small>{featured.authorRole}</small>
-                  </div>
-                </div>
-                <button className="gold-action-btn">
-                  Read Article <ArrowUpRight size={16} />
-                </button>
-              </div>
-            </div>
+      <section className="w-full py-16">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+          
+          {/* Category Tabs */}
+          <div className="flex gap-3 overflow-x-auto pb-4 mb-12 scrollbar-none">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap border transition-all ${
+                  activeCategory === cat 
+                    ? "bg-gold text-dark border-gold shadow-md" 
+                    : "bg-[#111111] text-gray-400 border-gold/20 hover:text-white"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
-        )}
 
-        {/* Articles Feed */}
-        <div className="articles-grid">
-          {filteredArticles.map((art) => (
-            <article 
-              key={art.id} 
-              className="article-card"
-              onClick={() => setSelectedArticle(art)}
+          {/* Featured Article */}
+          {activeCategory === "All" && (
+            <div 
+              onClick={() => setSelectedArticle(featured)}
+              className="bg-[#111111] border border-gold/25 rounded-xl overflow-hidden mb-14 cursor-pointer hover:border-gold hover:-translate-y-1 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12"
             >
-              <div className="card-thumb" style={{ backgroundImage: `url(${art.img})` }}>
-                <span className="card-tag">{art.category}</span>
+              <div 
+                className="lg:col-span-6 h-64 lg:h-auto bg-cover bg-center p-6 relative"
+                style={{ backgroundImage: `url(${featured.img})` }}
+              >
+                <span className="bg-dark/90 text-gold border border-gold text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">
+                  {featured.tag}
+                </span>
               </div>
-              <div className="card-body">
-                <div className="card-top-meta">
-                  <span>{art.date} &bull; {art.readTime}</span>
+              <div className="lg:col-span-6 p-8 md:p-10 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-3 text-xs text-gray-400 mb-3">
+                    <span className="text-gold font-bold uppercase">{featured.category}</span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1"><Calendar size={12} /> {featured.date}</span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1"><Clock size={12} /> {featured.readTime}</span>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-serif font-extrabold text-white mb-4 leading-tight">
+                    {featured.title}
+                  </h2>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                    {featured.excerpt}
+                  </p>
                 </div>
-                <h3>{art.title}</h3>
-                <p>{art.excerpt}</p>
-                <div className="card-footer">
-                  <span className="author-text"><User size={13} color="#C8A22C" /> {art.author}</span>
-                  <span className="read-action">
-                    Read More <ArrowUpRight size={14} />
+
+                <div className="flex justify-between items-center pt-5 border-t border-white/10">
+                  <div className="flex items-center gap-2.5">
+                    <User size={16} className="text-gold" />
+                    <div>
+                      <strong className="block text-xs text-white">{featured.author}</strong>
+                      <small className="text-[10px] text-gray-500">{featured.authorRole}</small>
+                    </div>
+                  </div>
+                  <span className="text-gold text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                    Read Article <ArrowUpRight size={15} />
                   </span>
                 </div>
               </div>
-            </article>
-          ))}
+            </div>
+          )}
+
+          {/* Grid Feed */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredArticles.map((art) => (
+              <article 
+                key={art.id}
+                onClick={() => setSelectedArticle(art)}
+                className="bg-[#111111] border border-gold/20 rounded-xl overflow-hidden flex flex-col justify-between cursor-pointer hover:border-gold hover:-translate-y-2 transition-all duration-300"
+              >
+                <div>
+                  <div 
+                    className="h-52 bg-cover bg-center p-4 flex justify-between items-start"
+                    style={{ backgroundImage: `url(${art.img})` }}
+                  >
+                    <span className="bg-dark/85 border border-gold/40 text-gold text-[10px] font-bold uppercase px-2.5 py-1 rounded">
+                      {art.category}
+                    </span>
+                  </div>
+                  <div className="p-6">
+                    <div className="text-xs text-gray-400 mb-2">{art.date} • {art.readTime}</div>
+                    <h3 className="text-lg font-serif font-bold text-white mb-3 line-clamp-2">{art.title}</h3>
+                    <p className="text-gray-400 text-xs leading-relaxed line-clamp-3">{art.excerpt}</p>
+                  </div>
+                </div>
+
+                <div className="px-6 py-4 border-t border-white/5 flex justify-between items-center text-xs">
+                  <span className="text-gray-400 flex items-center gap-1"><User size={13} className="text-gold" /> {art.author}</span>
+                  <span className="text-gold font-bold uppercase flex items-center gap-1">Read <ArrowUpRight size={13} /></span>
+                </div>
+              </article>
+            ))}
+          </div>
+
         </div>
       </section>
 
       {/* Reader Modal */}
       {selectedArticle && (
-        <div className="infratech-reader-overlay" onClick={() => setSelectedArticle(null)}>
-          <div className="infratech-reader-drawer" onClick={(e) => e.stopPropagation()}>
-            <div className="reader-header">
-              <span className="reader-cat">{selectedArticle.category}</span>
-              <button className="reader-close" onClick={() => setSelectedArticle(null)}>
-                <X size={24} />
-              </button>
+        <div 
+          className="fixed inset-0 bg-black/90 backdrop-blur-md z-[99999] flex items-center justify-center p-4 sm:p-6"
+          onClick={() => setSelectedArticle(null)}
+        >
+          <div 
+            className="bg-[#0D0D0D] border border-gold/40 rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 relative shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              type="button" 
+              onClick={() => setSelectedArticle(null)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white"
+            >
+              <X size={24} />
+            </button>
+            <span className="text-gold text-xs font-bold uppercase tracking-widest block mb-2">{selectedArticle.category}</span>
+            <h1 className="text-2xl md:text-3xl font-serif font-extrabold text-white mb-4 leading-tight">{selectedArticle.title}</h1>
+            
+            <div 
+              className="w-full h-64 bg-cover bg-center rounded-lg border border-gold/20 mb-6"
+              style={{ backgroundImage: `url(${selectedArticle.img})` }}
+            />
+
+            <div className="bg-[#141414] border-l-4 border-gold p-5 rounded-r-lg mb-6">
+              <h4 className="text-gold text-xs font-bold uppercase tracking-wider mb-3">Key Strategic Takeaways</h4>
+              <ul className="space-y-2 text-xs md:text-sm text-gray-300">
+                {selectedArticle.keyPoints?.map((pt, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <CheckCircle2 size={15} className="text-gold flex-shrink-0 mt-0.5" />
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="reader-scrollable-body">
-              <h1 className="reader-title">{selectedArticle.title}</h1>
-              <div className="reader-hero-media" style={{ backgroundImage: `url(${selectedArticle.img})` }} />
-              <div className="reader-executive-summary">
-                <h4>Key Strategic Takeaways</h4>
-                <ul>
-                  {selectedArticle.keyPoints?.map((pt, i) => (
-                    <li key={i}><CheckCircle2 size={16} color="#C8A22C" /> <span>{pt}</span></li>
-                  ))}
-                </ul>
-              </div>
-              <div className="reader-prose">
-                <p>{selectedArticle.content}</p>
-              </div>
-            </div>
+
+            <p className="text-gray-300 text-sm md:text-base leading-relaxed">{selectedArticle.content}</p>
           </div>
         </div>
       )}
