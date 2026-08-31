@@ -1,9 +1,8 @@
-import { useState } from "react";
+
 import { FaWhatsapp } from "react-icons/fa";
-import { Phone, X } from "lucide-react";
+import { Phone } from "lucide-react";
 
 export default function WhatsAppButton() {
-  const [showTooltip, setShowTooltip] = useState(true);
 
   // Phone Call & WhatsApp setup
   const rawPhoneNumber = "+917503796513"; 
@@ -15,36 +14,7 @@ export default function WhatsAppButton() {
 
   return (
     <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[1999] flex flex-col items-end font-main">
-      {/* 1. Interactive Tooltip Cloud */}
-      {showTooltip && (
-        <div className="relative bg-[#111111] text-white border border-gold/35 px-4 py-3 rounded-xl max-w-[240px] sm:max-w-[260px] mb-4 shadow-2xl animate-fade-in origin-bottom-right">
-          {/* Arrow */}
-          <div className="absolute -bottom-1.5 right-5 w-3 h-3 bg-[#111111] border-r border-b border-gold/35 rotate-45" />
-
-          {/* Close Icon */}
-          <button 
-            type="button"
-            className="absolute top-2 right-2 text-gray-400 hover:text-white transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              setShowTooltip(false);
-            }}
-            aria-label="Close Chat Popup"
-          >
-            <X size={13} />
-          </button>
-
-          <div>
-            <div className="flex items-center gap-1.5 mb-1">
-              <span className="w-2 h-2 rounded-full bg-[#25D366] shadow-[0_0_8px_#25D366] inline-block" />
-              <strong className="text-xs text-gold tracking-wide">ATA Advisory Desk</strong>
-            </div>
-            <p className="text-[11.5px] text-gray-300 leading-relaxed m-0">
-              Need instant help with project sales, capital or advisory? Call or WhatsApp us.
-            </p>
-          </div>
-        </div>
-      )}
+     
 
       {/* 2. Floating Action Buttons Stack with Extended Spacing */}
       <div className="flex flex-col gap-5 sm:gap-6 items-end">
