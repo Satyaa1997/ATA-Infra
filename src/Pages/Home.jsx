@@ -282,12 +282,12 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.18] font-extrabold text-white mb-6 drop-shadow-md">
-              <span className="font-serif italic text-gray-200">Your</span>{" "}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.18] font-extrabold text-white mb-6 drop-shadow-md">
+              <span className="font-serif uppercase text-gray-200">Your</span>{" "}
               <span className="text-gold uppercase tracking-wider font-bold">Real Estate</span>{" "}
               <span className="font-serif font-extrabold text-white">Project<span className="text-gold">.</span></span>
               <br />
-              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-2 block font-normal">
+              <span className="text-1xl sm:text-2xl md:text-3xl lg:text-4xl mt-2 block font-normal">
                 <span className="text-white font-bold">Fully Built,</span>{" "}
                 <span className="font-serif text-gold font-bold">Fully Sold,</span>{" "}
                 <span className="text-gray-300 font-semibold">Fully Supported.</span>
