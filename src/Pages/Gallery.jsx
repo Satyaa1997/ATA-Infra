@@ -7,8 +7,10 @@ import {
   MapPin, 
   Building2, 
   Images, 
-  Expand 
+  Expand,
+  ArrowRight
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import galleryBanner from "../assets/Projects.png";
 import anant1 from "../assets/AnantCity.jpg";
@@ -154,7 +156,7 @@ export default function Gallery() {
     : projectGalleries.filter((p) => p.loc === filter);
 
   return (
-    <div className="w-full bg-[#FAFAFA] text-dark font-main min-h-screen">
+    <div className="w-full bg-[#FAFAFA] text-dark font-main relative z-20 min-h-screen">
       <PageBanner
         bgImage={galleryBanner}
         tag="VISUAL PORTFOLIO"
@@ -162,7 +164,7 @@ export default function Gallery() {
         subtitle="Explore dedicated photo albums for each of our builder partner projects across Gorakhpur, Lucknow, and Pune."
       />
 
-      <section className="w-full py-16">
+      <section className="w-full py-16 pb-28 md:pb-36">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
           
           {/* Filter Pills */}
@@ -314,6 +316,31 @@ export default function Gallery() {
           </div>
         </div>
       )}
+
+      {/* EXACT HALF-OVERLAP GOLDEN CTA (HALF ON PAGE / HALF OVER FOOTER) */}
+      <section className="w-full bg-transparent px-4 -mb-28 md:-mb-32 relative z-30 pointer-events-auto">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+          <div className="bg-gradient-to-r from-[#D4A946] via-[#BA8E2E] to-[#8C671A] border-2 border-white/60 rounded-2xl p-8 sm:p-10 md:p-12 text-center shadow-[0_20px_60px_rgba(0,0,0,0.6)] max-w-6xl mx-auto text-dark">
+            <span className="inline-block bg-[#111111]/90 text-white border border-white/20 text-[10px] font-bold tracking-widest uppercase px-3.5 py-1 rounded-full mb-3">
+              LET'S COLLABORATE
+            </span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-extrabold text-dark mb-3 leading-tight">
+              Ready to sell your project faster and grow your business?
+            </h2>
+            <p className="text-gray-900 text-sm md:text-base font-semibold max-w-2xl mx-auto mb-6 leading-relaxed">
+              Let's talk about how ATA Infratech can support your next project with aggregation, capital, and advisory.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link to="/contact" className="w-full sm:w-auto px-7 py-3.5 bg-dark hover:bg-black text-white text-xs font-bold uppercase tracking-wider rounded flex items-center justify-center gap-2 shadow-xl hover:-translate-y-0.5 transition-all">
+                Talk to Our Team <ArrowRight size={15} />
+              </Link>
+              <Link to="/services" className="w-full sm:w-auto px-7 py-3.5 bg-white/30 hover:bg-dark hover:text-white text-dark border-1.5 border-dark text-xs font-bold uppercase tracking-wider rounded flex items-center justify-center backdrop-blur-md transition-all">
+                Explore Our Services
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
