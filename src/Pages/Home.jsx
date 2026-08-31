@@ -26,6 +26,7 @@ import proj3Img from "../assets/Vayuvilla1.png";
 import proj4Img from "../assets/Banner.png";
 
 import heroVideo from "../assets/ATAvedio.mp4";
+import contact from "../assets/contact.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 35 },
@@ -97,7 +98,7 @@ const testimonials = [
     role: "Managing Director",
     company: "Anantjit Infra",
     loc: "Gorakhpur",
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+    photo: contact,
     review: "ATA Infratech structured our entire sales pipeline and channel partner network. Our inventory turnaround time was reduced by 50%."
   },
   {
@@ -106,7 +107,7 @@ const testimonials = [
     role: "Founder & Partner",
     company: "Garden Square",
     loc: "Lucknow",
-    photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+    photo: contact,
     review: "Their commercial sales execution and direct capital linkages brought high deal velocity for our business enclave."
   },
   {
@@ -115,7 +116,7 @@ const testimonials = [
     role: "Director",
     company: "Buildup Property",
     loc: "Pune",
-    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80",
+    photo: contact,
     review: "From pre-launch positioning to 100% sold-out delivery ahead of schedule, ATA Infratech demonstrated exceptional power."
   },
   {
@@ -124,7 +125,7 @@ const testimonials = [
     role: "Managing Partner",
     company: "Green Space Realty",
     loc: "Lucknow",
-    photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80",
+    photo: contact,
     review: "Their guidance in training sales teams, setting up blueprints, and managing channel commissions is unmatched in the industry."
   },
   {
@@ -133,7 +134,7 @@ const testimonials = [
     role: "Chief Developer",
     company: "Vayu Township Pvt Ltd",
     loc: "Pune",
-    photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80",
+    photo: contact,
     review: "The investor syndication provided continuous project cashflows, helping us deliver modern villa phases without delay."
   },
   {
@@ -142,7 +143,7 @@ const testimonials = [
     role: "Promoter",
     company: "Purvanchal Land Corp",
     loc: "Gorakhpur",
-    photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&auto=format&fit=crop&q=80",
+    photo: contact,
     review: "Organized broker meets and high-conversion site visit events generated rapid customer bookings within weeks."
   },
   {
@@ -151,7 +152,7 @@ const testimonials = [
     role: "Managing Director",
     company: "Prime Square Infratech",
     loc: "Lucknow",
-    photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+    photo: contact,
     review: "Structured customer documentation and disciplined broker coordination made the entire sales journey frictionless."
   },
   {
@@ -160,7 +161,7 @@ const testimonials = [
     role: "Executive Director",
     company: "Apex Residency",
     loc: "Pune",
-    photo: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80",
+    photo: contact,
     review: "Their strategic growth advisory scaled our brand from a single-city developer to a respected multi-regional builder."
   },
   {
@@ -169,7 +170,7 @@ const testimonials = [
     role: "Founding Partner",
     company: "Cityscape Developers",
     loc: "Gorakhpur",
-    photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
+    photo: contact,
     review: "Complete transparency, performance-linked accountability, and expert real estate execution from day one."
   }
 ];
@@ -556,7 +557,7 @@ export default function Home() {
                     </div>
 
                     <div className="flex items-center gap-3 pt-4 border-t border-white/10">
-                      <img src={t.photo} alt={t.name} className="w-11 h-11 rounded-full object-cover border border-gold" />
+                      <img src={t.photo} alt={t.name} className="w-11 h-11 rounded-full object-cover border bg-white border-gold" />
                       <div>
                         <h4 className="text-sm font-bold text-white">{t.name}</h4>
                         <span className="text-[11px] text-gray-400 block">{t.role} • <strong className="text-gold">{t.company}</strong></span>
