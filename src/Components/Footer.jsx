@@ -6,7 +6,6 @@ import {
   FaLinkedinIn, 
   FaYoutube 
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
 import logo from "../assets/ATA1.png";
 
 export default function Footer() {
@@ -65,17 +64,17 @@ export default function Footer() {
             <div className="pt-4 border-t border-white/10">
               <span className="block text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-3">Follow Us</span>
               <div className="flex items-center gap-2.5">
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-[#141414] border border-gold/25 flex items-center justify-center text-gray-300 hover:bg-gold hover:text-dark hover:-translate-y-1 transition-all">
-                  <FaLinkedinIn size={13} />
-                </a>
                 <a href="https://facebook.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-[#141414] border border-gold/25 flex items-center justify-center text-gray-300 hover:bg-gold hover:text-dark hover:-translate-y-1 transition-all">
                   <FaFacebookF size={13} />
                 </a>
                 <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-[#141414] border border-gold/25 flex items-center justify-center text-gray-300 hover:bg-gold hover:text-dark hover:-translate-y-1 transition-all">
                   <FaInstagram size={13} />
                 </a>
-                <a href="https://x.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-[#141414] border border-gold/25 flex items-center justify-center text-gray-300 hover:bg-gold hover:text-dark hover:-translate-y-1 transition-all">
-                  <FaXTwitter size={13} />
+                <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-[#141414] border border-gold/25 flex items-center justify-center text-gray-300 hover:bg-gold hover:text-dark hover:-translate-y-1 transition-all">
+                  <FaLinkedinIn size={13} />
+                </a>
+                 <a href="https://youtube.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-[#141414] border border-gold/25 flex items-center justify-center text-gray-300 hover:bg-gold hover:text-dark hover:-translate-y-1 transition-all">
+                  <FaYoutube size={14} />
                 </a>
               </div>
             </div>
@@ -104,15 +103,6 @@ export default function Footer() {
                 <Link to="/blog" className="hover:text-gold hover:translate-x-1 inline-block transition-all">Builder Insights</Link>
               </li>
             </ul>
-
-            <div className="pt-4 border-t border-white/10">
-              <span className="block text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-3">Video Network</span>
-              <div className="flex items-center gap-2.5">
-                <a href="https://youtube.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-[#141414] border border-gold/25 flex items-center justify-center text-gray-300 hover:bg-gold hover:text-dark hover:-translate-y-1 transition-all">
-                  <FaYoutube size={14} />
-                </a>
-              </div>
-            </div>
           </div>
 
         </div>
